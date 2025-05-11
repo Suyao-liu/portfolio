@@ -1,0 +1,328 @@
+/* =====================================================
+   UNI‑CONNECT CASE STUDY ▸ uni.css  ✦  v2
+   Pure‑CSS theme aligned with projects page but requires
+   NO JavaScript.  Addresses issue where .project-description
+   copy was invisible (explicit display & color inheritance).
+   ===================================================== */
+
+/***** DESIGN TOKENS *****/
+:root {
+    /* palette */
+    --bg: #000;          /* site canvas */
+    --text: #fff;        /* primary text */
+    --accent-lime: #f2cf4a;
+    --accent-pink: #4a8af2;
+    --edge: rgba(57, 2, 2, 0.2);
+    --photo-bg: #111;
+  }
+  
+  /***** GLOBAL RESETS *****/
+  html { scroll-behavior: smooth; }
+  *,*::before,*::after { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Roboto", sans-serif;
+    line-height: 1.6;
+  }
+  img { max-width: 100%; height: auto; display:block; }
+  
+  /***** LAYOUT WRAPPER *****/
+  .wrapper {
+    max-width: 1100px;
+    margin: 100px auto 50px;
+    padding-inline: clamp(1rem, 3vw, 2rem);
+  }
+  
+  /***** TYPOGRAPHY *****/
+  .section-title {
+    font-size: 3rem;
+    margin: 0 0 .3em;
+    background: linear-gradient(90deg,var(--accent-lime),var(--accent-pink) 60%,var(--accent-lime));
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: shimmer 8s linear infinite reverse;
+    letter-spacing:.04em;
+  }
+  
+  .section-tag {
+    font-family: "yorkten-slab-condensed", serif;
+    font-size: 1.4rem;
+    opacity: .85;
+    margin: 0 0 2rem;
+  }
+  
+  /***** PROJECT DESCRIPTION *****/
+  .project-description {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    display: block;               /* ensure rendered even if inline‑defaults differ */
+    color: inherit;               /* inherits var(--text) so theme‑safe */
+    font-size: 1.2rem;
+    margin: .75rem 0 1.75rem;
+    padding: 0;                  /* removed stray 1.5px padding */
+  }
+  
+  /* allow rich tags inside */
+  .project-description * { color: inherit; }
+  
+  .project-description ul {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    list-style: disc inside;
+    margin: .75rem 0 1.5rem 1.1rem;
+    padding: 0;
+  }
+  .project-description li { margin-bottom:.4rem; }
+  
+  /***** ANIMATIONS *****/
+  @keyframes shimmer { to { background-position: 200% center; } }
+  @keyframes fadeAppear {
+    from { opacity:0; transform: translateY(20px); }
+    to   { opacity:1; transform: none; }
+  }
+  
+  .fade-in { animation: fadeAppear .8s ease-out both; }
+  
+  /***** SECTION CARD *****/
+  .section {
+    position: relative;
+    margin-bottom: 6rem;
+    background: rgba(166, 166, 159, 0.531);
+    border-radius: 1rem;
+    padding: 2.5rem clamp(1rem,3vw,2rem);
+    backdrop-filter: blur(2px);
+    overflow: hidden;
+  }
+  
+  /***** FLEX CONTENT (image + copy) *****/
+  .ux-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: flex-start;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+  }
+  
+  .ux-content img {
+    max-width: 100%;
+    height: auto;
+    flex: 0 0 320px;
+    border-radius: 12px;
+    
+  }
+  .ux-content-05 {
+    text-align: center;
+  }
+  .ux-content .project-description {
+    flex: 1 1 300px;
+    min-width: 260px;
+    margin: 0;  
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;      /* override earlier spacing when in flex */
+  }
+  .project-description p{
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+  }
+
+  .project-description strong{
+    font-weight: 400;
+    color:#f2cf4a;
+  }
+  .project-description em{
+    font-weight: 400;
+    color: #f2cf4a;
+  }
+
+.project-description li{
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;     
+}
+  /***** MEDIA QUERIES *****/
+  @media (max-width: 700px){
+    .ux-content { flex-direction: column; }
+    .ux-content img,
+    .ux-content .project-description { flex: 1 1 100%; }
+  }
+  @media (max-width:600px){ .wrapper{ margin-top:100px; } }
+  
+  .section {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeAppear 1s forwards;
+  }
+  
+  @keyframes fadeAppear {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* ── 1.  Remove background “board” just for the title block ───────────── */
+.section-intro{
+    background:none;          /* kills grey card */
+    padding:0;                /* lets title breathe */
+    margin-bottom:4rem;       /* subtle gap before next card */
+  }
+  /* Optional polish – center the hero copy */
+  .section-intro .section-title,
+  .section-intro .section-tag,
+  .section-intro .project-description{
+    text-align:center;
+  }
+  
+  /* ── 2.  Layout polish across all UX content blocks ───────────────────── */
+  .ux-content{
+    gap:2.5rem;               /* a touch more air */
+  }
+  .ux-content img{
+    flex:0 0 280px;           /* consistent width */       /* keeps height uniform */
+    object-fit:cover;
+    border-radius:12px;
+  }
+  @media (max-width:700px){
+    .ux-content img{aspect-ratio:auto;} /* revert on small screens */
+  }
+  
+  .section-intro .section-title{
+    font-size: clamp(4rem, 10vw, 7rem);   /* ~48 → 80 px responsive */
+    line-height: 1.1;
+  }
+
+
+  /* ──  Layout: pictures-column (stacked) + text-column  ───────────── */
+.ux-content{
+    /* replace old flexbox */
+    display:grid;
+    grid-template-columns: minmax(0, 42%) 1fr;  /* 42% pics | 58% text  */
+    gap:2rem;
+    align-items:start;                          /* top-align both cols  */
+  }
+  
+  /* All <img> items live in column 1 and stack top-to-bottom */
+  .ux-content > img{
+    grid-column:1;
+    width:100%;
+    border-radius:12px;
+    object-fit:cover;
+  }
+  
+  /* Everything that’s **not** an <img> (your text wrapper) goes in column 2 */
+  .ux-content > :not(img){
+    grid-column:2;
+  }
+  
+  /* Mobile fallback – collapse to a single column */
+  @media (max-width:700px){
+    .ux-content{
+      grid-template-columns:1fr;  /* pics above text on narrow screens */
+    }
+    .ux-content > :not(img){
+      grid-column:auto;
+    }
+  }
+  /* ── Keep images stacked, text spans full height ─────────────────── */
+.ux-content{
+    display:grid;
+    grid-template-columns:minmax(0,42%) 1fr;  /* 42 % pics | 58 % text */
+    gap:2rem;
+    align-items:start;
+  }
+  
+  /* Pictures: left column, auto rows (stack) */
+  .ux-content > img{
+    grid-column:1;
+    grid-row:auto;
+    width:100%;
+    border-radius:12px;
+    object-fit:cover;
+  }
+  
+  /* Text wrapper: right column, span the whole picture stack */
+  .ux-content .project-description{
+    grid-column:2;
+    grid-row:1 / -1;   /* start at first row, stretch to last row */
+    align-self:start;  /* top‑align with first image */
+  }
+  
+  /* Mobile collapse */
+  @media (max-width:700px){
+    .ux-content{
+      grid-template-columns:1fr;      /* single column */
+    }
+    .ux-content .project-description{
+      grid-column:auto;
+      grid-row:auto;
+    }
+  }
+  
+/* ================================================================
+   Smart .ux-content gallery
+   ----------------------------------------------------------------
+   • 1 image  → [image | text] two-column grid
+   • 2+ imgs  → pictures row on top, text full-width below
+   ================================================================ */
+
+   :root { --ux-gap: 2rem; }
+
+   /* ----- DEFAULT (assume ONE image) -------------------------------- */
+   .ux-content{
+     display:grid;
+     grid-template-columns:minmax(0,45%) 1fr;  /* 45 % pic | 55 % text */
+     gap:var(--ux-gap);
+     align-items:start;
+   }
+   
+   /* single image (left) */
+   .ux-content > img{
+     grid-column:1;
+     width:100%;
+     border-radius:12px;
+     object-fit:cover;
+   }
+   
+   /* text (right) */
+   .ux-content > :not(img){
+     grid-column:2;
+   }
+   
+   /* ----- OVERRIDE when a SECOND image exists ----------------------- */
+   .ux-content:has(img:nth-child(2)){
+     /* turn the section into a responsive picture row + text below */
+     grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+   }
+   
+   /* pictures now fill auto-fit columns (side by side) */
+   .ux-content:has(img:nth-child(2)) img{
+     grid-column:auto;           /* each image occupies its own column */
+     width:100%;
+   }
+   
+   /* text spans the entire width beneath the picture row */
+   .ux-content:has(img:nth-child(2)) > :not(img){
+     grid-column:1 / -1;         /* full row below the images          */
+   }
+   
+   /* ----- Mobile collapse (≤700 px) --------------------------------- */
+   @media (max-width:700px){
+     .ux-content{
+       grid-template-columns:1fr; /* single column on small screens     */
+     }
+     .ux-content > :not(img){
+       grid-column:auto;
+     }
+   }
+
+   /* ----- EXACTLY two images: make them 100 % / 100 % with no gutter ---- */
+.ux-content:has(img:nth-child(2)):not(:has(img:nth-child(3))){
+    grid-template-columns:repeat(2, 1fr);  /* 2 equal tracks            */
+    column-gap:10;                          /* no space between images   */
+  }
+  
+   
+   
