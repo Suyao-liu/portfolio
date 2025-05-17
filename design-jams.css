@@ -1,0 +1,79 @@
+
+/* No footer rule here — the original footer styling stays intact */
+
+/* Full-bleed footer — no side gaps */
+footer {
+    max-width: none;          /* cancel the 860 px cap */
+    width: 100vw;             /* span full viewport width */
+    margin-left: calc(50% - 50vw);   /* pull left edge out */
+    margin-right: calc(50% - 50vw);  /* pull right edge out */
+    margin-bottom: 0;  
+    text-align: center;
+  }
+  
+  .challenge, 
+  .target-user, 
+  .design-process, 
+  .solution,
+  .contributions,
+  .takeaways{
+    position: relative;
+    margin-bottom: 6rem;
+    background: rgba(166, 166, 159, 0.531);
+    border-radius: 1rem;
+    padding: 2.5rem clamp(1rem,3vw,2rem);
+    backdrop-filter: blur(2px);
+    gap: 2rem;
+   
+  }
+  .challenge p, 
+  .target-user li, 
+  .design-process p, 
+  .solution p,
+  .contributions li,
+  .takeaways li{
+    align-items: flex-start;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: 1.2rem;
+  }
+
+ h2{
+    font-size: 3rem;
+    margin: 0 0 .3em;
+    background: linear-gradient(90deg,var(--accent-lime),var(--accent-pink) 60%,var(--accent-lime));
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: shimmer 8s linear infinite reverse;
+    letter-spacing:.04em;
+ }
+ 
+  img {
+    max-width: 100%;
+    height: auto;
+    margin: 1rem 0;
+    border-radius: 8px;
+  }
+
+  .placeholder {
+    text-align: center;
+    border-radius: 8px;
+    margin: 1rem 0;
+  }
+
+.contributions,
+.takeaways{
+    text-align: center;
+}
+
+h3{
+    font-weight: 400;
+    color:#f2cf4a;
+}
+
+strong{
+    font-family: "Roboto", sans-serif;
+    font-weight: 900;
+    font-style: italic;
+}
