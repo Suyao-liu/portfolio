@@ -1,194 +1,464 @@
-body{
-    background-color: black;
-}
+/* ─────────────────────────────────────────────────────────────
+   ABOUT PAGE - EDITORIAL STYLE (Matches Contact/Experience)
+   ───────────────────────────────────────────────────────────── */
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+:root {
+    --accent: #B08E4F; 
+    --accent-light: rgba(176, 142, 79, 0.1);
+    --bg-main: #F9F7F2;      
+    --bg-section: #EAE7E0;   
+    --text-primary: #2D2926; 
+    --text-muted: #6B665E;
+    --border: #DCD9D2;
+    --white: #FFFFFF;
     
+    --font-heading: "Bricolage Grotesque", sans-serif;
+    --font-body: "Inter", sans-serif;
+    --font-ui: "Manrope", sans-serif;
 }
 
-section {
-    margin-bottom: 80px;
+body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
 }
 
-.about-grid {
+/* Background Texture */
+.ambient-bg {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+.noise-overlay {
+    width: 100%; height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+    opacity: 0.6;
+}
+
+.about-wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 5%;
+    overflow-x: hidden;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   1. HERO SECTION
+   ───────────────────────────────────────────────────────────── */
+.bio-section {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 4rem;
+    padding: 8rem 0 4rem;
     align-items: center;
-    margin-bottom: 60px;
 }
 
-.about-text {
-    margin-top: 10%;
-    padding-right: 20px;
+/* Visual Side (Image) */
+.bio-visual {
+    position: relative;
+    padding: 20px;
 }
 
-.about-text h1 {
-    font-size: 4rem;
-    margin-bottom: 20px;
-    color: #f2cf4a;
+.image-frame {
+    width: 100%;
+    aspect-ratio: 3/4;
+    background: var(--white);
+    padding: 15px 15px 60px 15px; /* Polaroid bottom spacing */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+    transform: rotate(-3deg);
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    position: relative;
 }
 
-.about-text p {
-    font-family: "Roboto", sans-serif;
-    font-weight: 400;
+.image-frame:hover {
+    transform: rotate(0deg) scale(1.02);
+    z-index: 10;
+}
+
+.image-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: sepia(10%);
+}
+
+/* Decorative Tape */
+.tape-strip {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 35px;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(2px);
+    border: 1px solid rgba(255,255,255,0.6);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+/* Hello Sticker */
+.sticker-badge {
+    position: absolute;
+    bottom: 40px;
+    right: -20px;
+    background: var(--accent);
+    color: var(--white);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-heading);
+    font-weight: 800;
     font-size: 1.2rem;
-    line-height: 1.6;
-    margin-bottom: 20px;
+    transform: rotate(15deg);
+    box-shadow: 0 5px 15px rgba(176, 142, 79, 0.4);
+    z-index: 20;
 }
 
-.about-image {
-    text-align: center;
+/* Content Side */
+.giant-title {
+    font-family: var(--font-heading);
+    font-size: clamp(3.5rem, 6vw, 5.5rem);
+    line-height: 1;
+    margin-bottom: 2rem;
+    color: var(--text-primary);
 }
 
-.about-image img {
-    margin-top: 10%;
-    max-height: 650px;
-    max-width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+.accent-text { color: var(--accent); font-style: italic; }
+
+.editorial-text p {
+    font-family: var(--font-body);
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+    max-width: 90%;
 }
 
-.certificate {
-    background-color: beige;
-    color: rgb(1, 35, 66);
-    padding: 60px;
-    border-radius: 10px;
+/* ─────────────────────────────────────────────────────────────
+   2. DEDICATED CERTIFICATE SECTION
+   ───────────────────────────────────────────────────────────── */
+.cert-section {
+    padding: 2rem 0 6rem;
+    position: relative;
+    z-index: 5;
+}
+
+.cert-display-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 3rem 4rem;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 4rem;
     align-items: center;
-    margin-bottom: 80px;
+    box-shadow: 0 15px 50px rgba(0,0,0,0.04);
 }
 
-.certificate-text h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
+.cert-header-row {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
 }
 
-.certificate-text p {
-    font-family: "Roboto", sans-serif;
-    font-weight: 400;
-    font-size: 1.2rem;
-    line-height: 1.6;
-}
-
-.certificate-image img {
-    max-width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
-
-.sports {
-    margin-top: 40px;
-    text-align: center;
-}
-
-.sports-text {
-    max-width: 800px;
-    margin: 0 auto 40px;
-}
-
-.sports-text h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    color: rgb(250, 250, 121);
-}
-
-.sports-text p {
-    font-family: "Roboto", sans-serif;
-    font-weight: 400;
+.cert-icon-box {
+    width: 60px;
+    height: 60px;
+    background: rgba(214, 64, 64, 0.1);
+    color: #d64040;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 1.5rem;
-    line-height: 1.6;
+    flex-shrink: 0;
 }
 
-.sports-gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    margin-top: 40px;
+.cert-text-col h3 {
+    font-size: 2rem;
+    color: var(--text-primary);
+    margin: 0;
 }
 
-.sports-gallery img {
+.cert-text-col p {
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.cert-img-col {
+    position: relative;
+}
+
+.cert-img-col img {
     width: 100%;
     height: auto;
-    object-fit: cover;
-    border-radius: 10px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    padding: 8px;
+    background: #fff;
+    transform: rotate(2deg);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
     transition: transform 0.3s ease;
 }
 
-.sports-gallery img:hover {
-    transform: scale(1.05);
+.cert-img-col img:hover {
+    transform: rotate(0deg) scale(1.02);
 }
 
-/* Skills section */
-.skills {
-    background-color: rgba(245, 245, 220, 0.451);
-    padding: 60px;
-    border-radius: 10px;
-    margin-bottom: 80px;
+
+/* ─────────────────────────────────────────────────────────────
+   3. SKILLS
+   ───────────────────────────────────────────────────────────── */
+.skills-section {
+    padding: 6rem 0;
+    border-top: 1px solid var(--border);
 }
 
-.skills h2 {
-    font-size: 2.5rem;
-    margin-bottom: 30px;
+.section-header {
+    margin-bottom: 4rem;
     text-align: center;
-    color: beige;
 }
 
-.skills-container {
+.label {
+    font-family: var(--font-ui);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.section-header h2 {
+    font-size: 3rem;
+}
+
+.skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
 }
 
-.skill-category {
-    margin-bottom: 30px;
+.skill-card {
+    background: rgba(255,255,255,0.5);
+    border: 1px solid var(--border);
+    padding: 3rem 2rem;
+    border-radius: 20px;
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
-.skill-category h3 {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-    color: beige;
-    border-bottom: 2px solid rgb(250, 250, 121);
-    padding-bottom: 5px;
+.skill-card:hover {
+    background: var(--white);
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+    border-color: var(--accent);
 }
 
-.skill-list {
-    list-style-type: none;
-}
-
-.skill-list li {
-    font-family: "Roboto", sans-serif;
-    font-weight: 400;
-    font-size: 1.1rem;
-    margin-bottom: 10px;
+.card-icon {
+    font-size: 2rem;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    background: var(--accent-light);
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
     display: flex;
     align-items: center;
-    color: beige;
+    justify-content: center;
 }
 
-.skill-list li::before {
-    content: "•";
-    color: rgb(250, 250, 121);
-    font-weight: bold;
-    display: inline-block;
-    width: 1em;
-    margin-right: 0.5em;
+.skill-card h3 {
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .about-grid, .certificate {
-        grid-template-columns: 1fr;
-    }
+.tag-cloud {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.tag-cloud li {
+    font-family: var(--font-ui);
+    font-size: 0.9rem;
+    background: var(--bg-section);
+    padding: 6px 14px;
+    border-radius: 50px;
+    color: var(--text-primary);
+    border: 1px solid transparent;
+    transition: 0.3s;
+    margin: 0;
+}
+
+.skill-card:hover .tag-cloud li {
+    background: var(--white);
+    border-color: var(--border);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   4. ATHLETIC JOURNEY (De-clustered & Spaced Out)
+   ───────────────────────────────────────────────────────────── */
+
+.offline-section {
+    position: relative;
+    /* Increase vertical padding to give images room */
+    padding: 10rem 0 15rem; 
+    border-top: 1px solid var(--border);
+    overflow: hidden; 
+    /* Ensure section is tall enough so images don't crowd */
+    min-height: 130vh; 
+}
+
+/* 1. Center the Text Content */
+.center-content {
+    max-width: 650px; 
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 10; 
+}
+
+.story-text {
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+}
+
+.story-text p {
+    font-size: 1.3rem;
+    line-height: 1.8;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+}
+
+.story-text strong {
+    color: var(--accent);
+    font-weight: 700;
+}
+
+/* 2. The Floating Images */
+.act-img {
+    position: absolute;
+    z-index: 1;
+    opacity: 0.9;
+    transition: transform 0.4s ease, filter 0.4s ease;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.15));
+    /* Reduced size from 300px to 240px to declutter */
+    max-width: 240px; 
+    width: auto;
+}
+
+.act-img:hover {
+    transform: scale(1.1) rotate(0deg) !important;
+    z-index: 15;
+    filter: drop-shadow(0 20px 30px rgba(176, 142, 79, 0.3));
+    cursor: pointer;
+}
+
+/* 3. Spaced Out Positions (Top, Middle, Bottom) */
+
+/* -- Left Side -- */
+.pos-climb {
+    top: 5%;
+    left: 2%;
+    transform: rotate(10deg);
+}
+
+.pos-tennis {
+    top: 40%; 
+    left: 1%;
+    transform: rotate(-5deg);
+}
+
+.pos-belay {
+    bottom: 5%;
+    left: 3%;
+    transform: rotate(5deg);
+}
+
+/* -- Right Side -- */
+.pos-box {
+    top: 8%;
+    right: 1%;
+    transform: rotate(-8deg);
+}
+
+.pos-aim {
+    top: 20%; 
+    right: 2%;
+    transform: rotate(5deg);
+}
+
+.pos-kick {
+    bottom: 3%;
+    right: 3%;
+    transform: rotate(-10deg);
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   ANIMATIONS & RESPONSIVE
+   ───────────────────────────────────────────────────────────── */
+.fade-in-up { opacity: 0; animation: fadeInUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+
+.animate-on-scroll { opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
+.animate-on-scroll.in-view { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 992px) {
+    .bio-section { grid-template-columns: 1fr; text-align: center; }
+    .bio-visual { max-width: 400px; margin: 0 auto; }
+    .image-frame { transform: rotate(0deg); }
+    .editorial-text p { margin-left: auto; margin-right: auto; }
     
-    .about-text {
-        padding-right: 0;
+    .cert-display-card { grid-template-columns: 1fr; text-align: center; padding: 3rem 2rem; }
+    .cert-header-row { justify-content: center; }
+    .cert-img-col img { max-width: 300px; margin: 2rem auto 0; }
+}
+
+@media (max-width: 900px) {
+    /* OFFLINE MODE MOBILE FIXES */
+    .offline-section { padding: 4rem 5%; min-height: auto; }
+    .center-content { max-width: 100%; }
+    
+    .action-figures {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 4rem;
     }
+
+    /* Reset absolute positioning for mobile */
+    .act-img {
+        position: relative; 
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        transform: none !important;
+        width: 140px; 
+    }
+}
+
+@media (max-width: 600px) {
+    .giant-title { font-size: 3rem; }
+    .sticker-badge { width: 80px; height: 80px; font-size: 1rem; }
+}
     
     .certificate-image {
         order: -1;
