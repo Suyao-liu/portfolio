@@ -1,72 +1,169 @@
+<!DOCTYPE html>
 <html lang="en-US">
-    <head>
-		<meta charset="utf-8">
-        <link rel="stylesheet" href="styles.css">
-        <link rel="stylesheet" href="contact.css">
-		<title>Suyao Portfolio</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-	</head>
-    <body>
-        <header>
-            <a href="index.html" class="logo">Suyao</a>
-            <nav>
-                <a href="index.html" class="active">Home</a>
-                <a href="projects.html">Projects</a>
-                <a href="experience.html">Experience</a>
-                <a href="about.html">About</a>
-                <a href="contact.html">Contact</a>
-            </nav>
-        </header>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suyao Portfolio | Contact</title>
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Inter:ital,wght@0,100..900;1,100..900&family=Manrope:wght@200..800&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" />
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="contact.css">
+    
+    <script src="all.js" defer></script>
+</head>
+<body>
+    <div class="cursor-square"></div>
+    <div class="cursor-line"></div>
+    <header>
+    <a href="index.html" class="logo">Suyao</a>
+
+    <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <nav>
+      <a href="index.html" class="active">Home</a>
+      
+      <div class="dropdown-wrapper">
+        <a href="projects.html" class="project-link">
+            Projects 
+            <svg class="arrow-icon" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </a>
+
+        <div class="dropdown-content">
+            <a href="projects.html" class="all-projects">All Projects</a>
+            <div class="divider"></div> 
+            <a href="projects-web.html">Website</a>
+            <a href="projects-ux.html">UX / UI</a>
+            <a href="projects-media.html">Media</a>
+            <a href="projects-graphic.html">Graphic</a>
+            <a href="projects-personal.html">Personal</a>
+        </div>
+      </div>
+
+      <a href="experience.html">Experience</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+    
+    <main class="contact-wrapper">
         
-        <div class="scorlling-text-container">
-            <h1 aria-hidden="true"> Contact Me   Contact Me  Contact Me  Contact Me  Contact Me  Contact Me  Contact Me  Contact Me  Contact Me  Contact Me  Contact Me  Contact Me  </h1>
-            <h1 aria-hidden="true"> Contact Me   Contact Me  Contact Me  Contact Me  Contact Me  Contact Me  Contact Me  Contact Me  Contact Me  Contact Me  Contact Me  Contact Me  </h1>
-        </div>   
-        <section class="contact-content">
-            <div class="all-text">
-                <div class="contact-me-text">
-                    <h3>I’d love to hear from you! Whether you have a project in mind, want to collaborate, or just want to say hello, feel free to reach out. Let’s connect and create something amazing together!</h3>
-                </div> 
-                <div class="hours">
-                    <h2>Hours</h2>
-                    <p>Monday - Friday</p>
-                    <p>8am - 7pm</p>
+        <aside class="visual-col">
+            <div class="sticky-frame">
+                <div class="arch-image fade-in-up">
+                    <img src="images/me contact.jpg" alt="Suyao Portrait">
                 </div>
-                <div class="phone">
-                    <h2>Phone</h2>
-                    <p>(365)889-4953</p>
-                </div>
-                <div class="email">
-                    <h2>Email</h2>
-                    <a href="mailto:s226liu@uwaterloo.ca">s226liu@uwaterloo.ca</a><br>
-                    <a href="mailto:liusuyaoselina@gmail.com">liusuyaoselina@gmail.com</a>
+                
+                <div class="status-ticket animate-on-scroll">
+                    <div class="ticket-header">
+                        <span>Current Status</span>
+                        <div class="pulsing-dot"></div>
+                    </div>
+                    <div class="ticket-body">
+                        <h3>Open to Work</h3>
+                        <p>Timezone: EST (UTC-5)<br>Available M-F</p>
+                    </div>
                 </div>
             </div>
-            <div class="contact-img">
-                <img src="images/me contact.jpg" alt="my picture under a waterfall">
+        </aside>
+
+        <section class="content-col">
+            
+            <div class="intro-block fade-in-up">
+                <h1 class="giant-title">Contact <span class="accent-text">Me.</span></h1>
+                <p class="editorial-p">
+                    I’d love to hear from you! Whether you have a project in mind, want to collaborate, or just want to say hello, feel free to reach out.
+                </p>
             </div>
+
+            <form action="https://formspree.io/f/your-id" method="POST" class="line-form animate-on-scroll">
+                
+                <div class="input-group">
+                    <input type="text" id="name" name="name" placeholder=" " required>
+                    <label for="name">Your Name</label>
+                </div>
+
+                <div class="input-group">
+                    <input type="email" id="email" name="email" placeholder=" " required>
+                    <label for="email">Your Email</label>
+                </div>
+                
+                <div class="input-group">
+                    <textarea id="message" name="message" rows="1" placeholder=" " required oninput="this.parentNode.dataset.replicatedValue = this.value"></textarea>
+                    <label for="message">Your Message</label>
+                </div>
+                
+                <button type="submit" class="submit-arrow-btn">
+                    Send Message <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </form>
+
+            <div class="connect-links animate-on-scroll">
+                <span class="section-label">Information</span>
+                
+                <div class="big-link-row">
+                    <span class="link-name">Hours</span>
+                    <span class="link-value">Monday - Friday | 8am - 7pm</span>
+                </div>
+
+                <a href="tel:3658894953" class="big-link-row">
+                    <span class="link-name">Phone</span>
+                    <span class="link-value">(365) 889-4953</span>
+                    <i class="fa-solid fa-phone"></i>
+                </a>
+
+                <a href="mailto:s226liu@uwaterloo.ca" class="big-link-row">
+                    <span class="link-name">University Email</span>
+                    <span class="link-value">s226liu@uwaterloo.ca</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+
+                <a href="mailto:liusuyaoselina@gmail.com" class="big-link-row">
+                    <span class="link-name">Personal Email</span>
+                    <span class="link-value">liusuyaoselina@gmail.com</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+            </div>
+
         </section>
-    </body>
+    </main>
+
     <footer>
         <div class="footercontainer">
-            <div class="social-icons">
-                <a href="https://www.linkedin.com/in/suyao-liu-9714762a0/"><i class="fa-brands fa-linkedin"></i></a>
-                <a href="https://www.instagram.com/selinaliu_lsy/"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://www.youtube.com/@pillowscoolers1020"><i class="fa-brands fa-youtube"></i></a>
-                <a href="https://github.com/Pillowscoolers"><i class="fa-brands fa-github"></i></a>
+            <div class="footer-cr">
+                <p>Copyright &copy;2026; Designed and Coded by <span class="designer">Suyao Liu</span></p>
             </div>
-            <div class="footer-nav">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="projects.html">Projects</a></li>
-                    <li><a href="experience.html">Experience</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-cr">
-            <p>Copyright &copy;2024; Desgined and Coded by <span class="designer">Suyao Liu</span></p>
         </div>
     </footer>
+
+    <script>
+        // Auto-resize textarea logic
+        const tx = document.getElementsByTagName("textarea");
+        for (let i = 0; i < tx.length; i++) {
+            tx[i].setAttribute("style", "height:" + (tx[i].scrollHeight) + "px;overflow-y:hidden;");
+            tx[i].addEventListener("input", OnInput, false);
+        }
+
+        function OnInput() {
+            this.style.height = 0;
+            this.style.height = (this.scrollHeight) + "px";
+        }
+
+        // Animation Observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+    </script>
+</body>
 </html>
