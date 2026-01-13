@@ -1,453 +1,296 @@
-/* ===== VARIABLES ===== */
-:root {
-  --bg: black;
-  --text: #ffffff;
-  --accent-lime: #f2cf4a;
-  --accent-pink: #4a8af2;
-  --edge: rgba(57, 2, 2, 0.2);
-  --photo-bg: #111;
+/* ───────── 1. GLOBAL & CURSOR ───────── */
+.anime-sketch-theme, .anime-sketch-theme * {
+    cursor: none !important; /* Forces cursor to hide even on buttons/links */
 }
 
-/* ===== BASE STYLES ===== */
-body {
-  background: var(--bg);
-  color: var(--text);
+/* ───────── 2. MARQUEE ───────── */
+.scroll-marquee {
+    width: 100%;
+    overflow: hidden;
+    margin-top: -20px;
+    white-space: nowrap;
+    padding: 0;
 }
 
-.wrapper {
-  max-width: 1100px;
-  margin: 140px auto 120px;
-  padding: 0 clamp(1rem, 3vw, 2rem);
-}
-
-/* ===== TYPOGRAPHY ===== */
-.section-title {
-  font-size: clamp(2.5rem, 6vw, 4.5rem);
-  background: linear-gradient(90deg, var(--accent-lime), var(--accent-pink) 60%, var(--accent-lime) 100%);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  color: transparent;
-  animation: shimmer 8s linear infinite reverse;
-  letter-spacing: 0.04em;
-  margin-bottom: 0.3em;
-}
-
-.section-tag {
-  font-family: "yorkten-slab-condensed", serif;
-  font-size: 1.4rem;
-  opacity: 0.85;
-  margin-bottom: 2rem;
-}
-
-.project-description,
-.project-description * {
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
-  text-align: left;
-  padding: 1.5px;
-  margin-top: 0.75rem;
-  font-size: 1.2rem;
-  line-height: 1.6;
-  color: #ffffff;
-}
-
-.caption {
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
-  margin-top: 0.8rem;
-  line-height: 1.5;
-}
-
-/* ===== ANIMATIONS ===== */
-@keyframes shimmer {
-  to {
-    background-position: 200% center;
-  }
+.marquee-content span {
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-size: clamp(5rem, 12vw, 8rem);
+    font-weight: 900;
+    color: transparent;
+    -webkit-text-stroke: 2.5px #6B665E;
+    letter-spacing: 0.05em;
+    padding-right: 60px;
+    display: inline-block;
 }
 
 @keyframes scroll-left {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
 }
 
-/* ===== MARQUEE ===== */
-.scroll-box {
-  overflow: hidden;
-  white-space: nowrap;
+.marquee-content {
+    display: inline-block;
+    animation: scroll-left 40s linear infinite;
 }
 
-.scroll-text {
-  font-family: "yorkten-slab-condensed";
-  display: inline-block;
-  padding-top: 5%;
-  animation: scroll-left 15s linear infinite;
-  font-size: clamp(5rem, 6vw, 3.5rem);
-  letter-spacing: 0.1em;
+/* ───────── 3. THE SKETCH GRID (CENTERED) ───────── */
+.sketch-grid {
+    display: flex;
+    width: 100vw;
+    height: 60vh;
+    align-items: center;
+    padding: 0 40px;
 }
 
-/* ===== SECTIONS ===== */
-.section {
-  margin-bottom: 6rem;
-  background: rgba(166, 166, 159, 0.364);
-  border-radius: 1rem;
-  padding: 2.5rem clamp(1rem, 3vw, 2rem);
-  backdrop-filter: blur(2px);
+.sketch-category {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers horizontally */
+    justify-content: center; /* Centers vertically */
+    text-align: center; /* Ensures text inside centers */
+    opacity: 0.3;
+    filter: grayscale(100%);
+    transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-/* ===== GALLERY ===== */
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
+.sketch-category:hover, .sketch-category.force-hover {
+    filter: grayscale(0%);
+    opacity: 1;
+    flex: 1.4;
 }
 
-.gallery img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  object-fit: cover;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+.category-info h2 {
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-size: 1.6rem;
+    color: #2D2926;
+    margin: 25px 0;
+    text-transform: uppercase;
+    width: 100%;
 }
 
-.gallery img:hover {
-  transform: scale(1.10);
-  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.15);
+/* ───────── 4. SPLASH & BUTTONS ───────── */
+.pile-container {
+    position: relative;
+    width: 160px;
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* ===== VIDEOS ===== */
-.video-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2rem;
+.sketch-icon {
+    position: absolute;
+    font-size: 5.5rem;
+    color: transparent;
+    -webkit-text-stroke: 2px #2D2926;
+    transition: 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.video-card iframe {
-  width: 100%;
-  aspect-ratio: 16/9;
-  border: none;
-  border-radius: 8px;
+.sketch-category:hover .sketch-icon, 
+.sketch-category.force-hover .sketch-icon {
+    -webkit-text-stroke: 3px var(--theme-color);
 }
 
-/* ===== UX SECTION ===== */
-/* Toggle buttons */
-.ux-section-toggle,
-.ux-toggle {
-  width: 100%;
-  background: none;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0;
+.p1 { z-index: 3; transform: rotate(-3deg); }
+.p2 { z-index: 2; transform: rotate(8deg); opacity: 0.4; }
+.p3 { z-index: 1; transform: rotate(-12deg); opacity: 0.15; }
+
+.sketch-category:hover .p2, .sketch-category.force-hover .p2 { transform: translate(50px, -25px) rotate(15deg); opacity: 1; }
+.sketch-category:hover .p3, .sketch-category.force-hover .p3 { transform: translate(-50px, -35px) rotate(-20deg); opacity: 1; }
+
+.explore-btn {
+    opacity: 0;
+    transform: translateY(20px);
+    display: inline-block;
+    padding: 16px 50px;
+    background: var(--theme-color);
+    color: #fff;
+    border-radius: 100px;
+    font-weight: 800;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    transition: 0.5s ease;
+    text-decoration: none;
 }
 
-.ux-section-toggle i,
-.ux-toggle i {
-  color: var(--accent-lime);
-  transition: transform 0.3s ease;
-  font-size: 1.4rem;
+.sketch-category:hover .explore-btn, 
+.sketch-category.force-hover .explore-btn {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-.ux-collapsed .ux-section-toggle i,
-.ux-card.open .ux-toggle i {
-  transform: rotate(180deg);
+/* ───────── 5. FIXED MAGNIFIER ───────── */
+.magnifier-glass {
+    position: fixed;
+    width: 90px;
+    height: 90px;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    display: none;
 }
 
-.ux-toggle,
-.ux-toggle h2 {
-  color: beige;
+.glass-inner {
+    width: 100%;
+    height: 100%;
+    border: 3px solid #2D2926;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #F9F7F2;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.2);
 }
 
-.ux-toggle {
-  font-size: 1.5rem;
+.glass-inner i {
+    position: absolute;
+    z-index: 10;
+    font-size: 1.2rem;
+    color: #2D2926;
+    opacity: 0.4;
 }
 
-/* List and content */
-.ux-list {
-  transition: max-height 0.4s ease;
-  overflow: hidden;
+#magnifier-content-clone {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    transform-origin: 0 0;
 }
 
-.ux-collapsed .ux-list {
-  max-height: 0;
+@keyframes magnifierPulse {
+    0% { border-width: 3px; }
+    50% { border-width: 6px; box-shadow: 0 0 40px var(--theme-color); }
+    100% { border-width: 3px; }
 }
 
-.ux-card {
-  border-bottom: 1px solid var(--edge);
-  padding-block: 1rem;
+.magnifier-glass.pulse .glass-inner {
+    animation: magnifierPulse 0.6s infinite ease-in-out;
 }
 
-.ux-content {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  align-items: flex-start;
-  margin-top: 2rem;
+footer {
+    margin-top: 4rem;
+    padding: 4rem 5% 2rem;
+    border-top: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.ux-card.open .ux-content {
-  max-height: 1200px;
+/* Make exit always win (stop the entrance animation when finishing) */
+.loader.finish-loading .letter {
+  animation: none; /* overrides riseUp */
 }
 
-/* Content layout */
-.ux-content img {
-  order: 1;
-  flex: 0 0 320px;
-  max-width: 100%;
-  height: auto;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-}
-
-.project-description {
-  order: 2;
-  flex: 1 1 300px;
-  min-width: 260px;
-}
-
-/* ===== BUTTONS & LINKS ===== */
-/* Primary CTA */
-.know-more-btn,
-.ux-content > .learn-more-btn,
-.ux-content > .know-more-btn {
-  order: -1;
-  width: 100%;
-  padding: 1rem 1.6rem;
-  font-family: "Roboto", sans-serif;
-  font-weight: 600;
-  font-size: 1.5rem;
-  text-align: center;
-  letter-spacing: 0.02em;
-  color: #0B0B0B;
-  background: var(--accent-lime);
-  border-radius: 38px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  transition: background 0.3s ease, transform 0.2s ease;
-  display: inline-block;
-}
-
-.know-more-video{
-  width: 50%;
-  margin: 4% 0rem 0rem 0rem;
-  padding: 0.4rem 1.6rem;
-  font-family: "Roboto", sans-serif;
-  font-weight: 600;
-  font-size: 1.2rem;
-  text-align: center;
-  letter-spacing: 0.02em;
-  color: #0B0B0B;
-  background: var(--accent-lime);
-  border-radius: 38px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  transition: background 0.3s ease, transform 0.2s ease;
-  display: inline-block;
-
-}
-
-.know-more-btn:hover,
-.ux-content > .learn-more-btn:hover,
-.ux-content > .know-more-btn:hover {
-  background: rgb(146, 146, 119);
-  color: #FFF;
-  transform: translateY(-3px);
-}
-
-/* Secondary CTA */
-.ux-content > .figma-link {
-  font-family: "Roboto", sans-serif;
-  font-size: 1.3rem;
-  text-align: center;
-  letter-spacing: 0.02em;
-  order: 99;
-  width: 100%;
-  margin-top: 1.5rem;
-  padding: 0.75rem 1.6rem;
-  font-weight: 600;
-  font-size: 1rem;
-  text-align: center;
-  color: black;
-  background: #f2cf4a;
-  border-radius: 32px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-  transition: background 0.25s ease, transform 0.2s ease;
-  display: inline-block;
-}
-
-.ux-content > .figma-link:hover {
-  background:rgb(146, 146, 119);
-  color: white;
-  transform: translateY(-2px);
-}
-
-/* ===== POSTERS ===== */
-.poster-grid {
-  --cols: 2;
-  display: grid;
-  grid-template-columns: repeat(var(--cols), 1fr);
-  gap: 2rem;
-}
-
-.poster-card {
-  position: relative;
-  border: 1px solid var(--edge);
-  padding: 1rem;
-  border-radius: 8px;
-  text-align: center;
-}
-
-.poster-card img {
-  width: 100%;
-  border-radius: 4px;
-  transition: transform 0.4s ease;
-}
-
-.poster-card:hover img {
-  transform: scale(1.04);
-}
-
-.poster-card .nav {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  color: var(--accent-pink);
-  font-size: 1.4rem;
-  cursor: pointer;
-}
-
-.poster-card .prev {
-  left: -0.5rem;
-}
-
-.poster-card .next {
-  right: -0.5rem;
-}
-
-.poster-card .slide {
-  display: none;
-}
-
-.poster-card .slide.active {
-  display: block;
-}
-
-/* ===== ANIMATIONS ===== */
-.fade-in {
+/* Actually hide the loader after the shutters finish */
+.loader.finish-loading {
   opacity: 0;
-  transform: translateY(20px);
+  transition: opacity 0.4s ease 1.6s; /* wait for last shutter (0.8 delay + 0.8 duration) */
 }
 
-.fade-in.appear {
-  opacity: 1;
-  transform: none;
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+/* ─────────────────────────────────────────────────────────────
+   FORCE CUSTOM CURSOR ON NAVIGATION
+   ───────────────────────────────────────────────────────────── */
+header, nav, nav a, .logo, .dropdown-wrapper, .project-link, .arrow-icon {
+    cursor: none !important; 
 }
 
-/* ===== FOOTER ===== */
-.site-footer {
-  border-top: 1px solid var(--edge);
-  padding: 2rem 0;
-  text-align: center;
+.cursor-square, .cursor-line {
+    z-index: 999999 !important; 
 }
 
-.social-icons a {
-  margin: 0 0.5rem;
-  font-size: 1.4rem;
-  color: var(--accent-lime);
-  transition: color 0.3s ease;
+nav a:hover ~ .cursor-square,
+.logo:hover ~ .cursor-square {
+    width: 24px;
+    height: 24px;
+    border: 2px solid var(--accent);
+    background: transparent;
 }
 
-.social-icons a:hover {
-  color: var(--accent-pink);
+/* ─────────────────────────────────────────────────────────────
+   MODE SWITCH: HIDE GLOBAL CURSOR WHEN MAGNIFIER IS ON
+   ───────────────────────────────────────────────────────────── */
+body.magnifier-mode .cursor-square,
+body.magnifier-mode .cursor-line {
+    opacity: 0 !important;
+    transition: opacity 0.2s ease;
 }
 
-.footercontainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
+#magnifier {
+    z-index: 999998 !important;
 }
 
-copyright {
-  font-size: 0.9rem;
-  opacity: 0.8;
+/* ==========================================================================
+   MOBILE & TABLET OPTIMIZATIONS
+   ========================================================================== */
+@media screen and (max-width: 900px) {
+
+    /* 1. Reset Cursor & Disable Magnifier */
+    .anime-sketch-theme, .anime-sketch-theme * {
+        cursor: auto !important; /* Restore default touch cursor */
+    }
+    
+    .cursor-square, .cursor-line, #magnifier, .magnifier-glass {
+        display: none !important; /* Completely hide custom cursor elements */
+    }
+
+    /* 2. Stack the Grid Vertically */
+    .sketch-grid {
+        flex-direction: column;
+        height: auto;
+        padding: 40px 20px;
+        gap: 60px; /* Space between categories */
+    }
+
+    /* 3. Category Visibility (Always Active) */
+    .sketch-category {
+        width: 100%;
+        opacity: 1; /* Fully visible */
+        filter: grayscale(0%); /* Full color */
+        flex: none; /* Stop flex-grow logic */
+    }
+
+    /* 4. Adjust Icon Piles for Mobile */
+    .pile-container {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 10px;
+    }
+
+    .sketch-icon {
+        font-size: 4rem; /* Slightly smaller icons */
+        -webkit-text-stroke: 3px var(--theme-color); /* Always show color stroke */
+    }
+
+    /* Slightly fan out the cards permanently so they look styled without hover */
+    .p2 { transform: translate(25px, -10px) rotate(8deg); opacity: 0.8; }
+    .p3 { transform: translate(-25px, -15px) rotate(-10deg); opacity: 0.6; }
+
+    /* 5. Typography Adjustments */
+    .category-info h2 {
+        font-size: 2rem;
+        margin: 15px 0;
+    }
+
+    .marquee-content span {
+        font-size: 4rem; /* Smaller marquee text */
+        -webkit-text-stroke: 1.5px #6B665E;
+    }
+
+    /* 6. Buttons Always Visible */
+    .explore-btn {
+        opacity: 1;
+        transform: translateY(0);
+        padding: 14px 40px; /* Make touch target friendly */
+    }
+    
+    /* 7. Footer spacing */
+    footer {
+        margin-top: 2rem;
+        padding-bottom: 6rem; /* Extra space at bottom for mobile browsers */
+    }
 }
-
-/* ===== RESPONSIVE ===== */
-@media (max-width: 900px) {
-  .poster-grid {
-    --cols: 1;
-  }
-  
-  header {
-    flex-direction: column;
-    height: auto;
-    padding: 20px 0;
-  }
-}
-
-@media (max-width: 700px) {
-  .ux-content {
-    flex-direction: column;
-  }
-  
-  .ux-content img,
-  .project-description {
-    order: initial;
-    flex: 1 1 100%;
-  }
-}
-
-@media (max-width: 600px) {
-  .wrapper {
-    margin-top: 100px;
-  }
-  
-  /* UX cards on phone */
-  #ux .ux-card .ux-content {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 0.8rem;
-  }
-  
-  #ux .ux-card .ux-content img {
-    width: 100%;
-    height: auto;
-    border-radius: 0.5rem;
-  }
-  
-  #ux .ux-card .ux-content h3 {
-    font-size: 1.1rem;
-    margin-bottom: 0.35rem;
-  }
-  
-  #ux .ux-card .ux-content p {
-    font-size: 0.95rem;
-    line-height: 1.45;
-  }
-  
-  #ux .ux-card .ux-content .ux-btn {
-    width: 100%;
-    text-align: center;
-    margin-top: 0.5rem;
-  }
-}
-
-
-.project-description ul{
-  list-style: disc inside;   /* disc bullets, align with text  */
-  margin: 0 0 1rem 1.1rem;   /* left indent ≈ default          */
-  padding: 0;
-}
-.project-description li{ margin-bottom: .4rem; }  /* tidy spacing */
-
-.project-description, .project-description *{ color:var(--text);} /* after projects-v4.css
