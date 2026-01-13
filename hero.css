@@ -1,3 +1,11 @@
+/* ───────── 0. FORCE CURSOR HIDE ───────── */
+/* This ensures the cursor is hidden on the loader and the Vanta canvas */
+html, 
+body, 
+.loader, 
+canvas {
+    cursor: none !important;
+}
 /* ───────── 1. DESIGN SYSTEM VARIABLES ───────── */
 :root {
     --bg-main: #F9F7F2;      /* Warm Linen */
