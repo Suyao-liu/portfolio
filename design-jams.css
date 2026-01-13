@@ -1,79 +1,261 @@
+/* pawpal.css - Playful & Soft Theme Extension */
 
-/* No footer rule here — the original footer styling stays intact */
-
-/* Full-bleed footer — no side gaps */
-footer {
-    max-width: none;          /* cancel the 860 px cap */
-    width: 100vw;             /* span full viewport width */
-    margin-left: calc(50% - 50vw);   /* pull left edge out */
-    margin-right: calc(50% - 50vw);  /* pull right edge out */
-    margin-bottom: 0;  
+/* ───────── 1. HERO SECTION (CENTERED & ROUND) ───────── */
+.pp-hero {
+    padding: 8rem 5% 4rem;
     text-align: center;
-  }
-  
-  .challenge, 
-  .target-user, 
-  .design-process, 
-  .solution,
-  .contributions,
-  .takeaways{
+    background: radial-gradient(circle at center, #ffffff 0%, var(--bg-main) 70%);
+    border-bottom: 1px solid var(--border);
+}
+
+.pp-title {
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-size: clamp(3.5rem, 10vw, 8rem);
+    line-height: 1;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+}
+
+.pp-tagline {
+    font-family: "Manrope", sans-serif;
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    color: var(--accent);
+    margin-bottom: 3rem;
+    font-weight: 600;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Metadata "Pills" */
+.pp-meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.meta-pill {
+    background: var(--bg-section);
+    padding: 0.8rem 1.5rem;
+    border-radius: 100px; /* Fully rounded pills */
+    border: 1px solid var(--border);
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-family: "Manrope", sans-serif;
+    transition: var(--transition);
+    text-align: center;
+}
+
+.meta-pill:hover {
+    border-color: var(--accent);
+    transform: translateY(-3px);
+    background: var(--white);
+}
+
+.meta-pill span {
+    display: block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+}
+
+/* ───────── 2. CONTEXT BANNER (ROUNDED) ───────── */
+.pp-context {
+    background: var(--text-primary);
+    color: var(--bg-main);
+    padding: 5rem 5%;
+    margin: 4rem 5%;
+    border-radius: 40px; /* Distinct soft look */
+    text-align: center;
+}
+
+.pp-context h2 {
+    color: var(--white);
+    margin-bottom: 1.5rem;
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-size: 2.5rem;
+}
+
+.pp-context p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.25rem;
+    max-width: 65ch;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+/* ───────── 3. STICKY LAYOUT W/ BUBBLES ───────── */
+.pp-section {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 4rem;
+    padding: 6rem 5%;
+    border-bottom: 1px solid var(--border);
+}
+
+.pp-sticky-header {
+    position: sticky;
+    top: 120px;
+    height: fit-content;
+    text-align: center;
+}
+
+/* "Game Level" Bubble Indicator */
+.step-bubble {
+    width: 70px;
+    height: 70px;
+    background: var(--accent);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-size: 2rem;
+    margin: 0 auto 1.5rem auto;
+    box-shadow: 0 10px 20px rgba(176, 142, 79, 0.2);
+}
+
+.pp-sticky-header h2 {
+    font-size: 2rem;
+    line-height: 1.2;
+}
+
+/* Content Area */
+.pp-content {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.pp-text h3 {
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.pp-text p {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.pp-text ul {
+    list-style: none;
+    padding: 0;
+}
+
+.pp-text li {
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
     position: relative;
-    margin-bottom: 6rem;
-    background: rgba(166, 166, 159, 0.531);
-    border-radius: 1rem;
-    padding: 2.5rem clamp(1rem,3vw,2rem);
-    backdrop-filter: blur(2px);
-    gap: 2rem;
-   
-  }
-  .challenge p, 
-  .target-user li, 
-  .design-process p, 
-  .solution p,
-  .contributions li,
-  .takeaways li{
-    align-items: flex-start;
-    font-family: "Roboto", sans-serif;
-    font-weight: 400;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+.pp-text li::before {
+    content: "•";
+    color: var(--accent);
+    font-size: 1.5rem;
+    position: absolute;
+    left: 0;
+    top: -5px;
+}
+
+/* ───────── 4. CARDS & GRID ───────── */
+.pp-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.pp-card {
+    background: var(--bg-section);
+    padding: 2rem;
+    border-radius: 24px;
+    transition: var(--transition);
+    border: 1px solid transparent;
+}
+
+.pp-card:hover {
+    transform: translateY(-5px);
+    background: var(--white);
+    border-color: var(--border);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.pp-card h3 {
     font-size: 1.2rem;
-  }
-
- h2{
-    font-size: 3rem;
-    margin: 0 0 .3em;
-    background: linear-gradient(90deg,var(--accent-lime),var(--accent-pink) 60%,var(--accent-lime));
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    color: transparent;
-    animation: shimmer 8s linear infinite reverse;
-    letter-spacing:.04em;
- }
- 
-  img {
-    max-width: 100%;
-    height: auto;
-    margin: 1rem 0;
-    border-radius: 8px;
-  }
-
-  .placeholder {
-    text-align: center;
-    border-radius: 8px;
-    margin: 1rem 0;
-  }
-
-.contributions,
-.takeaways{
-    text-align: center;
+    margin-bottom: 0.8rem;
+    color: var(--accent);
+    font-weight: 700;
 }
 
-h3{
-    font-weight: 400;
-    color:#f2cf4a;
+.pp-card p {
+    font-size: 1rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin: 0;
 }
 
-strong{
-    font-family: "Roboto", sans-serif;
-    font-weight: 900;
-    font-style: italic;
+/* ───────── 5. IMAGES & UTILS ───────── */
+.pp-image {
+    width: 100%;
+    border-radius: 24px;
+    border: 1px solid var(--border);
+    transition: transform 0.3s ease;
+    display: block;
+}
+
+.pp-image:hover { transform: scale(1.01); }
+
+.pp-gallery-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+/* Outcome/Summary Box */
+.pp-outcome {
+    background: var(--bg-section);
+    border: 2px solid var(--white);
+    padding: 3rem;
+    border-radius: 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.pp-outcome p {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* ───────── RESPONSIVE ───────── */
+@media (max-width: 900px) {
+    .pp-section {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 4rem 5%;
+        text-align: center;
+    }
+    .pp-sticky-header {
+        position: relative;
+        top: 0;
+        margin-bottom: 2rem;
+    }
+    .step-bubble { width: 60px; height: 60px; font-size: 1.8rem; }
+    .pp-gallery-2 { grid-template-columns: 1fr; }
+    .pp-context { padding: 3rem 1.5rem; margin: 3rem 5%; border-radius: 24px; }
+    .pp-title { font-size: 4rem; }
 }
