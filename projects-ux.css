@@ -1,0 +1,386 @@
+/* ─────────────────────────────────────────────────────────────
+   UX PROJECTS - EDITORIAL INDEX THEME
+   ───────────────────────────────────────────────────────────── */
+
+/* --- 1. GLOBAL LAYOUT --- */
+.wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 4rem 5% 8rem;
+}
+
+/* --- 2. MARQUEE HEADER (FIXED) --- */
+.marquee-wrapper {
+    /* New Look: Taupe Background + White Text */
+    background-color: #A3917C; 
+    color: #FFFFFF; 
+    
+    padding: 1.2rem 0; /* Slightly tighter vertical padding */
+    overflow: hidden;
+    position: relative;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    z-index: 5;
+}
+
+.track {
+    display: flex;
+    white-space: nowrap;
+    width: max-content; 
+    gap: 0; 
+    animation: uxMarqueeScroll 40s linear infinite;
+    will-change: transform; 
+}
+
+.marquee-wrapper h1 {
+    /* Changed Font to Manrope for a clean "Ticker" look */
+    font-family: "Manrope", sans-serif; 
+    font-size: 2.5rem; /* Slightly smaller for elegance */
+    font-weight: 800;
+    text-transform: uppercase; /* Force uppercase */
+    letter-spacing: 0.1em;     /* Wide elegant spacing */
+    
+    margin: 0;
+    padding-right: 4rem; 
+    flex-shrink: 0; 
+    color: inherit; 
+    -webkit-text-stroke: 0px; 
+}
+
+@keyframes uxMarqueeScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* --- 3. PAGE INTRO --- */
+.intro-block {
+    text-align: center;
+    margin-bottom: 6rem;
+    margin-top: 4rem;
+}
+
+.badge {
+    display: inline-block;
+    padding: 8px 20px;
+    border: 1px solid #A3917C;
+    color: #A3917C;
+    border-radius: 50px;
+    font-family: "Manrope", sans-serif;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1.5rem;
+}
+
+.page-title {
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-size: clamp(3.5rem, 8vw, 6rem);
+    line-height: 1;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.page-title .accent {
+    font-style: italic;
+    color: #A3917C; /* Updated to Taupe */
+}
+
+.subtitle {
+    font-family: "Manrope", sans-serif;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+/* --- 4. THE PROJECT INDEX (Accordion) --- */
+.project-index {
+    display: flex;
+    flex-direction: column;
+}
+
+.index-item {
+    border-bottom: 1px solid var(--border);
+}
+
+.index-item:first-child {
+    border-top: 1px solid var(--border);
+}
+
+/* The Clickable Header */
+.index-trigger {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 0.5fr 3fr 1fr 0.5fr;
+    align-items: center;
+    padding: 2.5rem 1rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    transition: background 0.3s ease;
+}
+
+/* HOVER BACKGROUND: Light Taupe Tint */
+.index-trigger:hover {
+    background: rgba(163, 145, 124, 0.08); 
+}
+
+.index-num {
+    font-family: "Manrope", sans-serif;
+    font-size: 1rem;
+    color: var(--text-muted);
+}
+
+.index-title {
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    color: var(--text-primary);
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* HOVER TEXT COLOR: Taupe */
+.index-trigger:hover .index-title {
+    transform: translateX(10px);
+    color: #A3917C; 
+}
+
+.index-role {
+    font-family: "Manrope", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    text-align: right;
+}
+
+.icon-box {
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    transition: all 0.3s ease;
+    color: var(--text-muted);
+}
+
+/* HOVER ICON: Taupe Border/Text */
+.index-trigger:hover .icon-box {
+    border-color: #A3917C;
+    color: #A3917C;
+    transform: rotate(90deg);
+}
+
+/* --- 5. THE EXPANDED CONTENT --- */
+.index-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* ACTIVE STATE: Taupe Background/Border */
+.index-item.active .index-trigger .icon-box {
+    transform: rotate(45deg);
+    background: #A3917C;
+    border-color: #A3917C;
+    color: #FFF;
+}
+
+.index-item.active .index-title {
+    color: #A3917C;
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 4rem;
+    padding: 1rem 2rem 4rem 2rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease;
+    transition-delay: 0.1s;
+}
+
+.index-item.active .content-grid {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Visuals */
+.visual-col img {
+    width: 100%;
+    border-radius: 12px;
+    clip-path: inset(0 100% 0 0); 
+    transition: clip-path 1s cubic-bezier(0.19, 1, 0.22, 1);
+    transition-delay: 0.2s;
+}
+
+.index-item.active .visual-col img {
+    clip-path: inset(0 0 0 0);
+}
+
+/* Text */
+.text-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.ctx-label {
+    font-family: "Manrope", sans-serif;
+    color: #A3917C;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.internal-title {
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-size: 2.8rem;
+    line-height: 1.1;
+    color: var(--text-primary);
+    margin: 0 0 0.5rem 0;
+}
+
+.text-col h3 {
+    font-family: "Manrope", sans-serif;
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+}
+
+/* Role Box */
+.role-box {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.5);
+    border-left: 2px solid #A3917C;
+}
+
+.role-box h4 {
+    font-family: "Manrope", sans-serif;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-muted);
+}
+
+.role-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.role-box li {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+    position: relative;
+    padding-left: 20px;
+    line-height: 1.6;
+}
+
+.role-box li::before {
+    content: "•";
+    color: #A3917C;
+    font-weight: bold;
+    font-size: 1.2rem;
+    position: absolute;
+    left: 0;
+    top: -2px;
+}
+
+/* Buttons */
+.actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: auto;
+}
+
+.btn-main {
+    padding: 14px 30px;
+    background: var(--text-primary);
+    color: var(--white);
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    border-radius: 100px;
+    transition: 0.3s;
+    border: 1px solid var(--text-primary);
+}
+
+.btn-main:hover {
+    background: #A3917C;
+    border-color: #A3917C;
+    transform: translateY(-2px);
+}
+
+.btn-link {
+    padding: 14px 30px;
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    border-radius: 100px;
+    transition: 0.3s;
+}
+
+.btn-link:hover {
+    border-color: #A3917C;
+    color: #A3917C;
+    background: #fff;
+}
+
+/* FIRST IMAGE ADJUSTMENT */
+.index-item:first-child .visual-col {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+    border-radius: 12px;
+}
+
+.index-item:first-child .visual-col img {
+    width: auto;
+    max-width: 100%;
+    border: none;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .index-trigger {
+        grid-template-columns: auto 1fr auto;
+        gap: 10px;
+        padding: 2rem 0;
+    }
+    .index-num, .index-role { display: none; }
+    .content-grid {
+        grid-template-columns: 1fr;
+        padding: 0 0 3rem 0;
+    }
+    .page-title { font-size: 3rem; }
+    .internal-title { font-size: 2.2rem; }
+}
+
+/* ANIMATIONS */
+.fade-in-up { opacity: 0; animation: fadeInUp 1s ease forwards; }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+.animate-on-scroll { opacity: 0; transform: translateY(40px); transition: all 0.8s ease; }
+.animate-on-scroll.in-view { opacity: 1; transform: translateY(0); }
+
+/* Force intro subtitle to center even if global p styles override it */
+.intro-block .subtitle {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 60ch; /* optional: makes it look cleaner */
+}
+

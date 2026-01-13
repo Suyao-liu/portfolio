@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<title>Suyao | Websites</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Inter:ital,wght@0,100..900;1,100..900&family=Manrope:wght@200..800&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+<link rel="stylesheet" href="styles.css"> 
+<link rel="stylesheet" href="projects-web.css"> 
+
+<script src="projects-v4.js" defer></script>
+<script src="all.js" defer></script>
+
+<style>
+    /* SWFF Toggle Logic 
+       We use the existing .item-name class for fonts/colors, 
+       and these utility classes just handle the visibility toggle.
+    */
+    .swff-logic .long-text { 
+        display: none; 
+    }
+    
+    /* On Hover: Hide Short, Show Long */
+    .list-item:hover .swff-logic .short-text { 
+        display: none; 
+    }
+    .list-item:hover .swff-logic .long-text { 
+        display: inline-block;
+        /* Inherit the color change animation from .item-name */
+        animation: fadeInText 0.4s ease forwards;
+    }
+
+    /* Smooth entrance for the text swap */
+    @keyframes fadeInText {
+        from { opacity: 0; transform: translateX(-10px); }
+        to { opacity: 1; transform: translateX(0); }
+    }
+</style>
+
+</head>
+
+<body>
+<div class="cursor-square"></div>
+<div class="cursor-line"></div>
+<header>
+    <a href="index.html" class="logo">Suyao</a>
+
+    <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <nav>
+      <a href="index.html" class="active">Home</a>
+      
+      <div class="dropdown-wrapper">
+        <a href="projects.html" class="project-link">
+            Projects 
+            <svg class="arrow-icon" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </a>
+
+        <div class="dropdown-content">
+            <a href="projects.html" class="all-projects">All Projects</a>
+            <div class="divider"></div> 
+            <a href="projects-web.html">Website</a>
+            <a href="projects-ux.html">UX / UI</a>
+            <a href="projects-media.html">Media</a>
+            <a href="projects-graphic.html">Graphic</a>
+            <a href="projects-personal.html">Personal</a>
+        </div>
+      </div>
+
+      <a href="experience.html">Experience</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+<section class="web-hero">
+    <div class="hero-grid-bg"></div>
+    <div class="hero-content">
+        <span class="hero-label fade-in-up" style="animation-delay: 0.1s;">Digital Experiences</span>
+        <h1 class="hero-title">
+            <span class="line fade-in-up" style="animation-delay: 0.2s;">WEBSITES</span>
+        </h1>
+        <p class="hero-subtitle fade-in-up" style="animation-delay: 0.3s;">
+            Interaction • Development • Motion
+        </p>
+    </div>
+</section>
+
+<div class="wireframe-marquee">
+    <div class="track">
+        <h1>CREATIVE CODING &nbsp;•&nbsp; INTERACTIVE DESIGN &nbsp;•&nbsp; FRONT END DEV &nbsp;•&nbsp; CREATIVE CODING &nbsp;•&nbsp; INTERACTIVE DESIGN &nbsp;•&nbsp; FRONT END DEV &nbsp;•&nbsp;</h1>
+    </div>
+</div>
+
+<main class="wrapper">
+    <section class="spotlight-list fade-in-up" style="animation-delay: 0.4s;">
+        
+        <div class="hover-reveal-image">
+            <img class="reveal-img" src="" alt="Project Preview">
+        </div>
+
+        <a href="project-kwmc.html" class="list-item" data-img="images/kwmc_homepic.png">
+            <div class="item-left">
+                <span class="item-number">01</span>
+                <span class="item-name">KWMC Redesign</span>
+            </div>
+            
+            <div class="item-right">
+                <div class="item-tags">
+                    <span>Non-Profit</span>
+                    <span class="dot">•</span>
+                    <span>UX System</span>
+                </div>
+                <i class="fa-solid fa-arrow-right item-arrow"></i>
+            </div>
+        </a>
+
+        <a href="project-swff.html" class="list-item" data-img="images/SWFF.png">
+            <div class="item-left">
+                <span class="item-number">02</span>
+                <span class="item-name swff-logic">
+                    <span class="short-text">SWFF</span>
+                    <span class="long-text">Stratford Winter Film Festival</span>
+                </span>
+            </div>
+            
+            <div class="item-right">
+                <div class="item-tags">
+                    <span>Webmaster</span>
+                    <span class="dot">•</span>
+                    <span>Content Management</span>
+                </div>
+                <i class="fa-solid fa-arrow-right item-arrow"></i>
+            </div>
+        </a>
+        <div class="list-item placeholder">
+            <div class="item-left">
+                <span class="item-number">03</span>
+                <span class="item-name" style="opacity: 0.3;">More Loading...</span>
+            </div>
+        </div>
+
+    </section>
+</main>
+
+<footer>
+    <div class="footercontainer">
+      <div class="social-icons">
+        <a href="https://www.linkedin.com/in/suyao-liu-9714762a0/"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="https://www.instagram.com/selinaliu_lsy/"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.youtube.com/@pillowscoolers1020"><i class="fa-brands fa-youtube"></i></a>
+        <a href="https://github.com/s226liu"><i class="fa-brands fa-github"></i></a>
+      </div>
+
+      <div class="footer-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="experience.html">Experience</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-cr">
+      <p>Copyright &copy;2026; Designed & Coded by <span class="designer">Suyao Liu</span></p>
+    </div>
+  </footer>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const revealContainer = document.querySelector('.hover-reveal-image');
+        const revealImg = document.querySelector('.reveal-img');
+        const items = document.querySelectorAll('.list-item:not(.placeholder)');
+
+        document.addEventListener('mousemove', (e) => {
+            revealContainer.style.left = (e.clientX + 20) + 'px';
+            revealContainer.style.top = (e.clientY + 20) + 'px';
+        });
+
+        items.forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                const imgUrl = item.getAttribute('data-img');
+                if(imgUrl) {
+                    revealImg.src = imgUrl;
+                    revealContainer.classList.add('active');
+                }
+            });
+            item.addEventListener('mouseleave', () => {
+                revealContainer.classList.remove('active');
+            });
+        });
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,430 @@
+/* ─────────────────────────────────────────────────────────────
+   MEDIA THEME - projects-media.css
+   Overrides specific to the media page to match Main Portfolio
+   ───────────────────────────────────────────────────────────── */
+
+/* --- 1. HERO & INTRO --- */
+.media-hero {
+    padding: 6rem 5% 4rem;
+    text-align: center;
+}
+
+.hero-title {
+    font-size: clamp(3rem, 8vw, 6rem);
+    margin-bottom: 2rem;
+}
+
+.accent-text {
+    color: var(--accent);
+    font-style: italic;
+    font-family: "Bricolage Grotesque", sans-serif;
+}
+
+/* Category Navigation Pills */
+.category-pills {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+.pill {
+    padding: 10px 24px;
+    border: 1px solid var(--border);
+    border-radius: 50px;
+    font-family: "Inter", sans-serif;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    transition: var(--transition);
+    background: var(--bg-main);
+}
+
+.pill:hover {
+    background: var(--accent);
+    color: var(--white);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+}
+
+/* --- 2. LAYOUT UTILITIES --- */
+.wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 5%;
+}
+
+.media-section {
+    padding: 6rem 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.media-section:last-child {
+    border-bottom: none;
+}
+
+.section-header {
+    margin-bottom: 3rem;
+}
+
+.section-header h2 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+/* --- 3. MASONRY GRID (Digital Photo) --- */
+.masonry-grid {
+    column-count: 3;
+    column-gap: 1.5rem;
+}
+
+.masonry-item {
+    break-inside: avoid;
+    margin-bottom: 1.5rem;
+    border-radius: 12px;
+    position: relative;
+    /* Transition applied to the whole container now */
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    cursor: pointer;
+    z-index: 1; /* Default layering */
+    background: transparent;
+}
+
+.masonry-item img {
+    width: 100%;
+    display: block;
+    border-radius: 12px;
+}
+
+/* ZOOM OUT / POP OUT EFFECT */
+.masonry-item:hover {
+    /* Scales the whole element up by 5% */
+    transform: scale(1.15);
+    /* Brings the item to the very front so it overlaps neighbors */
+    z-index: 10; 
+    /* deeper shadow to enhance the 3D "lift" effect */
+    box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+}
+
+
+/* --- 4. FILM SECTION (Masonry Style) --- */
+.film-section {
+    background-color: var(--bg-section); 
+    margin: 0 -5.5%; 
+    padding: 6rem 5.5%; 
+    position: relative;
+}
+
+.camera-specs {
+    display: inline-flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.spec-tag {
+    font-family: "Manrope", sans-serif;
+    font-size: 0.85rem;
+    color: var(--accent);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background: rgba(176, 142, 79, 0.1);
+    padding: 6px 12px;
+    border-radius: 4px;
+}
+
+/* Changed from Grid to Columns to handle mixed heights */
+.film-grid {
+    column-count: 3;
+    column-gap: 2rem;
+}
+
+/* --- POLAROID CARD STYLING --- */
+.polaroid-card {
+    break-inside: avoid;
+    margin-bottom: 2rem;
+    background: #fff;
+    /* We reduce bottom padding here because the caption div creates the "chin" now */
+    padding: 15px 15px 0 15px; 
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    border-radius: 2px;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    cursor: pointer;
+    z-index: 1;
+}
+
+/* POP OUT EFFECT */
+.polaroid-card:hover {
+    transform: scale(1.05) translateY(-10px) rotate(1deg);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+    z-index: 100;
+}
+
+/* POP OUT EFFECT: Reveal the text */
+.polaroid-card:hover .film-caption p {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.polaroid-card .image-frame {
+    width: 100%;
+    height: auto;
+    background: #eee;
+    filter: sepia(15%) contrast(1.1);
+}
+
+.polaroid-card .image-frame img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* --- CAPTION STYLING (The "Chin" of the Polaroid) --- */
+.film-caption {
+    /* This creates the fixed height for the white bottom area */
+    padding: 15px 5px;
+    min-height: 60px; /* Ensures classic polaroid look even with short text */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.film-caption p {
+    font-family: "Manrope", sans-serif; /* Or a handwriting font if you prefer */
+    font-size: 0.85rem;
+    color: var(--text-muted); /* Distinct from main black text */
+    margin: 0;
+    line-height: 1.4;
+    
+    /* HIDDEN STATE */
+    opacity: 0; 
+    transform: translateY(5px);
+    transition: all 0.3s ease 0.1s; /* Slight delay so photo pops first */
+}
+
+/* RESPONSIVE: Reduce columns on smaller screens */
+@media (max-width: 992px) {
+    .film-grid { column-count: 2; }
+}
+
+@media (max-width: 600px) {
+    .film-grid { column-count: 1; }
+}
+
+/* --- 5. CINEMA VIDEO CARDS --- */
+.video-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+    
+    /* NEW: Limits the width so videos aren't massive */
+    max-width: 900px; 
+    
+    /* NEW: Centers the video column on the page */
+    margin: 0 auto; 
+}
+
+.cinema-card {
+    background: var(--bg-section);
+    border-radius: 24px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--border);
+}
+
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    width: 100%;
+    background: #000;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.card-content {
+    padding: 2rem;
+}
+
+.card-content h3 {
+    margin-bottom: 0.5rem;
+}
+
+.know-more-btn.small {
+    padding: 10px 25px;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+}
+/* --- 6. RESPONSIVE --- */
+@media (max-width: 992px) {
+    .masonry-grid { column-count: 2; }
+    .video-container { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+    .masonry-grid { column-count: 1; }
+    .hero-title { font-size: 2.5rem; }
+    
+    .film-section {
+        margin: 0;
+        padding: 4rem 0;
+        background: transparent;
+    }
+    
+    .polaroid-card {
+        transform: none !important; /* Disable rotation on mobile for cleaner scroll */
+    }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   7. ANIMATIONS
+   ───────────────────────────────────────────────────────────── */
+
+/* --- Keyframes for Load Animation --- */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- Hero Load State --- */
+.hero-title {
+    opacity: 0; /* Initially hidden */
+    animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.2s; /* Slight wait before starting */
+}
+
+.category-pills {
+    opacity: 0;
+    animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.4s; /* Enters after title */
+}
+
+/* --- Scroll Animation States --- */
+/* The script will add this class to items automatically */
+.scroll-hidden {
+    opacity: 0;
+    transform: translateY(60px);
+    transition: opacity 1s ease, transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* The script will add this class when the item is on screen */
+.scroll-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   8. AUDIO DOCUMENTARY SECTION (Themed)
+   ───────────────────────────────────────────────────────────── */
+
+/* Matches the .cinema-card rounded look and colors */
+.audio-card {
+    background: var(--bg-section);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    overflow: hidden;
+    max-width: 900px;
+    margin: 0 auto; /* Centers the card */
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    transition: var(--transition);
+}
+
+.project-header h2 {
+    margin: 0;
+    padding: 2rem;
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    font-family: "Bricolage Grotesque", sans-serif; /* Matches your accent fonts */
+    font-size: 1.75rem;
+    border-bottom: 1px solid var(--border);
+}
+
+/* Media/Embed Container */
+.media-container {
+    padding: 0;
+    background: #000;
+}
+
+/* Content Area */
+.project-content {
+    padding: 2rem;
+    color: var(--text-muted);
+    font-family: "Inter", sans-serif;
+    line-height: 1.6;
+}
+
+.project-intro {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    max-width: 700px;
+    color: var(--text-main);
+}
+
+.highlight {
+    color: var(--accent);
+}
+
+/* Grid Layout */
+.insights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+/* Individual Insight Cards */
+.insight-item {
+    background: var(--bg-main); /* White card against the grey section bg */
+    padding: 1.5rem;
+    border-radius: 12px; /* Matches masonry-item radius */
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent); /* Uses your theme accent color */
+    transition: transform 0.3s ease;
+}
+
+.insight-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.insight-item h4 {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    color: var(--text-main);
+    font-family: "Manrope", sans-serif; /* Matches specs tags */
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    font-weight: 700;
+}
+
+.insight-item p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+}
+
+.project-conclusion {
+    font-style: italic;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border);
+    padding-top: 1.5rem;
+    font-family: "Bricolage Grotesque", sans-serif;
+}

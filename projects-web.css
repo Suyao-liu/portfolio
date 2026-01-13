@@ -1,0 +1,272 @@
+/* ─────────────────────────────────────────────────────────────
+   WEB PROJECTS: BLUEPRINT THEME (FINAL - FRAME FITS PIC)
+   ───────────────────────────────────────────────────────────── */
+
+/* --- 0. VARIABLES --- */
+:root {
+    --bg-main: #F9F7F2;      
+    --bg-section: #EAE7E0;   
+    --text-primary: #2D2926; 
+    --text-muted: #6B665E;   
+    --border: #DCD9D2;
+    --accent: #B08E4F; 
+    --text-blue: #6F86A6; 
+}
+
+/* --- 1. HERO SECTION --- */
+.web-hero {
+    position: relative;
+    padding: 8rem 5% 5rem;
+    text-align: center;
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.hero-grid-bg {
+    position: absolute;
+    top: 0; left: 0; 
+    width: 100%; height: 100%;
+    background-image: 
+        linear-gradient(rgba(111, 134, 166, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(111, 134, 166, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    z-index: 0;
+    pointer-events: none;
+    mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+}
+
+.hero-content { position: relative; z-index: 1; }
+
+.hero-label {
+    font-family: "Manrope", sans-serif;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.hero-title {
+    font-family: "Bricolage Grotesque", sans-serif !important; 
+    font-size: clamp(4rem, 10vw, 9rem);
+    line-height: 0.9;
+    color: var(--text-blue) !important;
+    margin-bottom: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+.hero-title span, .hero-title .line { font-family: inherit; color: inherit !important; }
+
+.hero-subtitle {
+    font-family: "Manrope", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--text-primary);
+    font-weight: 700;
+    font-size: 1rem;
+    background: rgba(255,255,255,0.6);
+    padding: 6px 18px;
+    border-radius: 50px;
+    display: inline-block;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+/* --- 2. MARQUEE --- */
+.wireframe-marquee {
+    width: 100%;
+    overflow: hidden;
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 6rem;
+}
+.wireframe-marquee .track h1 {
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-size: 2.5rem;
+    white-space: nowrap;
+    animation: scroll 30s linear infinite;
+    margin: 0;
+    color: transparent; 
+    -webkit-text-stroke: 1px var(--text-muted);
+    opacity: 0.4;
+}
+@keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* --- 3. LIST --- */
+.wrapper { max-width: 1400px; margin: 0 auto; padding: 0 5%; }
+.spotlight-list { position: relative; padding-bottom: 10rem; }
+
+.list-item {
+    position: relative; 
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    padding: 4.5rem 2rem; 
+    border-top: 1px solid var(--border);
+    text-decoration: none;
+    color: var(--text-primary);
+    z-index: 10;
+    transition: all 0.4s ease;
+    cursor: pointer;
+    background: transparent;
+}
+.list-item:last-child { border-bottom: 1px solid var(--border); }
+
+.item-left { display: flex; align-items: baseline; gap: 3rem; z-index: 2; }
+.item-number {
+    font-family: "Manrope", sans-serif;
+    font-size: 1.1rem;
+    color: var(--text-blue);
+    font-weight: 700;
+}
+.item-name {
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-size: clamp(2rem, 5vw, 4.5rem);
+    font-weight: 600;
+    line-height: 1;
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), color 0.3s ease;
+}
+
+.item-right { display: flex; align-items: center; gap: 4rem; z-index: 2; }
+.item-tags {
+    font-family: "Inter", sans-serif;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    white-space: nowrap; 
+    pointer-events: none; 
+}
+.dot { color: var(--accent); font-weight: bold; }
+.item-arrow {
+    font-size: 2.5rem;
+    opacity: 0.3;
+    transform: rotate(-45deg);
+    transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    color: var(--accent);
+    z-index: 2;
+}
+
+/* Hover Effects */
+.list-item:hover { padding-left: 3rem; padding-right: 3rem; background: rgba(255,255,255,0.4); }
+.list-item:hover .item-name { color: var(--text-blue); transform: translateX(10px); }
+.list-item:hover .item-arrow { color: var(--text-blue); opacity: 1; transform: rotate(0deg) scale(1.1); }
+.spotlight-list:hover .list-item:not(:hover) { opacity: 0.3; }
+
+/* ─────────────────────────────────────────────────────────────
+   4. FLOATING IMAGE (FRAME FITS PIC)
+   ───────────────────────────────────────────────────────────── */
+
+.hover-reveal-image {
+    position: fixed;
+    top: 0; left: 0;
+    
+    /* Auto Sizing creates the "Frame Fits Pic" effect */
+    width: auto;
+    height: auto;
+    max-width: 450px; /* Limits large images */
+    max-height: 500px;
+    
+    pointer-events: none;
+    z-index: 5; 
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+    transition: opacity 0.3s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    
+    /* Style the frame */
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 30px 60px rgba(111, 134, 166, 0.25);
+    background: var(--bg-section);
+}
+
+.reveal-img {
+    display: block;
+    width: auto;
+    height: auto;
+    /* Ensures large images scale down but maintain aspect ratio */
+    max-width: 100%; 
+    max-height: 500px; 
+    
+    transform: scale(1.1); /* Slight zoom effect */
+    transition: transform 0.6s ease;
+}
+
+.hover-reveal-image.active {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1) rotate(3deg);
+}
+
+.hover-reveal-image.active .reveal-img {
+    transform: scale(1);
+}
+
+/* UTILS */
+.fade-in-up { opacity: 0; animation: fadeInUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+
+/* MOBILE */
+@media (max-width: 900px) {
+    .web-hero { padding: 6rem 5% 3rem; }
+    .list-item { flex-direction: column; align-items: flex-start; padding: 3rem 0; gap: 1.5rem; }
+    .item-right { width: 100%; justify-content: space-between; gap: 0; }
+    .item-tags { font-size: 0.8rem; }
+    .hover-reveal-image { display: none; }
+    .list-item:hover { padding-left: 0; padding-right: 0; background: transparent; }
+    .list-item:hover .item-name { transform: none; color: var(--text-primary); }
+    .item-arrow { opacity: 1; transform: none; font-size: 1.5rem; }
+}
+
+/* --- 5. SWFF SPECIAL TEXT SWAP --- */
+
+/* Ensure the container and inner spans inherit theme typography */
+.swff-logic {
+    display: inline-flex;
+}
+
+.swff-logic span {
+    font-family: inherit;
+    font-weight: inherit;
+    color: inherit;
+    font-size: inherit;
+    transition: inherit;
+}
+
+/* Hide the long name by default */
+.swff-logic .long-text { 
+    display: none; 
+}
+
+/* Toggle visibility on hover */
+.list-item:hover .swff-logic .short-text { 
+    display: none; 
+}
+
+.list-item:hover .swff-logic .long-text { 
+    display: inline-block;
+    animation: fadeInText 0.4s ease forwards;
+}
+
+.hover-reveal-image{
+    z-index: 20; /* Add this to bring it to the front */
+}
+/* Entrance animation for the full name */
+@keyframes fadeInText {
+    from { 
+        opacity: 0; 
+        transform: translateX(-10px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateX(0); 
+    }
+}

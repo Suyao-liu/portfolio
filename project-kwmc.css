@@ -1,0 +1,530 @@
+/* ─────────────────────────────────────────────────────────────
+    PROJECT SPECIFIC OVERRIDES (KWMC THEME)
+    Aesthetic: "Warm Linen" & "Muted Gold"
+    Colors: Gold (#B08E4F), Warm Linen (#F9F7F2), Soft Ebony (#2D2926)
+    ───────────────────────────────────────────────────────────── */
+
+:root {
+    --accent: #B08E4F; 
+    --accent-glow: rgba(176, 142, 79, 0.2);
+    --bg-main: #F9F7F2;      
+    --bg-section: #EAE7E0;   
+    --text-primary: #2D2926; 
+    --text-muted: #6B665E;
+    --white: #FFFFFF;
+    --border: #DCD9D2;
+}
+
+/* --- HERO SECTION --- */
+.kwmc-hero {
+    padding: 8rem 5% 4rem;
+    text-align: center;
+    background: radial-gradient(circle at 50% 50%, #ffffff 0%, var(--bg-main) 100%);
+}
+
+.hero-max { max-width: 1000px; margin: 0 auto; }
+
+.badge {
+    background: var(--accent);
+    color: #fff;
+    padding: 8px 18px;
+    border-radius: 50px;
+    font-family: "Manrope", sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 15px var(--accent-glow);
+}
+
+.hero-title {
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-size: clamp(3rem, 7vw, 6rem);
+    line-height: 1.1;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+}
+
+.hero-desc {
+    font-family: "Manrope", sans-serif;
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    max-width: 65ch;
+    margin: 0 auto 3rem;
+    font-weight: 500;
+    line-height: 1.6;
+}
+
+/* Status Banner */
+.status-banner {
+    background: rgba(176, 142, 79, 0.1);
+    border: 1px solid var(--accent);
+    color: var(--text-primary);
+    padding: 12px 20px;
+    border-radius: 8px;
+    margin: 0 auto 2rem;
+    max-width: 800px;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    text-align: left;
+    font-size: 0.9rem;
+    font-family: "Inter", sans-serif;
+    line-height: 1.4;
+}
+.status-banner i { color: var(--accent); font-size: 1.2rem; }
+
+/* Meta Grid */
+.project-meta {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    border-top: 1px solid var(--border);
+    padding-top: 2rem;
+    margin-top: 3rem;
+}
+.meta-item h3 { font-family: "Manrope", sans-serif; font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.1em; margin-bottom: 0.5rem; }
+.meta-item p { font-family: "Bricolage Grotesque", sans-serif; font-size: 1.2rem; font-weight: 600; color: var(--text-primary); }
+
+/* --- MARQUEE --- */
+.scorlling-text-container {
+    background: var(--text-primary); 
+    padding: 1.5rem 0;
+    overflow: hidden;
+    display: flex;
+    transform: rotate(-1deg);
+    width: 102%;
+    margin-left: -1%;
+    margin-bottom: 6rem;
+}
+.scorlling-text-container h1 {
+    color: var(--bg-main);
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-size: 1.5rem;
+    white-space: nowrap;
+    animation: scroll 25s linear infinite;
+    padding-right: 50px;
+    margin: 0;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+}
+@keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* --- CONTEXT SECTION --- */
+.context-section { padding: 4rem 5%; max-width: 1200px; margin: 0 auto; }
+.context-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 4rem; align-items: center; }
+.context-text h2 { margin-bottom: 1.5rem; font-size: 2.5rem; }
+
+.context-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.stat-box {
+    background: var(--white); padding: 2rem; border-radius: 16px; text-align: center;
+    border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    transition: transform 0.3s ease;
+}
+.stat-box:hover { transform: translateY(-5px); border-color: var(--accent); }
+.stat-box:last-child { grid-column: span 2; }
+.stat-num { display: block; font-family: "Bricolage Grotesque", sans-serif; font-size: 3.5rem; font-weight: 800; color: var(--accent); }
+.stat-lbl { font-family: "Manrope", sans-serif; font-size: 0.85rem; text-transform: uppercase; color: var(--text-muted); margin-top: 0.5rem; display: block; }
+
+/* --- INTERACTIVE PROCESS (STACK/MIST LAYOUT) --- */
+.stack-section { padding: 6rem 5%; max-width: 1400px; margin: 0 auto; }
+
+.project-tag {
+    font-family: "Manrope", sans-serif;
+    color: var(--accent);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+.stack-intro { text-align: center; max-width: 600px; margin: 0 auto 4rem; }
+
+.mist-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    position: relative;
+}
+
+.mist-text-wrapper { position: sticky; top: 30vh; min-height: 300px; }
+
+.mist-info {
+    position: absolute; top: 0; left: 0; width: 100%;
+    opacity: 0; transform: translateY(20px);
+    transition: all 0.5s ease;
+    text-align: center;
+}
+.mist-info.active { opacity: 1; transform: translateY(0); }
+.mist-info h3 { font-size: 2rem; margin-bottom: 1rem; }
+.mist-info p { line-height: 1.8; color: var(--text-muted); }
+
+.stack-card {
+    position: sticky;
+    top: calc(15vh + (var(--i) * 40px));
+    z-index: var(--i);
+    margin-bottom: 15rem; /* Scroll distance */
+    background: var(--white);
+    padding: 40px;
+    border-radius: 24px;
+    border: 1px solid var(--border);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+    text-align: center;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.stack-card i {
+    font-size: 5rem;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+}
+
+/* --- IMPACT & VISUAL EVIDENCE --- */
+.transformation-section { padding: 6rem 5%; max-width: 1200px; margin: 0 auto; }
+.section-header-center { text-align: center; margin-bottom: 4rem; }
+
+/* FIX: Centering the paragraph text block */
+.section-header-center p { 
+    margin: 0 auto 2rem auto; /* This centers the p block */
+    max-width: 600px; 
+    text-align: center; 
+}
+
+.comparison-grid { display: grid; grid-template-columns: 1fr; gap: 6rem; }
+.comparison-card { text-align: center; }
+.comparison-card h3 { margin-bottom: 0.5rem; font-family: "Bricolage Grotesque"; font-size: 1.8rem; }
+
+/* Slider descriptions inside the cards */
+.slider-desc { 
+    margin: 0 auto 1.5rem auto; 
+    color: var(--text-muted); 
+    font-size: 1rem; 
+    text-align: center;
+    max-width: 900px; 
+    line-height: 1.6;
+}
+
+/* --- COMPARISON SLIDER (Responsive Height) --- */
+
+.img-comp-wrapper {
+    position: relative;
+    width: 100%;
+    height: auto; /* REMOVED fixed 500px height */
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+    border: 1px solid var(--border);
+    margin-top: 2rem;
+    /* This ensures the wrapper hugs the image exactly */
+    line-height: 0; 
+}
+
+/* 1. The Background Layer (After) 
+   We make this RELATIVE so it pushes the wrapper open to the correct height. */
+.img-comp-after {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+.img-comp-after img {
+    display: block;
+    width: 100%;
+    height: auto; /* Maintains natural aspect ratio */
+}
+
+/* 2. The Foreground Layer (Before) 
+   We keep this ABSOLUTE so it sits on top of the 'After' image. */
+.img-comp-before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%; /* Initial split */
+    height: 100%; /* Matches the height set by the After image */
+    overflow: hidden;
+    z-index: 2;
+    border-right: 3px solid var(--accent);
+}
+
+/* 3. The Image INSIDE the Foreground Layer 
+   It must scale based on HEIGHT to perfectly match the background image width. */
+.img-comp-before img {
+    height: 100%;
+    width: auto; 
+    max-width: none; /* Allows the image to overflow its clipped container */
+}
+
+/* Slider Handle & Input remain mostly the same */
+/* Update this block */
+.slider-handle {
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    width: 44px; 
+    height: 44px; 
+    background: var(--accent);
+    border-radius: 50%; 
+    transform: translate(-50%, -50%); 
+    z-index: 10;
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    box-shadow: 0 0 0 4px rgba(255,255,255,0.2);
+    cursor: ew-resize;
+    
+    /* ADD THESE 2 LINES FOR THE ICON: */
+    color: var(--white);
+    font-size: 1rem;
+}
+.slider-input {
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    opacity: 0; 
+    cursor: ew-resize; 
+    z-index: 20;
+    margin: 0; /* Resets default browser margins */
+}
+
+/* --- LEARNINGS --- */
+.learnings-section { background: var(--bg-section); padding: 6rem 5%; margin-top: 6rem; text-align: center; }
+.learnings-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem; max-width: 1200px; margin-left: auto; margin-right: auto; }
+.learn-card { background: var(--white); padding: 2.5rem; border-radius: 20px; border: 1px solid var(--border); text-align: left; }
+.learn-card h4 { color: var(--accent); font-size: 1.3rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 10px; }
+
+/* Animations */
+.fade-in-up { opacity: 0; animation: fadeInUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+.animate-on-scroll { opacity: 0; transform: translateY(40px); transition: all 0.8s ease; }
+.animate-on-scroll.in-view { opacity: 1; transform: translateY(0); }
+
+/* Mobile */
+@media (max-width: 768px) {
+    .project-meta, .context-grid, .mist-layout { grid-template-columns: 1fr; }
+    .context-stats { grid-template-columns: 1fr; }
+    .stat-box:last-child { grid-column: span 1; }
+    
+    .mist-text-wrapper { position: relative; top: 0; min-height: auto; margin-bottom: 2rem; }
+    .mist-info { position: relative; opacity: 1; transform: none; display: none; }
+    .mist-info.active { display: block; }
+    .stack-card { top: 20px; margin-bottom: 2rem; height: auto; padding: 2rem; }
+    
+    .img-comp-wrapper { height: 300px; }
+}
+
+/* --- NEW STATUS CARD --- */
+.project-status-card {
+    background: var(--white);
+    border: 1px solid var(--accent); /* Uses your Gold theme */
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 0 auto 3rem;
+    max-width: 800px;
+    display: flex;
+    align-items: center; /* Vertically center */
+    box-shadow: 0 10px 30px rgba(176, 142, 79, 0.08); /* Gold glow */
+}
+
+.status-col {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    flex: 1;
+    text-align: left;
+}
+
+.status-icon {
+    font-size: 1.4rem;
+    margin-top: 2px;
+}
+
+.status-col.approved .status-icon { color: #2e7d32; } /* Muted Green for success */
+.status-col.warning .status-icon { color: #d68c45; } /* Muted Terracotta for warning (matches linen better than red) */
+
+.status-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.status-label {
+    font-family: "Manrope", sans-serif;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    font-weight: 700;
+}
+
+.status-value {
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 2px 0;
+}
+
+.status-note {
+    font-family: "Inter", sans-serif;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.status-note a {
+    color: var(--text-primary);
+    text-decoration: underline;
+    text-decoration-color: var(--accent);
+}
+
+/* Vertical Divider Line */
+.status-divider {
+    width: 1px;
+    height: 50px;
+    background: var(--border);
+    margin: 0 2rem;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .project-status-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+    }
+    .status-divider {
+        width: 100%;
+        height: 1px;
+        margin: 0;
+    }
+    
+    .design-constraint-box {
+        padding: 1.2rem;
+        margin-top: 2rem;
+        border-left-width: 3px;
+    }
+} /* <--- CLOSED MOBILE QUERY HERE SO THE NEXT BLOCKS WORK ON DESKTOP */
+
+/* --- COMPARISON SLIDER LABELS --- */
+
+/* Common Label Styles */
+.img-label {
+    position: absolute;
+    top: 20px; /* Position at top corners */
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-family: "Manrope", sans-serif;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    pointer-events: none; /* Allows click-through to the slider */
+    z-index: 5;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    transition: opacity 0.3s ease;
+}
+
+/* AFTER Label (Background Layer) */
+.label-after {
+    right: 20px; /* Anchored to the right */
+    background: var(--white);
+    color: var(--accent);
+    border: 1px solid var(--accent);
+}
+
+/* BEFORE Label (Foreground Layer) */
+.label-before {
+    left: 20px; /* Anchored to the left */
+    background: var(--text-primary);
+    color: var(--white);
+    border: 1px solid var(--text-primary);
+    
+    /* CRITICAL FIX: 
+       This prevents the text from wrapping or squishing 
+       when the slider moves over it.
+    */
+    white-space: nowrap; 
+}
+
+/* Optional: Hide labels when slider is fully at one side to prevent overlap */
+.img-comp-wrapper:active .img-label {
+    opacity: 0.5; /* Dim labels while dragging */
+}
+
+/* --- CONSTRAINT BOX --- */
+.design-constraint-box {
+    background: var(--bg-main); /* Uses your light linen background */
+    border-left: 4px solid var(--accent); /* Accent Gold line on the left */
+    padding: 1.5rem 2rem;
+    margin: 2.5rem auto 0;
+    max-width: 700px;
+    border-radius: 4px;
+    text-align: left;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+}
+
+.design-constraint-box h4 {
+    color: var(--accent);
+    font-family: "Manrope", sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.design-constraint-box p {
+    font-family: "Inter", sans-serif;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin: 0 !important; /* Forces override of centered P tags */
+    max-width: 100% !important;
+    text-align: left !important;
+}
+
+/* --- VISUAL EVIDENCE TEXT BLOCK (Force Centered) --- */
+.evidence-text-block {
+    /* 1. Use Flexbox to force container alignment */
+    display: flex;
+    flex-direction: column;
+    align-items: center;     /* Centers the p blocks horizontally */
+    justify-content: center; /* Centers vertically if needed */
+    
+    /* 2. Text Alignment */
+    text-align: center;      /* Centers the text inside the lines */
+    
+    /* 3. Dimensions & Spacing */
+    width: 100%;             /* Ensure it fills the grid cell to calculate center */
+    max-width: 800px;        /* Keep the reading width comfortable */
+    margin-top: 0;
+    margin-bottom: 2rem;
+    margin-left: auto !important;  /* !important overrides any potential conflicts */
+    margin-right: auto !important; /* !important overrides any potential conflicts */
+    padding: 0;              /* Remove any padding that might shift content */
+}
+
+.evidence-text-block p {
+    margin-bottom: 1.2rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+    width: 100%;             /* Ensure text uses full width of the block */
+}
+
+.evidence-text-block strong {
+    color: var(--text-primary);
+    font-size: 1.05rem;
+    font-weight: 700;
+}

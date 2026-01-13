@@ -1,0 +1,392 @@
+/* ─────────────────────────────────────────────────────────────
+   GRAPHIC DESIGN CREATIVE THEME
+   Features: Kinetic Gallery, Sticky Stacking, Side Text
+   ───────────────────────────────────────────────────────────── */
+
+/* --- 1. HERO & INTRO --- */
+.graphic-hero {
+    padding: 4rem 5% 2rem;
+    text-align: center;
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-label {
+    font-family: "Manrope", sans-serif;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.hero-title {
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-size: clamp(3.5rem, 9vw, 7rem);
+    line-height: 1;
+}
+
+.hero-title .line, 
+.hero-title span,
+.accent-text {
+    color: #a67c85 !important;
+    display: block;
+}
+
+.accent-text { 
+    font-style: italic; 
+    display: inline-block; 
+}
+
+.hero-title .line { display: block; }
+
+.fade-in-up { opacity: 0; animation: fadeInUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+
+/* --- 2. MARQUEE --- */
+.scorlling-text-container {
+    background: var(--text-primary);
+    padding: 1.5rem 0;
+    overflow: hidden;
+    display: flex;
+    margin-bottom: 6rem;
+    transform: rotate(-1deg);
+    width: 105%;
+    margin-left: -2.5%;
+}
+.scorlling-text-container h1 {
+    color: var(--bg-main);
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-size: 1.5rem;
+    white-space: nowrap;
+    animation: scroll 20s linear infinite;
+    padding-right: 50px;
+    margin: 0;
+}
+@keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* --- 3. KINETIC GALLERY (Move-In Series) --- */
+.kinetic-section {
+    padding: 6rem 5% 4rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.kinetic-intro {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 3rem;
+}
+
+.kinetic-intro h2 {
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    line-height: 1;
+}
+
+.kinetic-intro p {
+    font-family: "Manrope", sans-serif;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--text-primary);
+    color: var(--bg-main);
+    padding: 12px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-family: "Manrope", sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+.btn-primary:hover {
+    background: var(--accent);
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.kinetic-gallery {
+    display: flex;
+    height: 650px; 
+    gap: 10px;
+    width: 100%;
+    align-items: center; 
+}
+
+.kinetic-card {
+    position: relative;
+    flex: 1; 
+    height: 100%;
+    overflow: hidden;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: flex 0.6s cubic-bezier(0.25, 1, 0.5, 1), transform 0.4s ease;
+    transform: skewX(-2deg); 
+    background: var(--bg-section);
+}
+
+.kinetic-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; 
+    transition: transform 0.6s ease, filter 0.6s ease;
+    filter: grayscale(30%); 
+}
+
+.card-label {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 8px 16px;
+    border-radius: 30px;
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s ease;
+    z-index: 2;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.kinetic-gallery:hover .kinetic-card {
+    opacity: 0.4;
+    filter: blur(2px);
+}
+.kinetic-gallery .kinetic-card:hover {
+    flex: 3.5;
+    transform: skewX(0deg) scale(1.05); 
+    opacity: 1;
+    filter: blur(0px);
+    z-index: 10;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.25);
+}
+.kinetic-card:hover img {
+    transform: scale(0.9); 
+    filter: grayscale(0%);
+}
+.kinetic-card:hover .card-label { opacity: 1; transform: translateY(0); }
+
+
+/* --- 4. MIST COLLECTION (Stack Layout) --- */
+.stack-section {
+    padding: 4rem 5% 8rem;
+    position: relative;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.stack-intro {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 4rem;
+    z-index: 10;
+    position: relative;
+}
+
+.mist-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr; 
+    gap: 4rem;
+    position: relative;
+}
+
+.mist-text-col { position: relative; }
+
+.mist-text-wrapper {
+    position: sticky;
+    top: 40vh; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 200px; 
+}
+
+.mist-info {
+    position: absolute; 
+    top: 0; left: 0; width: 100%;
+    opacity: 0; 
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    pointer-events: none;
+}
+.mist-info.active { opacity: 1; transform: translateY(0); pointer-events: auto; }
+.mist-info h3 { font-family: "Bricolage Grotesque", sans-serif; font-size: 2.5rem; margin-bottom: 1rem; color: var(--text-primary); }
+.mist-info p { font-family: "Manrope", sans-serif; font-size: 1.1rem; line-height: 1.6; color: var(--text-muted); }
+
+.stack-container {
+    max-width: 450px; 
+    margin: 0 auto;
+    position: relative;
+    /* IMPORTANT: Reduced bottom padding so snap happens sooner */
+    padding-bottom: 10vh; 
+}
+
+.stack-card {
+    position: sticky;
+    top: calc(4vh + (var(--i) * 35px));
+    z-index: var(--i);
+    margin-bottom: 15rem; 
+    transform-origin: top center;
+    transition: transform 0.4s ease;
+}
+
+/* FIX: Removed the 50vh margin. 
+   Now, as soon as this card sticks, the section ends 
+   and the next section snaps into view.
+*/
+.stack-card:last-child { margin-bottom: 0; }
+
+.card-body {
+    background: #fff;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 -5px 20px rgba(0,0,0,0.1), 0 1px 4px rgba(0,0,0,0.05);
+    border: 1px solid var(--border);
+}
+.card-body img { width: 100%; display: block; border-radius: 6px; }
+.stack-card:hover { transform: translateY(-10px); }
+
+/* --- 5. OTHER SECTIONS --- */
+.feature-section { padding: 6rem 5%; max-width: 1200px; margin: 0 auto; }
+.feature-split { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+.feature-image { background: #fff; padding: 15px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); border-radius: 4px; transform: rotate(-2deg); transition: transform 0.5s ease; }
+.feature-image:hover { transform: rotate(0deg) scale(1.02); }
+.feature-image img { width: 100%; display: block; }
+.feature-content h2 { font-size: 3rem; font-family: "Bricolage Grotesque", sans-serif; margin-bottom: 1.5rem; }
+.feature-desc p { font-family: "Inter", sans-serif; color: var(--text-muted); font-size: 1.1rem; }
+.tech-stack { display: flex; gap: 1rem; margin-top: 2rem; }
+.tech-stack span { font-family: "Manrope", sans-serif; font-weight: 700; font-size: 0.8rem; text-transform: uppercase; border: 1px solid var(--border); padding: 8px 16px; border-radius: 50px; color: var(--accent); }
+
+/* Grid Section */
+.grid-section { padding: 4rem 0 8rem; }
+.section-header-center { text-align: center; margin-bottom: 4rem; }
+.project-tag { font-family: "Manrope", sans-serif; font-size: 0.85rem; color: var(--accent); font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: 1rem; }
+.spotlight-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto; padding: 0 5%; }
+.grid-item { position: relative; border-radius: 12px; overflow: hidden; cursor: pointer; transition: all 0.5s ease; }
+.grid-item img { width: 100%; display: block; transition: transform 0.6s ease; }
+.grid-item.text-only { background: var(--bg-section); display: flex; align-items: center; justify-content: center; text-align: center; padding: 2rem; border: 1px dashed var(--border); }
+.hover-reveal { position: absolute; bottom: 0; left: 0; width: 100%; padding: 1.5rem; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); opacity: 0; transform: translateY(20px); transition: all 0.4s ease; }
+.hover-reveal span { color: #fff; font-family: "Bricolage Grotesque", sans-serif; font-size: 1.2rem; }
+.spotlight-grid:hover .grid-item { opacity: 0.4; filter: grayscale(80%); transform: scale(0.98); }
+.spotlight-grid .grid-item:hover { opacity: 1; filter: grayscale(0%); transform: scale(1.05); z-index: 10; box-shadow: 0 20px 50px rgba(0,0,0,0.2); }
+.grid-item:hover .hover-reveal { opacity: 1; transform: translateY(0); }
+.grid-item:hover img { transform: scale(1.1); }
+.divider-line { height: 1px; background: var(--border); margin: 4rem 5%; opacity: 0.5; }
+
+/* UTILS */
+.animate-on-scroll { opacity: 0; transform: translateY(50px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.in-view { opacity: 1; transform: translateY(0); }
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 900px) {
+    .kinetic-gallery { flex-direction: column; height: auto; }
+    .kinetic-card { height: 450px; width: 100%; transform: none; margin-bottom: 1rem; flex: none; }
+    .kinetic-gallery:hover .kinetic-card { opacity: 1; filter: none; }
+    .kinetic-gallery .kinetic-card:hover { transform: scale(1.02); }
+    .kinetic-card:hover img { transform: none; }
+    .card-label { opacity: 1; transform: translateY(0); bottom: 10px; left: 10px; }
+
+    .mist-layout { grid-template-columns: 1fr; gap: 2rem; }
+    .mist-text-wrapper { position: relative; top: 0; min-height: auto; margin-bottom: 2rem; text-align: center; }
+    .mist-info { position: relative; opacity: 1; transform: none; display: none; margin-bottom: 2rem; }
+    .mist-info.active { display: block; }
+    
+    .stack-card { top: 120px; margin-bottom: 5rem; }
+    .stack-card:last-child { margin-bottom: 0; }
+    
+    .feature-split { grid-template-columns: 1fr; }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   SCROLL SNAP (MAGNETIC SECTIONS)
+   ───────────────────────────────────────────────────────────── */
+
+html {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    scroll-padding-top: 20px; /* Gives a little breathing room when snapping */
+}
+
+header,
+.graphic-hero,
+.kinetic-section,
+.stack-section,
+.feature-section,
+.grid-section,
+footer {
+    scroll-snap-align: start; 
+    scroll-snap-stop: normal; 
+}
+
+/* ─────────────────────────────────────────────────────────────
+   NEW: 30-MINUTE SPRINT STATS
+   ───────────────────────────────────────────────────────────── */
+
+.sprint-stats {
+    display: flex;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin: 2rem 0;
+    padding: 1.5rem 0;
+    border-top: 1px solid rgba(0,0,0,0.1);
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.stat-item {
+    text-align: left;
+    flex: 1;
+}
+
+.stat-number {
+    display: block;
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--accent); /* Uses your existing accent color */
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    display: block;
+    font-family: "Manrope", sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    line-height: 1.3;
+    text-transform: uppercase;
+}
+
+/* Mobile Responsive adjustment for the stats */
+@media (max-width: 768px) {
+    .sprint-stats {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    .stat-number {
+        font-size: 2rem;
+    }
+}
+.kinetic-intro p,
+.stack-intro p,
+.section-header-center p {
+    margin: 0 auto 2rem;
+    max-width: 600px;
+    text-align: center;
+}
