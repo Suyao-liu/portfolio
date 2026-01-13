@@ -1,127 +1,384 @@
-/* ───────── GLOBAL TYPE & COLOUR OVERRIDES ───────── */
-body{
-  font-family:"Inter",sans-serif;
-  background:#000;
-  color:#fff;
-  margin:0;
-  scroll-behavior:smooth;
-}
-h1{
-  font-family: "yorkten-slab-condensed", sans-serif;
-  font-weight: 520;
-  font-style: normal;
-}
-h1 span{color:#f2cf4a;}
-
-/* ───────── NAV BAR ───────── */ 
-/* ───────── HERO SECTION — NEW LAYOUT ───────── */
-.home{
-  position:relative;
-  min-height:100vh;
-  display:flex;                     /* keeps hero block itself simple */
-  align-items:flex-start;           /* top‑align */
-  padding:calc(40px + 2rem) clamp(1rem,8vw,6rem) 2rem  clamp(1rem,8vw,6rem);
-  overflow:hidden;
+/* ───────── 1. DESIGN SYSTEM VARIABLES ───────── */
+:root {
+    --bg-main: #F9F7F2;      /* Warm Linen */
+    --text-primary: #2D2926; /* Soft Ebony */
+    --text-muted: #6B665E;   /* Warm Gray */
+    --accent: #B08E4F;       /* Muted Gold */
+    --white-overlay: rgba(249, 247, 242, 0.45);
+    --transition: cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-/* Vanta canvas stays behind */
-.home > canvas{
-  position:absolute!important;inset:0;z-index:0!important;
+/* ───────── 2. HERO SECTION CONTAINER ───────── */
+/* ───────── 2. HERO SECTION CONTAINER ───────── */
+.home {
+    position: relative;
+    width: 100vw;           /* Force full viewport width */
+    height: 100vh;          /* Force full viewport height */
+    min-height: 100vh;      /* Ensures it never shrinks below screen size */
+    
+    display: flex;
+    align-items: center;    /* Vertically center the content */
+    justify-content: flex-start; /* Start content from left */
+    
+    overflow: hidden;
+    background-color: var(--bg-main);
+    
+    padding: 0;             /* REMOVED: was '2rem' - this removes the gap */
+    margin: 0;              /* Ensures no outside margins */
 }
 
-/* fallback photo for mobiles */
-.home-image{position:absolute;inset:0;z-index:0;}
-.home-image img{width:100%;height:100%;object-fit:cover;opacity:.15;}
-@media(min-width:600px){.home-image img{display:none;}}
-
-/* CONTENT GRID -------------------------------------------------- */
-.home-content{
-  position:relative;
-  z-index:2;            /* sits above animation / photo */
-  grid-template-columns:1fr;            /* ← only one column now */
-  grid-template-areas:
-    "title"
-    "desc"
-    "cta";             
-  column-gap:3.5rem;
-  row-gap:1.8rem;
-  max-width:clamp(45rem,70vw,80rem);
-  text-align:left;
+/* Force the Vanta canvas to cover absolutely everything */
+.home > canvas {
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: 0 !important;
+}
+ /* ───────── DESKTOP LAYOUT ───────── */
+@media (min-width: 1500px) {
+    .home-content {
+        /* Push the content card away from the left edge */
+        margin-left: 10%; 
+        
+        /* Keep the card size reasonable */
+        max-width: 600px;
+        width: 45vw;
+        
+        /* Ensure the card stays on top of the full-screen background */
+        position: relative;
+        z-index: 10;
+    }
 }
 
-/* big greeting */
-.home h1{
-  grid-area:title;
-  font-size:clamp(2.8rem,6vw,5rem);
-  margin:0;            /* remove default margin so grid gaps control spacing */
+/* ───────── 3. GLASS CONTENT CARD ───────── */
+/* ───────── 3. GLASS CONTENT CARD ───────── */
+.home-content {
+    position: relative;
+    z-index: 10;
+    text-align: left; 
+    max-width: 900px;
+    padding: 60px;
+    
+    /* ADD THIS LINE TO MOVE IT UP */
+    margin-top: -80px;  
+    
+    background: rgba(249, 247, 242, 0.4);
+    backdrop-filter: blur(20px) saturate(120%);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 50px;
+    box-shadow: 0 40px 100px rgba(45, 41, 38, 0.05);
+    animation: float 6s ease-in-out infinite;
 }
 
-/* descriptive paragraph */
-.home h2{
-  grid-area:desc;
-  font-size:1.5rem;
-  line-height:1.45;
-  margin:0;
-  max-width:40rem;     /* keeps width reasonable on very wide screens */
-  color:#fff;
+/* ───────── 4. TYPOGRAPHY & ANIMATIONS ───────── */
+.home-content h1 {
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    font-weight: 800;
+    color: var(--text-primary);
+    line-height: 1.1;
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: revealUp 0.8s var(--transition) forwards;
 }
 
-/* button */
-.home a{grid-area:cta;}       /* anchor element */
-.aboutme{
-  background:transparent;
-  color:#fff;
-  border:3px solid #f2cf4a;
-  padding:1.3em 4.5em 1.3em .5em
-  letter-spacing.4px;
-  cursor:pointer;
-  transition:background .25s ease,color .25s ease;
+.home-content h1 span {
+    background: linear-gradient(120deg, #B08E4F 0%, #EAE7E0 50%, #B08E4F 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 4s linear infinite;
 }
-.aboutme:hover{background:#f2cf4a;color:#000;}
 
-/*  —  mobile tweak: stack everything in one column —  */
-@media(max-width:767px){
-  .home{
+.home-content h2 {
+    font-family: "Inter", sans-serif;
+    font-size: clamp(1.1rem, 3vw, 1.4rem);
+    font-weight: 300;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin: 0 auto 40px;
+    max-width: 700px;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: revealUp 0.8s var(--transition) 0.2s forwards;
+}
+
+/* ───────── 5. BUTTONS & LINKS ───────── */
+.cta-group { display: flex; align-items: center; gap: 30px; }
+.home-content a { display: inline-block; }
+
+.aboutme {
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    background-color: transparent;
+    color: var(--accent);
+    border: 2px solid var(--accent);
+    padding: 16px 45px;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: scale(0.9);
+    animation: fadeIn 1s ease 0.5s forwards;
+    text-decoration: none;
+}
+.aboutme:hover {
+    background-color: var(--accent);
+    color: #FFFFFF;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(176, 142, 79, 0.2);
+}
+
+.secondary-link {
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    transition: var(--transition);
+    text-decoration: none;
+    opacity: 0;
+    animation: fadeIn 1s ease 0.7s forwards;
+}
+.secondary-link:hover { color: var(--accent); transform: translateX(5px); }
+.badge {
+    font-family: "Manrope", sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    margin-bottom: 20px;
+    display: inline-block;
+    border-bottom: 2px solid var(--accent);
+}
+.hero-description {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin: 30px 0;
+    max-width: 600px;
+}
+
+/* ───────── 6. INTERACTIVE ELEMENTS ───────── */
+.personality-reveal {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: url('images/mypic.JPG') no-repeat center; 
+    background-size: cover;
+    opacity: 0;
+    mix-blend-mode: soft-light;
+    transition: opacity 1s ease;
+    pointer-events: none;
+}
+.home:hover .personality-reveal { opacity: 0.15; }
+.home::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: url('https://grainy-gradients.vercel.app/noise.svg');
+    opacity: 0.05; 
+    pointer-events: none;
+}
+
+/* ───────── 7. ANIMATIONS ───────── */
+@keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-15px); } }
+@keyframes shine { to { background-position: 200% center; } }
+@keyframes revealUp { to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn { to { opacity: 1; transform: scale(1); } }
+@media (max-width: 767px) {
+    .home { padding: 1rem; }
+    .home-content { padding: 2.5rem 1.5rem; border-radius: 30px; text-align: center; }
+    .cta-group { justify-content: center; flex-direction: column; gap: 15px; }
+}
+
+/* =========================================
+   8. LOADER: SYSTEM BOOT STYLE (UPDATED)
+   ========================================= */
+
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 99999;
+    display: flex;
+    justify-content: center;
     align-items: center;
-    padding:calc(50px + 0rem) 1.5rem 3rem;
-  }
-  .home-content{
-    grid-template-columns:1fr;
-    grid-template-areas:
-      "title"
-      "desc"
-      "cta";
-    text-align:center;
-    column-gap:0;
-  }
-  .home h2{
-      text-align: left;
-  }
-  .home a{justify-self:center;}
+    overflow: hidden;
+    
+    /* Cleanup after animation */
+    transition: visibility 0s 2s; 
 }
 
-@media(min-width:1366px){
-  .home h1{
-      margin-top: 10%;
-  }
-  .aboutme{
-      margin-top: 5%;
-      margin-right: 40%;
-  }
+/* A. SHUTTERS (Background) */
+.shutter-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    z-index: 1;
 }
 
-/* ───────── FOOTER (unchanged tweaks) ───────── */
-footer{
-  background:#000000;color:#bbb;text-align:center;font-size:.9rem;
-  padding:2.5rem 1rem 1.5rem;
+.shutter {
+    flex: 1;
+    height: 100%;
+    background-color: #0F0F0F; /* Matte Black */
+    transform-origin: top;
+    border-right: 1px solid rgba(255,255,255,0.03); 
+    
+    /* Smooth curtain lift */
+    transition: transform 1.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 
-footer .social-icons a{
-  color:#bbb;margin:0 .6rem;font-size:1.25rem;transition:color .25s;
+/* B. MARQUEE (SCROLLING TEXT) - HIGH VISIBILITY */
+.marquee-container {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    transform: translateY(-50%) rotate(-5deg);
+    z-index: 2; /* Behind the name */
+    
+    /* UPDATED: Removed blend mode and increased opacity */
+    opacity: 0.4; 
+    pointer-events: none;
 }
-footer .social-icons a:hover{color:#f2cf4a;}
-footer .footer-nav ul{list-style:none;padding:1.2rem 0;margin:0;}
-footer .footer-nav li{display:inline-block;margin:0 .9rem;}
-footer .footer-nav a{text-decoration:none;color:#bbb;transition:color .25s;}
-footer .footer-nav a:hover{color:#f2cf4a;}
-footer .designer{color:#f2cf4a;}
+
+.marquee-text {
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-size: 18vh;
+    font-weight: 900;
+    color: transparent;
+    -webkit-text-stroke: 2px #ffffff; /* White Outline */
+    white-space: nowrap;
+    animation: scroll 20s linear infinite;
+}
+
+@keyframes scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+/* C. FOREGROUND CONTENT */
+.loader-content {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* --- THE NAME --- */
+.title-wrapper {
+    display: flex;
+    overflow: hidden;
+    line-height: 0.8;
+}
+
+.letter {
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-weight: 800;
+    font-size: 18vw;
+    color: #ffffff;
+    text-transform: uppercase;
+    display: inline-block;
+    
+    /* Entrance: Starts low, slides up with smooth EASE OUT */
+    transform: translateY(115%);
+    animation: riseUp 1.4s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+@media (min-width: 1600px) { .letter { font-size: 250px; } }
+
+/* Letter Delays for "Wave" effect */
+.letter:nth-child(1) { animation-delay: 0.1s; }
+.letter:nth-child(2) { animation-delay: 0.15s; }
+.letter:nth-child(3) { animation-delay: 0.2s; }
+.letter:nth-child(4) { animation-delay: 0.25s; }
+.letter:nth-child(5) { animation-delay: 0.3s; }
+
+
+/* --- NEW: BOOT LOG TEXT (Replaces Number) --- */
+.boot-log-wrapper {
+    position: absolute;
+    bottom: 50px;
+    right: 50px; /* Corner positioning */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    
+    /* Entrance Fade */
+    opacity: 0;
+    animation: fadeInCounter 0.8s ease forwards 0.5s;
+}
+
+.cursor {
+    font-family: "Manrope", monospace;
+    font-size: 1.2rem;
+    color: var(--accent); /* Gold */
+    font-weight: 700;
+    animation: blink 1s infinite;
+}
+
+.boot-text {
+    font-family: "Manrope", monospace;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #fff;
+    text-transform: uppercase;
+    min-width: 200px;
+}
+
+/* D. EXIT ANIMATIONS */
+
+/* 1. Shrink Shutters Up */
+.loader.finish-loading .shutter {
+    transform: scaleY(0);
+}
+
+.loader.finish-loading .shutter:nth-child(1) { transition-delay: 0.2s; }
+.loader.finish-loading .shutter:nth-child(2) { transition-delay: 0.3s; }
+.loader.finish-loading .shutter:nth-child(3) { transition-delay: 0.4s; }
+.loader.finish-loading .shutter:nth-child(4) { transition-delay: 0.5s; }
+.loader.finish-loading .shutter:nth-child(5) { transition-delay: 0.6s; }
+
+/* 2. Fade other elements */
+.loader.finish-loading .boot-log-wrapper,
+.loader.finish-loading .marquee-container {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+/* 3. Final hide */
+.loader.finish-loading {
+    visibility: hidden;
+}
+
+/* Keyframes */
+@keyframes riseUp { from { transform: translateY(115%); } to { transform: translateY(0); } }
+@keyframes fadeInCounter { to { opacity: 1; } }
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .boot-log-wrapper {
+        bottom: 30px;
+        right: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+    }
+}
