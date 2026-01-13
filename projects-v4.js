@@ -1,59 +1,111 @@
+document.addEventListener("DOMContentLoaded", () => {
+    const magnifier = document.getElementById('magnifier');
+    const zoomContainer = document.getElementById('magnifier-content-clone');
+    const magnifyArea = document.getElementById('magnify-area');
+    const categories = document.querySelectorAll('.sketch-grid .sketch-category');
+    const exploreButtons = document.querySelectorAll('.explore-btn');
 
-// Fade‑in
-const io = new IntersectionObserver((entries, obs) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('appear');
-      obs.unobserve(e.target);
+    // TWEAK THIS: Zoom level
+    const zoomLevel = 1.5;
+
+    // 1. Create the Live Clone
+    zoomContainer.innerHTML = ''; // Clear just in case
+    const clone = magnifyArea.cloneNode(true);
+    clone.id = 'magnify-area-clone';
+    zoomContainer.appendChild(clone);
+    
+    // Force transform origin to top-left for accurate math
+    zoomContainer.style.transformOrigin = '0 0';
+
+    const clonedCategories = zoomContainer.querySelectorAll('.sketch-category');
+    
+    // Marquee References (for syncing text)
+    const originalMarquee = document.querySelector('.marquee-content');
+    const clonedMarquee = clone.querySelector('.marquee-content');
+    // Stop the clone from animating on its own (we will force-sync it)
+    if (clonedMarquee) clonedMarquee.style.animation = 'none';
+
+    // 2. Sync Hover States
+    categories.forEach((cat, index) => {
+        const color = cat.getAttribute('data-color');
+        cat.style.setProperty('--theme-color', color);
+        clonedCategories[index].style.setProperty('--theme-color', color);
+
+        cat.addEventListener('mouseenter', () => {
+            magnifier.querySelector('.glass-inner').style.borderColor = color;
+            clonedCategories[index].classList.add('force-hover');
+        });
+
+        cat.addEventListener('mouseleave', () => {
+            magnifier.querySelector('.glass-inner').style.borderColor = '#2D2926';
+            clonedCategories[index].classList.remove('force-hover');
+        });
+    });
+
+   // 3. Animation Loop (Handles Movement + Mode Switching)
+    let mouseX = 0, mouseY = 0;
+    let isMouseActive = false;
+    let isOverNav = false;
+
+    window.addEventListener('mousemove', (e) => {
+        isMouseActive = true;
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+
+        // Check if mouse is touching the header/navigation
+        if (e.target.closest('header')) {
+            isOverNav = true;
+        } else {
+            isOverNav = false;
+        }
+    });
+
+    function render() {
+        if (isMouseActive) {
+            
+            if (isOverNav) {
+                // ─── NAV MODE ───
+                // 1. Hide Magnifier
+                magnifier.style.display = 'none';
+                // 2. SHOW Global Cursor (Remove the hiding class)
+                document.body.classList.remove('magnifier-mode'); 
+                
+            } else {
+                // ─── PAGE MODE ───
+                // 1. Show Magnifier (Move it)
+                magnifier.style.display = 'block';
+                magnifier.style.left = `${mouseX}px`;
+                magnifier.style.top = `${mouseY}px`;
+                
+                // 2. HIDE Global Cursor (Add the hiding class)
+                document.body.classList.add('magnifier-mode');
+
+                // 3. Calculate Zoom Logic
+                const rect = magnifyArea.getBoundingClientRect();
+                const relX = mouseX - rect.left;
+                const relY = mouseY - rect.top;
+                const moveX = -(relX * zoomLevel) + (magnifier.offsetWidth / 2);
+                const moveY = -(relY * zoomLevel) + (magnifier.offsetHeight / 2);
+
+                zoomContainer.style.transform = `translate(${moveX}px, ${moveY}px) scale(${zoomLevel})`;
+            }
+        }
+
+        // Sync Marquee Text
+        if (originalMarquee && clonedMarquee) {
+            const style = window.getComputedStyle(originalMarquee);
+            const matrix = style.transform || style.webkitTransform;
+            clonedMarquee.style.transform = matrix;
+        }
+
+        requestAnimationFrame(render);
     }
-  });
-}, { threshold: 0.3 });
 
-document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
+    render();
 
-// UX project accordion
-document.querySelectorAll('.ux-card').forEach(card => {
-  const btn = card.querySelector('.ux-toggle');
-  const content = card.querySelector('.ux-content');
-  btn.addEventListener('click', () => {
-    const open = card.classList.toggle('open');
-    btn.setAttribute('aria-expanded', open);
-    content.style.maxHeight = open ? content.scrollHeight + 'px' : null;
-  });
-});
-
-// UX section master toggle
-const uxSection = document.getElementById('ux');
-const uxToggleMaster = uxSection.querySelector('.ux-section-toggle');
-const uxList = uxSection.querySelector('.ux-list');
-
-uxToggleMaster.addEventListener('click', () => {
-  const collapsed = uxSection.classList.toggle('ux-collapsed');
-  uxToggleMaster.setAttribute('aria-expanded', !collapsed);
-});
-
-// Poster sliders
-const seriesMap = {
-  nature: ['images/nature poster.png', 'images/nature poster.png'],
-  final: ['images/Final poster.png', 'images/Final poster.png'],
-  '30min': ['images/30 minutes.png', 'images/30 minutes.png'],
-  mist: ['images/POSTER 1.png', 'images/POSTER 1.png']
-};
-
-document.querySelectorAll('.poster-card').forEach(card => {
-  const series = card.dataset.series;
-  const imgs = seriesMap[series] || [];
-  let idx = 0;
-  const imgEl = card.querySelector('img');
-
-  const show = i => { if (imgs[i]) imgEl.src = imgs[i]; };
-
-  card.querySelector('.prev').addEventListener('click', () => {
-    idx = (idx - 1 + imgs.length) % imgs.length;
-    show(idx);
-  });
-  card.querySelector('.next').addEventListener('click', () => {
-    idx = (idx + 1) % imgs.length;
-    show(idx);
-  });
+    // 4. Pulse Effect
+    exploreButtons.forEach(btn => {
+        btn.addEventListener('mouseenter', () => magnifier.classList.add('pulse'));
+        btn.addEventListener('mouseleave', () => magnifier.classList.remove('pulse'));
+    });
 });
