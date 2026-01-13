@@ -2,61 +2,120 @@
 <html lang="en-US">
 <head>
   <meta charset="utf-8">
-
-  <!-- Google Fonts -->
-  <link rel="stylesheet" href="https://use.typekit.net/hzy5lai.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   
-  <!-- your original stylesheet -->
+  <link rel="stylesheet" href="https://use.typekit.net/hzy5lai.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Inter:wght@300;400;500;600&family=Manrope:wght@400;600&display=swap">
+  
   <link rel="stylesheet" href="styles.css">
-
-  <!-- new look-and-feel overrides -->
   <link rel="stylesheet" href="hero.css">
 
-  <!-- Font Awesome -->
   <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
         integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"/>
 
   <title>Suyao Portfolio</title>
+  <script src="all.js" defer></script>
 </head>
 
 <body>
-  <!--──────────── NAV ────────────-->
+  <div class="cursor-square"></div>
+  <div class="cursor-line"></div>
+  <div class="loader">
+      
+      <div class="shutter-container">
+          <div class="shutter"></div>
+          <div class="shutter"></div>
+          <div class="shutter"></div>
+          <div class="shutter"></div>
+          <div class="shutter"></div>
+      </div>
+
+      <div class="marquee-container">
+          <div class="marquee-text">
+              PORTFOLIO 2026 • DESIGN • EXPERIENCE • SUYAO • STORYTELLING • 
+              PORTFOLIO 2026 • DESIGN • EXPERIENCE • SUYAO • STORYTELLING •
+          </div>
+      </div>
+
+      <div class="loader-content">
+          <div class="title-wrapper">
+             <span class="letter">S</span>
+             <span class="letter">U</span>
+             <span class="letter">Y</span>
+             <span class="letter">A</span>
+             <span class="letter">O</span>
+          </div>
+          
+          <div class="boot-log-wrapper">
+              <span class="cursor">></span>
+              <span class="boot-text">INITIALIZING...</span>
+          </div>
+      </div>
+  </div>
   <header>
     <a href="index.html" class="logo">Suyao</a>
+
+    <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
     <nav>
       <a href="index.html" class="active">Home</a>
-      <a href="projects.html">Projects</a>
+      
+      <div class="dropdown-wrapper">
+        <a href="projects.html" class="project-link">
+            Projects 
+            <svg class="arrow-icon" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </a>
+
+        <div class="dropdown-content">
+            <a href="projects.html" class="all-projects">All Projects</a>
+            <div class="divider"></div> 
+            <a href="projects-web.html">Website</a>
+            <a href="projects-ux.html">UX / UI</a>
+            <a href="projects-media.html">Media</a>
+            <a href="projects-graphic.html">Graphic</a>
+            <a href="projects-personal.html">Personal</a>
+        </div>
+      </div>
+
       <a href="experience.html">Experience</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
     </nav>
   </header>
 
-  <!--──────────── HERO ────────────-->
   <section class="home" id="hero">
-    <div class="home-image">
-      <img src="images/background.jpg" alt="snow mountain">
-    </div>
+    <div class="personality-reveal"></div>
 
     <div class="home-content">
-      <h1>Welcome! I'm <span>Suyao</span></h1>
-      <h2>a passionate designer with a flair for illustration, digital interfaces, and visual storytelling. Dive into my portfolio to see how I turn ideas into engaging, impactful designs.&nbsp;(I BUILT THIS SITE!) 👋</h2>
-      <a href="about.html">
-        <button class="aboutme" type="button">ABOUT ME</button>
-      </a>
+      <div class="badge">DESIGNER • STORYTELLER • BUILDER</div>
+      <h1>Welcome, I'm <span>Suyao</span></h1>
+      
+      
+      <p class="hero-description">
+        A digital designer with a global perspective. Fueled by my journey from the Philippines to Waterloo, I combine <span>illustration, videography, and code</span> to craft experiences that aren't just seen, they're felt. Let's tell a story together.
+      </p>
+
+      <div class="cta-group">
+        <a href="projects.html" class="aboutme">VIEW WORK</a>
+        <a href="about.html" class="secondary-link">MY STORY ↗</a>
+      </div>
     </div>
   </section>
 
-  <!--──────────── FOOTER ────────────-->
   <footer>
     <div class="footercontainer">
       <div class="social-icons">
         <a href="https://www.linkedin.com/in/suyao-liu-9714762a0/"><i class="fa-brands fa-linkedin"></i></a>
         <a href="https://www.instagram.com/selinaliu_lsy/"><i class="fa-brands fa-instagram"></i></a>
         <a href="https://www.youtube.com/@pillowscoolers1020"><i class="fa-brands fa-youtube"></i></a>
-        <a href="https://github.com/Pillowscoolers"><i class="fa-brands fa-github"></i></a>
+        <a href="https://github.com/s226liu"><i class="fa-brands fa-github"></i></a>
       </div>
 
       <div class="footer-nav">
@@ -71,25 +130,117 @@
     </div>
 
     <div class="footer-cr">
-      <p>Copyright &copy;2024; Designed & Coded by <span class="designer">Suyao Liu</span></p>
+      <p>Copyright &copy;2026; Designed & Coded by <span class="designer">Suyao Liu</span></p>
     </div>
   </footer>
 
-  <!--──────────── SCRIPTS ────────────-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.24/vanta.globe.min.js"></script>
+
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      VANTA.GLOBE({
-        el: "#hero",
-        mouseControls: true,
-        touchControls: true,
-        scale: 1.0,
-        scaleMobile: 1.0,
-        color: 0xffffff,
-        color2: 0x222222,
-        backgroundColor: 0x000000
-      });
+      /* ───────── 1. NEW LOADER LOGIC (TEXT BASED) ───────── */
+      const loader = document.querySelector(".loader");
+      const letters = document.querySelectorAll(".loader .letter");
+      const bootText = document.querySelector(".boot-text");
+      const bootWrapper = document.querySelector(".boot-log-wrapper");
+      
+      // Creative messages to cycle through instead of numbers
+      const messages = [
+          "INITIALIZING...",
+          "LOADING ASSETS...",
+          "CALIBRATING DESIGN...",
+          "RENDERING PIXELS...",
+          "SYSTEM READY."
+      ];
+      
+      let msgIndex = 0;
+      let intervalId = null;
+
+      function nextMessage() {
+          if (!bootText) return; // Safety check
+          
+          msgIndex++;
+          if (msgIndex < messages.length) {
+              bootText.textContent = messages[msgIndex];
+              
+              // Speed up slightly as we go
+              let nextDelay = 300 + Math.random() * 400; 
+              if (msgIndex === messages.length - 1) nextDelay = 1000; // Hold "READY" longer
+              
+              intervalId = setTimeout(nextMessage, nextDelay);
+          } else {
+              finishLoader();
+          }
+      }
+
+      function finishLoader() {
+        if (!loader) return;
+        if (intervalId) clearTimeout(intervalId);
+
+        // Trigger CSS Exit animations
+        loader.classList.add("finish-loading");
+
+        // 1. Fade out Text Elements
+        letters.forEach((letter) => {
+          letter.style.animation = "none"; 
+          letter.style.transition = "transform 0.6s ease-in, opacity 0.5s ease";
+          letter.style.opacity = "0";
+          letter.style.transform = "translateY(-150%)";
+        });
+
+        if (bootWrapper) {
+          bootWrapper.style.transition = "transform 0.6s ease-in, opacity 0.5s ease";
+          bootWrapper.style.opacity = "0";
+          bootWrapper.style.transform = "translateY(50px)";
+        }
+
+        // 2. Remove Loader from DOM after animations
+        setTimeout(() => {
+          loader.style.display = "none"; 
+        }, 2000); 
+      }
+
+      // Start the cycle
+      setTimeout(nextMessage, 500);
+
+      /* ───────── 2. VANTA BACKGROUND ───────── */
+      try {
+        VANTA.GLOBE({
+          el: "#hero",
+          mouseControls: true,
+          touchControls: true,
+          gyroControls: false,
+          minHeight: 200.0,
+          minWidth: 200.0,
+          scale: 1.0,
+          scaleMobile: 1.0,
+          color: 0xb08e4f,
+          color2: 0x6b665e,
+          backgroundColor: 0xf9f7f2,
+          points: 14.0,
+          maxDistance: 20.0,
+          spacing: 16.0,
+        });
+      } catch (error) {
+        console.log("Vanta JS failed to load");
+      }
+
+      /* ───────── 3. MAGNETIC BUTTON ───────── */
+      const btn = document.querySelector(".aboutme");
+      if (btn) {
+        document.addEventListener("mousemove", (e) => {
+          const rect = btn.getBoundingClientRect();
+          const x = e.clientX - rect.left - rect.width / 2;
+          const y = e.clientY - rect.top - rect.height / 2;
+
+          if (Math.abs(x) < 100 && Math.abs(y) < 100) {
+            btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+          } else {
+            btn.style.transform = `translate(0px, 0px)`;
+          }
+        });
+      }
     });
   </script>
 </body>
