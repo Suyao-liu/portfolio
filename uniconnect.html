@@ -4,180 +4,234 @@
   <meta charset="utf-8">
   <title>🌟 Uni-Connect Case Study | Suyao</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  
   <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="uni.css">
-  <link rel="stylesheet" href="zoom.css">
-  <script defer src="zoom.js"></script>
-
+  <link rel="stylesheet" href="uni.css"> <link rel="stylesheet" href="zoom.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <script defer src="zoom.js"></script>
+  <script defer src="all.js"></script>
 </head>
+
 <body>
+<div class="cursor-square"></div>
+<div class="cursor-line"></div>
 <header>
-  <a href="index.html" class="logo">Suyao</a>
-  <nav>
-    <a href="index.html">Home</a>
-    <a class="active" href="projects.html">Projects</a>
-    <a href="experience.html">Experience</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+    <a href="index.html" class="logo">Suyao</a>
+    
+    <nav>
+        <a href="projects-ux.html" class="back-link">
+            <i class="fa-solid fa-arrow-left"></i> Back to UX
+        </a>
+    </nav>
 </header>
 
-<main class="wrapper">
-  <!-- Intro -->
-  <section class="section section-intro">
-    <h1 class="section-title">🌟 Uni-Connect</h1>
-    <p class="section-tag">Turning surface-level encounters into genuine campus friendships</p>
-    <p class="project-description">
-      <strong>Role:</strong> UX/UI Designer <br>
-      <strong>Team:</strong> Queene C., Lisa H., Suyao L. <br>
-      <strong>Course:</strong> GBDA 210 <br>
-      <strong>Timeline:</strong> April 2025 <br>
-      <strong>Tools:</strong> Figma, Paper Prototyping, Usability Testing
+<main>
+
+  <section class="cs-hero">
+    <h1 class="cs-title">Uni-Connect</h1>
+    <p class="cs-tagline">Turning surface-level encounters into genuine campus friendships</p>
+    
+    <div class="cs-meta-grid">
+      <div class="meta-card">
+        <span class="meta-label">Role</span>
+        <div class="meta-value">UX/UI Designer</div>
+      </div>
+      <div class="meta-card">
+        <span class="meta-label">Team</span>
+        <div class="meta-value">Queene C., Lisa H., Suyao L.</div>
+      </div>
+      <div class="meta-card">
+        <span class="meta-label">Timeline</span>
+        <div class="meta-value">April 2025 (GBDA 210)</div>
+      </div>
+      <div class="meta-card">
+        <span class="meta-label">Tools</span>
+        <div class="meta-value">Figma, Paper Prototyping, Usability Testing</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-context">
+    <h2>Context & Problem</h2>
+    <p>
+      At the University of Waterloo, many students especially commuters struggle to build meaningful social connections.
+      Key issues include: shyness, packed schedules, and fragmented event information across platforms like Instagram and WUSA.
+      Research showed that <em>1 in 5 upper-year students</em> lacks a “real friend.” Our challenge was to design a solution
+      that helps both commuters and residents discover events and transition from online connections to genuine, in-person friendships.
     </p>
   </section>
 
-  <section class="section fade-in">
-    <h2 class="section-title">Context & Problem</h2>
-        <p class="project-description">
-            At the University of Waterloo, many students especially commuters struggle to build meaningful social connections.
-            Key issues include: shyness, packed schedules, and fragmented event information across platforms like Instagram and WUSA.
-            Research showed that <em>1 in 5 upper-year students</em> lacks a “real friend.” Our challenge was to design a solution
-            that helps both commuters and residents discover events and transition from online connections to genuine, in-person friendships.
-        </p>
-  </section>
-
-  <!-- Research Phase -->
-  <section class="section fade-in">
-    <h2 class="section-title">01&nbsp; Problem Framing & Desk Research</h2>
-      <div class="project-description">
-        <p>Ran a Crazy 8 sprint (24 ideas) and validated the concept with external data—<em>1&nbsp;in&nbsp;5</em> upper-year students report having no “real friend.” Defined the guiding question: <q>How might we let shy commuters and residents discover events and start conversations effortlessly?</q></p>
-      </div>
-
-  </section>
-
-  <section class="section fade-in">
-    <h2 class="section-title">02&nbsp; Primary Research</h2>
-    <div class="ux-content">
-        <img src="images/affinity.jpeg" alt="Affinity wall placeholder" class="zoomable">
-        <div class="project-description">
-            <p> We conducted 15 user interviews (commuters, residents, introverts, extroverts) and synthesized 20+ sticky notes into an <strong>affinity diagram</strong>.</p>
-            <ul>
-                <li><strong>Initiating social interaction is difficult:</strong> “I typically don’t initiate conversations… I wait until someone else initiates first.”</li>
-                <li><strong>Event awareness is low:</strong> Students miss events because information is scattered across too many platforms.</li>
-                <li><strong>Desire for deeper connections:</strong> Many feel drained by surface-level friendships and want more emotional depth.</li>
-                <li><strong>Social media has limits:</strong> Instagram and TikTok help discover events but feel awkward for building real-life connections.</li>
-            </ul>
-        </div>
+  <section class="cs-section">
+    <div class="cs-sticky-header">
+      <h2>01 Problem Framing & Desk Research</h2>
     </div>
-  </section>
-
-  <section class="section fade-in">
-    <h2 class="section-title">03&nbsp; Personas & JTBD</h2>
-    <div class="ux-content">
-      <img src="images/persona1.jpeg" alt="Persona cards placeholder" class="zoomable">
-      <img src="images/persona2.jpeg" alt="Persona cards placeholder" class="zoomable">
-      <div class="project-description">
-          <p>
-            <strong>Mike</strong> — commuter, introvert, struggle with scattered information and need a centralized source.<br>
-            <strong>Carine</strong> — commuter, extrovert, seeking for deeper connections.
-          </p>
-          <p>
-            <strong>Key user tasks:</strong>
-          </p>
-          <ul>
-            <li>Filter events by interest and availability</li>
-            <li>Match with peers based on shared interests</li>
-            <li>Receive personalized event recommendations</li>
-            <li>Discover spontaneous nearby events on campus</li>
-          </ul>
+    <div class="cs-content">
+      <div class="text-block">
+        <p>Ran a Crazy 8 sprint (24 ideas) and validated the concept with external data—<em>1 in 5</em> upper-year students report having no “real friend.” Defined the guiding question:</p>
+        <q>How might we let shy commuters and residents discover events and start conversations effortlessly?</q>
       </div>
     </div>
   </section>
 
-  <!-- Requirements & Features -->
-  <section class="section fade-in">
-    <h2 class="section-title">04&nbsp; MoSCoW Requirements</h2>
-    <div class="ux-content-05">
-      <div class="project-description">
-        <p><strong>Must‑haves&nbsp;:</strong> central event list, personalised matching, filtering<br />
-           <strong>Should‑haves&nbsp;:</strong> map view, ice‑breaker prompts, interest groups<br />
-           <strong>Could‑haves&nbsp;:</strong> mutual‑friend suggestions, event rating and reviews<br />
-           <strong>Excluded&nbsp;:</strong> feeds & follower counts to avoid vanity metrics.</p>
-      </div>
+  <section class="cs-section">
+    <div class="cs-sticky-header">
+      <h2>02 Primary Research</h2>
     </div>
-  </section>
-
-  <!-- Design Process -->
-  <section class="section fade-in">
-    <h2 class="section-title">05&nbsp; Paper & Low‑Fi Prototypes</h2>
-    <div class="ux-content">
-      <img src="images/paper prototype.jpeg" alt="Low-fi wireframes placeholder" class="zoomable">
-      <img src="images/wireframe.jpeg" alt="Low-fi wireframes placeholder" class="zoomable">
-      <img src="images/storyboard.jpeg" alt="Low-fi wireframes placeholder" class="zoomable">
-      <div class="project-description">
-        <p>Sketched flows on paper, moved into Figma wireframes, and introduced a List ⇄ Map toggle after map‑first layouts confused users.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section fade-in">
-    <h2 class="section-title">06&nbsp; High‑Fi Prototype & Design System</h2>
-    <div class="ux-content">
-      <img src="images/mock up1.png" alt="High-fi screens placeholder" class="zoomable">
-      <div class="project-description">
-        <p>Built a token‑based UI kit; added a location‑aware <em>For You</em> rail, an onboarding progress bar, and a streamlined four‑icon navigation.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Usability Testing & Iteration -->
-  <section class="section fade-in">
-    <h2 class="section-title">07&nbsp; Usability Testing</h2>
-    <div class="ux-content">
-      <img src="images/ut1.png" alt="Usability session placeholder" class="zoomable">
-      <img src="images/ut2.png" alt="Usability session placeholder" class="zoomable">
-      <div class="project-description">
-        <p>
-            We tested 4 core tasks (matchmaking, event navigation, onboarding, chatrooms) with 9 participants.
-          </p>
-          <p>
-            <strong>Outcome:</strong> System Usability Scale (SUS) score of 82.5 (90th percentile).
-          </p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section fade-in">
-    <h2 class="section-title">08&nbsp; Iteration & Issue Log</h2>
-    <div class="ux-content">
-      <img src="images/iteration1.png" alt="Issue log spreadsheet placeholder" class="zoomable">
-      <img src="images/iteration2.png" alt="Outcome dashboard placeholder" class="zoomable">
-      <div class="project-description">
-        <p>Resolved 10 key issues</p>
+    <div class="cs-content">
+      <img src="images/affinity.jpeg" alt="Affinity wall" class="img-full zoomable">
+      <div class="text-block">
+        <p>We conducted 15 user interviews (commuters, residents, introverts, extroverts) and synthesized 20+ sticky notes into an <strong>affinity diagram</strong>.</p>
         <ul>
-            <li>Added “My Chat Rooms” to help users return to conversations</li>
-            <li>Enlarged button sizes for better mobile accessibility</li>
-            <li>Introduced dual back buttons in onboarding</li>
-            <li>Improved saved event feedback and notification controls</li>
-            <li>Allowed users to unselect options in matchmaking</li>
-          </ul>
-          <p>
-            These changes cut average task time by 23% and reduced user confusion.
-          </p>
+          <li><strong>Initiating social interaction is difficult:</strong> “I typically don’t initiate conversations… I wait until someone else initiates first.”</li>
+          <li><strong>Event awareness is low:</strong> Students miss events because information is scattered across too many platforms.</li>
+          <li><strong>Desire for deeper connections:</strong> Many feel drained by surface-level friendships and want more emotional depth.</li>
+          <li><strong>Social media has limits:</strong> Instagram and TikTok help discover events but feel awkward for building real-life connections.</li>
+        </ul>
       </div>
     </div>
   </section>
 
-  <!-- Outcome -->
-  <section class="section fade-in">
-    <h2 class="section-title">09&nbsp; Outcome</h2>
-    
-      <div class="project-description">
-        <p>Students can now move from “I don’t know anyone” to having an event buddy and a weekend plan. The project proves my ability to translate research into polished, high‑impact UX/UI.</p>
+  <section class="cs-section">
+    <div class="cs-sticky-header">
+      <h2>03 Personas & JTBD</h2>
+    </div>
+    <div class="cs-content">
+      <div class="grid-2">
+        <img src="images/persona1.jpeg" alt="Persona Mike" class="img-full zoomable">
+        <img src="images/persona2.jpeg" alt="Persona Carine" class="img-full zoomable">
       </div>
- 
+      <div class="text-block">
+        <p>
+          <strong>Mike</strong> — commuter, introvert, struggle with scattered information and need a centralized source.<br>
+          <strong>Carine</strong> — commuter, extrovert, seeking for deeper connections.
+        </p>
+        <p><strong>Key user tasks:</strong></p>
+        <ul>
+          <li>Filter events by interest and availability</li>
+          <li>Match with peers based on shared interests</li>
+          <li>Receive personalized event recommendations</li>
+          <li>Discover spontaneous nearby events on campus</li>
+        </ul>
+      </div>
+    </div>
   </section>
+
+  <section class="cs-section">
+    <div class="cs-sticky-header">
+      <h2>04 MoSCoW Requirements</h2>
+    </div>
+    <div class="cs-content">
+      <div class="moscow-grid">
+        <div class="moscow-card">
+          <h3>Must-haves</h3>
+          <p>central event list, personalised matching, filtering</p>
+        </div>
+        <div class="moscow-card">
+          <h3>Should-haves</h3>
+          <p>map view, ice-breaker prompts, interest groups</p>
+        </div>
+        <div class="moscow-card">
+          <h3>Could-haves</h3>
+          <p>mutual-friend suggestions, event rating and reviews</p>
+        </div>
+        <div class="moscow-card" style="opacity: 0.7;">
+          <h3>Excluded</h3>
+          <p>feeds & follower counts to avoid vanity metrics.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-section">
+    <div class="cs-sticky-header">
+      <h2>05 Paper & Low-Fi Prototypes</h2>
+    </div>
+    <div class="cs-content">
+      <div class="text-block">
+        <p>Sketched flows on paper, moved into Figma wireframes, and introduced a List ⇄ Map toggle after map-first layouts confused users.</p>
+      </div>
+      <div class="grid-3">
+        <img src="images/paper prototype.jpeg" alt="Paper Prototype" class="img-full zoomable">
+        <img src="images/wireframe.jpeg" alt="Wireframe" class="img-full zoomable">
+        <img src="images/storyboard.jpeg" alt="Storyboard" class="img-full zoomable">
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-section">
+    <div class="cs-sticky-header">
+      <h2>06 High-Fi Prototype</h2>
+    </div>
+    <div class="cs-content">
+      <div class="text-block">
+        <p>Built a token-based UI kit; added a location-aware <em>For You</em> rail, an onboarding progress bar, and a streamlined four-icon navigation.</p>
+      </div>
+      <img src="images/mock up1.png" alt="High-fi screens" class="img-full zoomable">
+    </div>
+  </section>
+
+  <section class="cs-section">
+    <div class="cs-sticky-header">
+      <h2>07 Usability Testing</h2>
+    </div>
+    <div class="cs-content">
+      <div class="text-block">
+        <p>We tested 4 core tasks (matchmaking, event navigation, onboarding, chatrooms) with 9 participants.</p>
+        <p><strong>Outcome:</strong> System Usability Scale (SUS) score of 82.5 (90th percentile).</p>
+      </div>
+      <div class="grid-2">
+        <img src="images/ut1.png" alt="Usability session" class="img-full zoomable">
+        <img src="images/ut2.png" alt="Usability session" class="img-full zoomable">
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-section">
+    <div class="cs-sticky-header">
+      <h2>08 Iteration & Issue Log</h2>
+    </div>
+    <div class="cs-content">
+      <div class="grid-2">
+        <img src="images/iteration1.png" alt="Issue log" class="img-full zoomable">
+        <img src="images/iteration2.png" alt="Outcome dashboard" class="img-full zoomable">
+      </div>
+      <div class="text-block">
+        <p>Resolved 10 key issues:</p>
+        <ul>
+          <li>Added “My Chat Rooms” to help users return to conversations</li>
+          <li>Enlarged button sizes for better mobile accessibility</li>
+          <li>Introduced dual back buttons in onboarding</li>
+          <li>Improved saved event feedback and notification controls</li>
+          <li>Allowed users to unselect options in matchmaking</li>
+        </ul>
+        <p>These changes cut average task time by 23% and reduced user confusion.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-section" style="border-bottom: none;">
+    <div class="cs-sticky-header">
+      <h2>09 Outcome</h2>
+    </div>
+    <div class="cs-content">
+      <div class="outcome-box">
+        <p>Students can now move from “I don’t know anyone” to having an event buddy and a weekend plan. The project proves my ability to translate research into polished, high-impact UX/UI.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="pdf-section">
+    <h2 class="title">View Full Slide Deck</h2>
+    <p>Explore the complete presentation for this case study.</p>
+    
+    <div class="pdf-container">
+      <iframe src="images/GBDA 210 Milestone 3.pdf" width="100%" height="100%" frameborder="0">
+        This browser does not support PDFs. Please download the PDF to view it: <a href="your-slides.pdf">Download PDF</a>
+      </iframe>
+    </div>
+  </section>
+
 </main>
 
 <footer>
@@ -199,8 +253,9 @@
     </div>
   </div>
   <div class="footer-cr">
-    <p>© 2024 Designed & coded by <span class="designer">Suyao Liu</span></p>
+    <p>© 2024 Designed & coded by <span class="designer">Suyao Liu</span></p>
   </div>
 </footer>
+
 </body>
 </html>
