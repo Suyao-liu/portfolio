@@ -3,171 +3,363 @@
 <head>
     <meta charset="utf-8">
     <title>Suyao Portfolio | Experience</title>
-    <!-- Global site stylesheet -->
-     <!-- Put this in the <head> of every page, above your own CSS -->
-    <link rel="stylesheet" href="styles.css">
-    <!-- Experience section specific styles -->
-    <link rel="stylesheet" href="experience.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Inter:ital,wght@0,100..900;1,100..900&family=Manrope:wght@200..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" />
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="experience.css">
+    
+    <script src="all.js" defer></script>
 </head>
 <body>
-    <!-- ===== Header ===== -->
+    <div class="cursor-square"></div>
+    <div class="cursor-line"></div>
+    <div class="ambient-bg">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+        <div class="noise-overlay"></div>
+    </div>
+
     <header>
-        <a href="index.html" class="logo">Suyao</a>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="projects.html">Projects</a>
-            <a href="experience.html" class="active">Experience</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-    </header>
+    <a href="index.html" class="logo">Suyao</a>
 
-    <!-- ===== Experience ===== -->
-    <section id="experience" class="experience-section">
-        <h1 class="section-title"><span>Experience</span></h1>
+    <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <nav>
+      <a href="index.html" class="active">Home</a>
+      
+      <div class="dropdown-wrapper">
+        <a href="projects.html" class="project-link">
+            Projects 
+            <svg class="arrow-icon" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </a>
 
-        <div class="experience-grid">
-            <article class="experience-item reveal">
-                <div class="photo-slider">
-                    <div class="slides">
-                    <img src="images/camera.JPG"  alt="me with a camera">
-                      <img src="images/camera2.JPG"  alt="camera at my hand">
-                    </div>
-                    <button class="ps-btn ps-prev" aria-label="Previous">&#10094;</button>
-                    <button class="ps-btn ps-next" aria-label="Next">&#10095;</button>
-                </div>
-                <div class="experience-text">
-                    <h2>Freelance Videographer</h2>
-                    <p class="period">2023 &ndash; Present</p>
-                    <ul>
-                        <li>Directed, filmed, and edited multiple short films aligning visual narratives with directors’ vision.</li>
-                        <li>Managed post production processes including video editing, color grading, and sound mixing using Adobe&nbsp;Premiere&nbsp;Pro and DaVinci&nbsp;Resolve.</li>
-                        <li>Skilled in camera work, lighting setups, and audio equipment across different projects, creating high quality, emotion driven content.</li>
-                    </ul>
-                </div>
-            </article>
-
-            <article class="experience-item reveal">
-                <div class="photo-slider">
-                    <div class="slides">
-                      <img src="images/rogerstv.jpeg"  alt="Rogers TV behind-the-scenes">
-                      <img src="images/rogers director.jpeg"  alt="Directing broadcast">
-                      <img src="images/rogers camera.jpeg"  alt="Live broadcasting">
-                      <img src="images/rogers nametag.png"  alt="Name tag for the broadcasting">
-                      <img src="images/rogers work environment.png"  alt="behind the scence">
-                    </div>
-                    <button class="ps-btn ps-prev" aria-label="Previous">&#10094;</button>
-                    <button class="ps-btn ps-next" aria-label="Next">&#10095;</button>
-                </div>
-                
-                <div class="experience-text">
-                    <h2>Camera Operator</h2>
-                    <p class="period">Rogers&nbsp;TV | 2023 &ndash; Present (volunteer)</p>
-                    <ul>
-                        <li>Directed live broadcasts and collaborated with production crews to deliver seamless on-air experiences.</li>
-                        <li>Operated camera equipment for live broadcasts and community programming, ensuring professional shot composition and framing.</li>
-                        <li>Collaborated with production teams to set up lighting and sound for optimal broadcast quality.</li>
-                        <li>Captured footage under tight deadlines, delivering high‑quality results for television audiences.</li>
-                    </ul>
-                </div>
-            </article>
-            
-            <article class="experience-item reveal">
-                <img src="images/Gyubee.png" alt="Camera Operator">
-                <div class="experience-text no-image">
-                    <h2>Waitress &amp; Runner</h2>
-                    <p class="period">Gyubee&nbsp;BBQ | Jan&nbsp;2024 – Jul&nbsp;2024</p>
-                    <ul>
-                        <li>Thrived in a fast paced environment, efficiently handling high pressure rush hours to maintain smooth and timely service.</li>
-                        <li>Engaged with customers to ensure a positive dining experience.</li>
-                        <li>Communicated clearly with team members to streamline service.</li>
-                        <li>Cleaned and organized the restaurant after closing.</li>
-                    </ul>
-                </div>
-            </article>
-
-            <article class="experience-item reveal">
-                <div class="photo-slider">
-                    <div class="slides">
-                      <img src="images/weve.png"  alt="Rogers TV behind-the-scenes">
-                      <img src="images/weve.JPG"  alt="Directing broadcast">
-                      <img src="images/weve2.JPG"  alt="Live broadcasting">
-                    </div>
-                    <button class="ps-btn ps-prev" aria-label="Previous">&#10094;</button>
-                    <button class="ps-btn ps-next" aria-label="Next">&#10095;</button>
-                </div>
-                <div class="experience-text">
-                    <h2>Marketing &amp; Sales Associate</h2>
-                    <p class="period">WEVE Waterloo | Sept&nbsp;2023 – Jan&nbsp;2024</p>
-                    <ul>
-                        <li>Created engaging posters and videos to promote products and services on social media platforms.</li>
-                        <li>Delivered excellent customer service by engaging with customers in‑person and selling products.</li>
-                        <li>Collaborated with the team to ensure cohesive brand messaging across promotional materials.</li>
-                        <li>Assisted in organizing events and sales campaigns to increase visibility and customer traffic.</li>
-                    </ul>
-                </div>
-            </article>
-
-            <article class="experience-item reveal">
-                <img src="images/English ta..png" alt="Marketing & Sales Associate">
-                <div class="experience-text no-image">
-                    <h2>English Class TA</h2>
-                    <p class="period">E‑blocks Education | Jan&nbsp;2021 – Jun&nbsp;2021</p>
-                    <ul>
-                        <li>Facilitated interactive English lessons for kindergarten aged students, ensuring clarity, engagement, and language development.</li>
-                        <li>Communicated effectively with parents to provide regular updates on student progress and classroom activities.</li>
-                        <li>Supported young learners by maintaining a structured, positive, and inclusive classroom environment.</li>
-                        <li>Prepared and organized lesson materials to enhance instructional delivery and optimize learning outcomes.</li>
-                    </ul>
-                </div>
-            </article>
-
-            <article class="experience-item reveal">
-                <img src="images/bookstore.JPG" alt="Bookstore helper">
-                <div class="experience-text">
-                    <h2>Bookstore Helper</h2>
-                    <p class="period">iTalk Bookstore | Sept&nbsp;2020 – Nov&nbsp;2020</p>
-                    <ul>
-                        <li>Assisted in designing store merchandise, including tote bags, to enhance brand identity and customer engagement.</li>
-                        <li>Recorded inventory and organized shelves to improve store layout and product accessibility.</li>
-                        <li>Provided friendly and knowledgeable customer service to help visitors locate and select books.</li>
-                        <li>Maintained a clean, welcoming, and organized retail environment.</li>
-                    </ul>
-                </div>
-            </article>
+        <div class="dropdown-content">
+            <a href="projects.html" class="all-projects">All Projects</a>
+            <div class="divider"></div> 
+            <a href="projects-web.html">Website</a>
+            <a href="projects-ux.html">UX / UI</a>
+            <a href="projects-media.html">Media</a>
+            <a href="projects-graphic.html">Graphic</a>
+            <a href="projects-personal.html">Personal</a>
         </div>
-    </section>
+      </div>
 
-    <!-- ===== Footer ===== -->
+      <a href="experience.html">Experience</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+    <main>
+        <section class="exp-hero">
+            <span class="badge fade-in-up">Career History</span>
+            <h1 class="hero-title fade-in-up" style="animation-delay: 0.1s;">
+                Professional <span class="accent-text">Journey</span>
+            </h1>
+            
+            <div class="gallery-hint fade-in-up" style="animation-delay: 0.2s;">
+                <i class="fa-solid fa-circle-info"></i>
+                <p>Some projects feature an image gallery. Use the arrows to explore.</p>
+            </div>
+        </section>
+
+        <nav class="quick-nav fade-in-up" style="animation-delay: 0.3s;">
+            <div class="nav-item">
+                <a href="#ongoing" class="nav-btn">Ongoing Works <i class="fa-solid fa-chevron-down"></i></a>
+                <div class="nav-dropdown">
+                    <a href="#swff">SWFF</a>
+                    <a href="#rogers">Rogers TV</a>
+                    <a href="#freelance">Freelance Video</a>
+                </div>
+            </div>
+            
+            <div class="nav-item">
+                <a href="#past" class="nav-btn">Previous Experience <i class="fa-solid fa-chevron-down"></i></a>
+                <div class="nav-dropdown">
+                    <a href="#kwmc">KWMC</a>
+                    <a href="#weve">WEVE Waterloo</a>
+                    <a href="#eblocks">E-Blocks</a>
+                    <a href="#italk">iTalk Bookstore</a>
+                </div>
+            </div>
+        </nav>
+
+        <div id="ongoing" class="timeline-header sticky-header animate-on-scroll">
+            <span>Ongoing Works</span>
+        </div>
+
+        <section class="timeline-container">
+            <div class="timeline-line"></div>
+
+            <article id="swff" class="timeline-item animate-on-scroll">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">Dec 2025 &ndash; Present</div>
+                <div class="exp-card">
+                    <div class="photo-slider">
+                        <div class="slides">
+                            <img src="images/SWFF.png" alt="swff homepage">
+                            <img src="images/swff-trailer.png" alt="swaff trailers">
+                            <img src="images/swff-location.png" alt="swaff location">
+                            <img src="images/swff-seo.png" alt="swaff seo">
+                        </div>
+                        <button class="ps-btn ps-prev" aria-label="Previous">&#10094;</button>
+                        <button class="ps-btn ps-next" aria-label="Next">&#10095;</button>
+                    </div>
+                    <div class="card-content">
+                        <div class="role-header">
+                            <h2>Webmaster</h2>
+                            <span class="company">Stratford Winter Film Festival</span>
+                        </div>
+                        <ul class="role-details">
+                            <li>Orchestrated the festival’s <strong>digital ecosystem</strong>, overseeing <strong>SEO</strong>, <strong>site performance</strong>, <strong>GoDaddy hosting</strong>, and ongoing updates throughout the festival season.</li>
+                            <li>Led <strong>social media management</strong> for <strong>Instagram and Facebook</strong>, planning and publishing content to promote films, events, and key festival moments while maintaining brand consistency.</li>
+                            <li>Integrated <strong>high-fidelity film trailers</strong> and <strong>multimedia assets</strong>, optimizing <strong>playback and responsiveness</strong> across desktop and mobile devices.</li>
+                            <li>Managed <strong>third-party integrations</strong>, including <strong>Ticket Tailor</strong>, to streamline the ticket purchasing flow and improve the overall user experience.</li>
+                        </ul>
+                        <div class="action-row">
+                            <div class="skill-tags">
+                                <span>Webmaster</span>
+                                <span>SEO</span>
+                                <span>Social Media</span>
+                                <span>Content Strategy</span>
+                            </div>
+                            <a href="project-swff.html" class="explore-btn">Explore Project <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article id="rogers" class="timeline-item animate-on-scroll">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">2023 &ndash; Present</div>
+                <div class="exp-card">
+                    <div class="photo-slider">
+                        <div class="slides">
+                            <img src="images/rogerstv.jpeg" alt="Rogers TV Studio">
+                            <img src="images/rogers director.jpeg" alt="Directing broadcast">
+                            <img src="images/rogers camera.jpeg" alt="Camera Operation">
+                            <img src="images/rogers work environment.png" alt="Control Room">
+                        </div>
+                        <button class="ps-btn ps-prev" aria-label="Previous">&#10094;</button>
+                        <button class="ps-btn ps-next" aria-label="Next">&#10095;</button>
+                    </div>
+                    <div class="card-content">
+                        <div class="role-header">
+                            <h2>Camera Operator</h2>
+                            <span class="company">Rogers TV (Volunteer)</span>
+                        </div>
+                        <ul class="role-details">
+                            <li>Directed live broadcasts and collaborated with production crews to deliver seamless on-air experiences.</li>
+                            <li>Operated camera equipment for live broadcasts and community programming, ensuring professional shot composition and framing.</li>
+                            <li>Collaborated with production teams to set up lighting and sound for optimal broadcast quality.</li>
+                            <li>Captured footage under tight deadlines, delivering high‑quality results for television audiences.</li>
+                        </ul>
+                        <div class="skill-tags">
+                            <span>Live Production</span>
+                            <span>Broadcasting</span>
+                            <span>Team Collaboration</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article id="freelance" class="timeline-item animate-on-scroll">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">2023 &ndash; Present</div>
+                <div class="exp-card">
+                    <div class="photo-slider">
+                        <div class="slides">
+                            <img src="images/camera.JPG" alt="Filming on location">
+                            <img src="images/camera2.JPG" alt="Camera setup">
+                        </div>
+                        <button class="ps-btn ps-prev" aria-label="Previous">&#10094;</button>
+                        <button class="ps-btn ps-next" aria-label="Next">&#10095;</button>
+                    </div>
+                    <div class="card-content">
+                        <div class="role-header">
+                            <h2>Freelance Videographer</h2>
+                            <span class="company">Self-Employed</span>
+                        </div>
+                        <ul class="role-details">
+                            <li>Directed, filmed, and edited multiple short films aligning visual narratives with directors’ vision.</li>
+                            <li>Managed post production processes including video editing, color grading, and sound mixing using Adobe Premiere Pro and DaVinci Resolve.</li>
+                            <li>Skilled in camera work, lighting setups, and audio equipment across different projects, creating high quality, emotion driven content.</li>
+                        </ul>
+                        <div class="skill-tags">
+                            <span>Video Editing</span>
+                            <span>Direction</span>
+                            <span>Color Grading</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+
+        <div id="past" class="timeline-header sticky-header animate-on-scroll">
+            <span>Previous Experience</span>
+        </div>
+
+        <section class="timeline-container">
+            <div class="timeline-line"></div>
+
+            <article id="kwmc" class="timeline-item animate-on-scroll">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">Sept 2024 &ndash; Dec 2024</div>
+                <div class="exp-card">
+                    <div class="photo-slider">
+                        <div class="slides">
+                            <img src="images/homepage after.png" alt="kwmc homepage">
+                            <img src="images/english-programafter.png" alt="english-programafter">
+                            <img src="images/settlement-after.png" alt="settlement-after">
+                            <img src="images/event-after.png" alt="event-after">
+                        </div>
+                        <button class="ps-btn ps-prev" aria-label="Previous">&#10094;</button>
+                        <button class="ps-btn ps-next" aria-label="Next">&#10095;</button>
+                    </div>
+                    <div class="card-content">
+                        <div class="role-header">
+                            <h2>Data and Communication</h2>
+                            <span class="company">Kitchener-Waterloo Multicultural Centre</span>
+                        </div>
+                        <ul class="role-details">
+                           <li>Solely led and executed a full-scale website redesign, serving as the <strong>only UX designer, researcher, and front-end implementer</strong> from strategy through launch.</li>
+                            <li>Conducted <strong>60 plus stakeholder interviews</strong> to validate user journeys, information architecture, and eligibility clarity for newcomer-facing programs.</li>
+                            <li>Redesigned the site as a <strong>digital front desk</strong>, simplifying complex service flows into clear, self-serve pathways and visual flowcharts.</li>
+                            <li>Designed and implemented with <strong>AODA compliance</strong> and <strong>accessibility</strong> at the core, improving readability, navigation, and usability for ESL and multilingual users.</li>
+                            <li>Built a scalable low-code <strong>Squarespace</strong> system with <strong>custom HTML and CSS</strong>, enabling long-term maintainability by non-technical staff.</li>
+                        </ul>
+                        <div class="action-row">
+                            <div class="skill-tags">
+                                <span>UX Research</span>
+                                <span>Accessibility</span>
+                                <span>Web Design</span>
+                            </div>
+                            <a href="project-kwmc.html" class="explore-btn">Explore Project <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article id="weve" class="timeline-item animate-on-scroll">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">Sept 2023 &ndash; Jan 2024</div>
+                <div class="exp-card">
+                    <div class="photo-slider">
+                        <div class="slides">
+                            <img src="images/weve.png" alt="Weve Promo">
+                            <img src="images/weve.JPG" alt="Event setup">
+                            <img src="images/weve2.JPG" alt="Live broadcasting">
+                        </div>
+                        <button class="ps-btn ps-prev" aria-label="Previous">&#10094;</button>
+                        <button class="ps-btn ps-next" aria-label="Next">&#10095;</button>
+                    </div>
+                    <div class="card-content">
+                        <div class="role-header">
+                            <h2>Marketing & Sales Associate</h2>
+                            <span class="company">WEVE Waterloo</span>
+                        </div>
+                        <ul class="role-details">
+                            <li>Created engaging posters and videos to promote products and services on social media platforms.</li>
+                            <li>Delivered excellent customer service by engaging with customers in‑person and selling products.</li>
+                            <li>Collaborated with the team to ensure cohesive brand messaging across promotional materials.</li>
+                            <li>Assisted in organizing events and sales campaigns to increase visibility and customer traffic.</li>
+                        </ul>
+                        <div class="skill-tags">
+                            <span>Social Media</span>
+                            <span>Event Planning</span>
+                            <span>Sales</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article id="eblocks" class="timeline-item animate-on-scroll">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">Jan 2021 &ndash; Jun 2021</div>
+                <div class="exp-card">
+                    <div class="card-image-wrapper">
+                        <img src="images/English ta..png" alt="Teaching Assistant">
+                    </div>
+                    <div class="card-content">
+                        <div class="role-header">
+                            <h2>English Class TA</h2>
+                            <span class="company">E-blocks Education</span>
+                        </div>
+                        <ul class="role-details">
+                            <li>Facilitated interactive English lessons for kindergarten aged students, ensuring clarity, engagement, and language development.</li>
+                            <li>Communicated effectively with parents to provide regular updates on student progress and classroom activities.</li>
+                            <li>Supported young learners by maintaining a structured, positive, and inclusive classroom environment.</li>
+                            <li>Prepared and organized lesson materials to enhance instructional delivery and optimize learning outcomes.</li>
+                        </ul>
+                        <div class="skill-tags">
+                            <span>Education</span>
+                            <span>Communication</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article id="italk" class="timeline-item animate-on-scroll">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">Sept 2020 &ndash; Nov 2020</div>
+                <div class="exp-card">
+                    <div class="card-image-wrapper">
+                        <img src="images/bookstore.JPG" alt="Bookstore">
+                    </div>
+                    <div class="card-content">
+                        <div class="role-header">
+                            <h2>Bookstore Helper</h2>
+                            <span class="company">iTalk Bookstore</span>
+                        </div>
+                        <ul class="role-details">
+                            <li>Assisted in designing store merchandise, including tote bags, to enhance brand identity and customer engagement.</li>
+                            <li>Recorded inventory and organized shelves to improve store layout and product accessibility.</li>
+                            <li>Provided friendly and knowledgeable customer service to help visitors locate and select books.</li>
+                            <li>Maintained a clean, welcoming, and organized retail environment.</li>
+                        </ul>
+                        <div class="skill-tags">
+                            <span>Retail</span>
+                            <span>Merchandise Design</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+    </main>
+
     <footer>
         <div class="footercontainer">
-          <div class="social-icons">
-            <a href="https://www.linkedin.com/in/suyao-liu-9714762a0/"><i class="fa-brands fa-linkedin"></i></a>
-            <a href="https://www.instagram.com/selinaliu_lsy/"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://www.youtube.com/@pillowscoolers1020"><i class="fa-brands fa-youtube"></i></a>
-            <a href="https://github.com/Pillowscoolers"><i class="fa-brands fa-github"></i></a>
-          </div>
-    
-          <div class="footer-nav">
-            <ul>
-              <li><a href="index.html">Home</a></li>
-              <li><a href="projects.html">Projects</a></li>
-              <li><a href="experience.html">Experience</a></li>
-              <li><a href="about.html">About</a></li>
-              <li><a href="contact.html">Contact</a></li>
-            </ul>
-          </div>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/suyao-liu-9714762a0/"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://www.instagram.com/selinaliu_lsy/"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://github.com/s226liu"><i class="fa-brands fa-github"></i></a>
+            </div>
+            <div class="footer-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="experience.html">Experience</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
         </div>
-    
         <div class="footer-cr">
-          <p>Copyright &copy;2024; Designed & Coded by <span class="designer">Suyao Liu</span></p>
+            <p>Copyright &copy;2026; Designed and Coded by <span class="designer">Suyao Liu</span></p>
         </div>
-    </footer> 
-      
+    </footer>
 
-    <!-- ===== Scripts ===== -->
     <script src="experience.js" defer></script>
+
 </body>
 </html>
