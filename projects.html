@@ -1,154 +1,584 @@
-<!DOCTYPE html>
-<html lang="en-US">
-<head>
-    <meta charset="utf-8">
-    <title>Suyao | Luminous Archive</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="projects-v4.css">
-    <script src="all.js"></script>
-</head>
-<body class="anime-sketch-theme">
-    <div class="cursor-square"></div>
-    <div class="cursor-line"></div>
+/* ───────── 1. FONT IMPORTS & VARIABLES ───────── */
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Inter:ital,wght@0,100..900;1,100..900&family=Manrope:wght@200..800&display=swap');
 
-    <div class="magnifier-glass" id="magnifier">
-        <div class="glass-inner">
-            <div id="magnifier-content-clone"></div>
-            <i class="fa-solid fa-magnifying-glass"></i>
-        </div>
-    </div>
+:root {
+    --bg-main: #F9F7F2;      /* Warm Linen */
+    --bg-section: #EAE7E0;   /* Muted Pebble */
+    --text-primary: #2D2926; /* Soft Ebony */
+    --text-muted: #6B665E;   /* Warm Gray */
+    --accent: #B08E4F;       /* Muted Gold */
+    --border: #DCD9D2;
+    --white: #FFFFFF;
+    --transition: 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
 
-    <header>
-    <a href="index.html" class="logo">Suyao</a>
+/* ───────── 2. CORE RESET ───────── */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    border: none;
+    -webkit-font-smoothing: antialiased;
+}
 
-    <div class="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-    <nav>
-      <a href="index.html" class="active">Home</a>
-      
-      <div class="dropdown-wrapper">
-        <a href="projects.html" class="project-link">
-            Projects 
-            <svg class="arrow-icon" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-        </a>
+body {
+    font-family: "Inter", sans-serif;
+    font-size: 18px;
+    line-height: 1.7;
+    color: var(--text-primary);
+    background-color: var(--bg-main);
+    width: 100%;
+    overflow-x: hidden;
+}
 
-        <div class="dropdown-content">
-            <a href="projects.html" class="all-projects">All Projects</a>
-            <div class="divider"></div> 
-            <a href="projects-web.html">Website</a>
-            <a href="projects-ux.html">UX / UI</a>
-            <a href="projects-media.html">Media</a>
-            <a href="projects-graphic.html">Graphic</a>
-            <a href="projects-personal.html">Personal</a>
-        </div>
-      </div>
+/* ───────── 3. GLOBAL TYPOGRAPHY ───────── */
+h1, h2, h3, .title, .logo {
+    font-family: "Bricolage Grotesque", sans-serif;
+    color: var(--text-primary);
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+}
 
-      <a href="experience.html">Experience</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
+h1 { font-size: clamp(3rem, 8vw, 5.5rem); font-weight: 800; }
+h2 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 700; }
+h3 { font-size: 1.8rem; font-weight: 600; }
 
-    <div id="magnify-area">
-        <div class="scroll-marquee">
-            <div class="marquee-content">
-                <span>PROJECTS • PROJECTS • PROJECTS • PROJECTS • PROJECTS • </span>
-                <span>PROJECTS • PROJECTS • PROJECTS • PROJECTS • PROJECTS • </span>
-            </div>
-        </div>
+p, li { color: var(--text-muted); max-width: 70ch; margin-bottom: 1rem; }
 
-        <main class="sketch-grid">
-            <div class="sketch-category" data-color="#748CAB">
-                <div class="pile-container">
-                    <div class="sketch-icon p1"><i class="fa-solid fa-desktop"></i></div>
-                    <div class="sketch-icon p2"><i class="fa-solid fa-desktop"></i></div>
-                    <div class="sketch-icon p3"><i class="fa-solid fa-desktop"></i></div>
-                </div>
-                <div class="category-info">
-                    <h2>Websites</h2>
-                    <a href="projects-web.html" class="explore-btn">Explore ↗</a>
-                </div>
-            </div>
+span, .designer { 
+    color: var(--accent); 
+    font-family: "Manrope", sans-serif; 
+    font-weight: 600; 
+}
 
-            <div class="sketch-category" data-color="#A69076">
-                <div class="pile-container">
-                    <div class="sketch-icon p1"><i class="fa-solid fa-mobile-screen"></i></div>
-                    <div class="sketch-icon p2"><i class="fa-solid fa-mobile-screen"></i></div>
-                    <div class="sketch-icon p3"><i class="fa-solid fa-mobile-screen"></i></div>
-                </div>
-                <div class="category-info">
-                    <h2>UX / UI</h2>
-                    <a href="projects-ux.html" class="explore-btn">Explore ↗</a>
-                </div>
-            </div>
+/* ───────── 4. NAVIGATION & HEADER ───────── */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+    background: transparent;
+    z-index: 1000;
+}
 
-            <div class="sketch-category" data-color="#D1B578">
-                <div class="pile-container">
-                    <div class="sketch-icon p1"><i class="fa-solid fa-camera"></i></div>
-                    <div class="sketch-icon p2"><i class="fa-solid fa-video"></i></div>
-                    <div class="sketch-icon p3"><i class="fa-solid fa-film"></i></div>
-                </div>
-                <div class="category-info">
-                    <h2>Media</h2>
-                    <a href="projects-media.html" class="explore-btn">Explore ↗</a>
-                </div>
-            </div>
+.logo {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--accent);
+    transition: var(--transition);
+}
 
-            <div class="sketch-category" data-color="#B5828E">
-                <div class="pile-container">
-                    <div class="sketch-icon p1"><i class="fa-solid fa-pen-nib"></i></div>
-                    <div class="sketch-icon p2"><i class="fa-solid fa-palette"></i></div>
-                    <div class="sketch-icon p3"><i class="fa-solid fa-bezier-curve"></i></div>
-                </div>
-                <div class="category-info">
-                    <h2>Graphic</h2>
-                    <a href="projects-graphic.html" class="explore-btn">Explore ↗</a>
-                </div>
-            </div>
+.logo:hover { transform: scale(1.05); }
 
-            <div class="sketch-category" data-color="#8E82B5">
-                <div class="pile-container">
-                    <div class="sketch-icon p1"><i class="fa-solid fa-heart"></i></div>
-                    <div class="sketch-icon p2"><i class="fa-solid fa-image"></i></div>
-                    <div class="sketch-icon p3"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
-                </div>
-                <div class="category-info">
-                    <h2>Personal</h2>
-                    <a href="projects-personal.html" class="explore-btn">Explore ↗</a>
-                </div>
-            </div>
-        </main>
-    </div>
+nav a {
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    color: var(--text-primary);
+    margin-left: 2rem;
+    opacity: 0.6;
+    transition: var(--transition);
+}
 
-    <footer>
-        <div class="footercontainer">
-            <div class="social-icons">
-                <a href="https://www.linkedin.com/in/suyao-liu-9714762a0/"><i class="fa-brands fa-linkedin"></i></a>
-                <a href="https://www.instagram.com/selinaliu_lsy/"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://www.youtube.com/@pillowscoolers1020"><i class="fa-brands fa-youtube"></i></a>
-                <a href="https://github.com/s226liu"><i class="fa-brands fa-github"></i></a>
-            </div>
-            <div class="footer-nav">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="projects.html">Projects</a></li>
-                    <li><a href="experience.html">Experience</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-cr">
-            <p>Copyright &copy;2026; Designed and Coded by <span class="designer">Suyao Liu</span></p>
-        </div>
-    </footer>
-    <script src="projects-v4.js"></script>
-</body>
-</html>
+nav a:hover, nav a.active {
+    opacity: 1;
+    color: var(--accent);
+}
+
+/* Dropdown Menu Styling */
+.dropdown { position: relative; }
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--bg-section);
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    display: none;
+    list-style: none;
+}
+.dropdown:hover .dropdown-menu { display: block; }
+.dropdown-menu a { margin: 0; padding: 0.5rem 0; display: block; white-space: nowrap; }
+
+/* ───────── 5. COMPONENTS & BUTTONS ───────── */
+.aboutme, .know-more-btn {
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    padding: 14px 35px;
+    border: 2px solid var(--accent);
+    border-radius: 100px;
+    background: transparent;
+    color: var(--accent);
+    cursor: pointer;
+    transition: var(--transition);
+    display: inline-block;
+}
+
+.aboutme:hover, .know-more-btn:hover {
+    background: var(--accent);
+    color: var(--white);
+    transform: translateY(-3px);
+}
+
+/* Experience & About Cards */
+.experience-item, .first-aid, .Freelance-content, .co-content, .ta-content, .waitress-content {
+    background-color: var(--bg-section);
+    padding: 3rem;
+    border-radius: 30px;
+    margin-bottom: 2rem;
+    border: 1px solid var(--border);
+}
+
+/* ───────── 6. SCROLLING TEXT ANIMATION ───────── */
+.scorlling-text-container {
+    background: var(--accent);
+    padding: 2rem 0;
+    overflow: hidden;
+    display: flex;
+}
+
+.scorlling-text-container h1 {
+    color: var(--bg-main);
+    font-size: clamp(3rem, 10vw, 8rem);
+    white-space: nowrap;
+    animation: scroll 30s linear infinite;
+    padding-right: 50px;
+}
+
+@keyframes scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+/* ───────── 7. FOOTER ───────── */
+footer {
+    background: var(--bg-section);
+    padding: 4rem 0 2rem;    /* Horizontal padding set to 0 to prevent shifts */
+    margin-top: 6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;     /* Centers all children horizontally */
+    width: 100%;
+}
+
+.footercontainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.social-icons a {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    transition: var(--transition);
+}
+
+.social-icons a:hover { color: var(--accent); transform: translateY(-5px); }
+
+.footer-nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    list-style: none;
+    margin-bottom: 2rem;
+    padding: 0;
+}
+
+.footer-nav a { color: var(--text-muted); font-size: 0.9rem; }
+
+.footer-cr {
+    width: 100%;             /* Required to allow text centering */
+    text-align: center;      /* Centers text within the 100% width box */
+    border-top: 1px solid var(--border);
+    padding: 2rem 5% 0;      /* Adds horizontal padding only to the border area */
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+.footer-cr p {
+    max-width: none;
+    margin: 0;
+    text-align: center;
+}
+
+/* Navbar Styling (Context) */
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-family: Arial, sans-serif;
+}
+
+/* The Container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* The "Projects" Button */
+.dropbtn {
+  background-color: transparent;
+  color: black; /* Change to your text color */
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* ───────── ELITE DROPDOWN STYLING ───────── */
+
+/* 1. Wrapper: Handles Positioning & Spacing */
+.dropdown-wrapper {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    /* This ensures it has the exact same gap as your other nav links */
+    margin-left: 2rem; 
+    height: 100%;
+}
+
+/* 2. The Project Link itself */
+.dropdown-wrapper .project-link {
+    /* Reset margins so we don't double up spacing */
+    margin-left: 0; 
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Space between text and arrow */
+    cursor: pointer;
+}
+
+/* 3. The Arrow Icon Animation */
+.arrow-icon {
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    opacity: 0.6;
+}
+
+/* Rotate arrow when hovering the wrapper */
+.dropdown-wrapper:hover .arrow-icon {
+    transform: rotate(180deg);
+    opacity: 1;
+}
+
+/* 4. The Dropdown Menu ("Elite" Look) */
+.dropdown-content {
+    display: block; /* We control visibility with opacity/visibility */
+    visibility: hidden;
+    opacity: 0;
+    
+    position: absolute;
+    top: 150%; /* Starts slightly lower for animation */
+    left: 50%;
+    transform: translateX(-50%); /* Centers menu relative to "Projects" text */
+    
+    /* GLASSMORPHISM STYLE */
+    background: rgba(234, 231, 224, 0.95); /* High-opacity version of var(--bg-section) */
+    backdrop-filter: blur(12px);          /* Blurs content behind it */
+    -webkit-backdrop-filter: blur(12px);
+    
+    min-width: 200px;
+    padding: 12px 8px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.4); /* Subtle glass border */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08); /* Premium soft shadow */
+    z-index: 1000;
+    
+    transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* 5. Show Menu on Hover */
+.dropdown-wrapper:hover .dropdown-content {
+    visibility: visible;
+    opacity: 1;
+    top: 100%; /* Floats up to natural position */
+}
+
+/* 6. Links inside Dropdown */
+.dropdown-content a {
+    display: block;
+    margin: 0; /* Reset global margins */
+    padding: 10px 16px;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    opacity: 0.7;
+    text-align: left; /* Ensure text aligns left */
+}
+
+/* Hover Effect for Links */
+.dropdown-content a:hover {
+    background: rgba(176, 142, 79, 0.08); /* Extremely subtle accent tint */
+    color: var(--accent);
+    opacity: 1;
+    transform: translateX(4px); /* Small elegant slide */
+}
+
+/* Special styling for "All Projects" */
+.dropdown-content .all-projects {
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+/* Divider Line */
+.dropdown-content .divider {
+    height: 1px;
+    background: var(--border);
+    margin: 4px 10px 8px 10px;
+    opacity: 0.5;
+}
+
+/* ───────── 8. RESPONSIVE DESIGN ───────── */
+@media (max-width: 992px) {
+    header { flex-direction: column; gap: 1.5rem; }
+    nav a { margin: 0 1rem; }
+}
+
+@media (max-width: 768px) {
+    .experience-item, .first-aid { padding: 1.5rem; }
+    h1 { font-size: 2.5rem; }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   GLOBAL CUSTOM CURSOR (Elegant Square & Line)
+   ───────────────────────────────────────────────────────────── */
+
+/* 1. Hide default cursor */
+body {
+    cursor: none;
+}
+
+/* 2. The Square (Follows Mouse) */
+.cursor-square {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    background: var(--accent);
+    pointer-events: none;
+    z-index: 10000;
+    transform: translate(-50%, -50%) rotate(45deg);
+    transition: width 0.25s ease, height 0.25s ease, background 0.25s ease, transform 0.25s ease;
+}
+
+/* 3. The Line (Follows Mouse with Drag) */
+.cursor-line {
+    position: fixed;
+    width: 20px;
+    height: 2px;
+    background: var(--text-primary);
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    opacity: 0.4;
+    transition: width 0.3s ease, opacity 0.3s ease, background 0.3s ease;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   INTERACTION STATES
+   ───────────────────────────────────────────────────────────── */
+
+/* HOVERING: Square becomes a frame, Line grows */
+body.hovering .cursor-square {
+    width: 24px;
+    height: 24px;
+    background: transparent;
+    border: 2px solid var(--accent);
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+body.hovering .cursor-line {
+    width: 35px;
+    opacity: 0.7;
+    background: var(--accent);
+}
+
+/* CLICKING: Elements shrink for feedback */
+body.clicking .cursor-square {
+    width: 6px;
+    height: 6px;
+}
+
+body.clicking .cursor-line {
+    width: 15px;
+}
+
+/* MOBILE DISABLE: Restore normal cursor on touch devices */
+@media (hover: none) and (pointer: coarse) {
+    .cursor-square, .cursor-line { display: none; }
+    body, a, button { cursor: auto !important; }
+}/* ─────────────────────────────────────────────────────────────
+   GLOBAL CURSOR HIDE (The Nuclear Option)
+   ───────────────────────────────────────────────────────────── */
+
+/* 1. Hide default cursor on the root documents */
+html,
+body {
+    cursor: none !important;
+}
+
+/* 2. Hide default cursor on ALL elements (*) */
+* {
+    cursor: none !important;
+}
+
+/* 3. Specifically target interactive elements to override browser defaults */
+a, 
+button, 
+input, 
+textarea, 
+select, 
+.logo, 
+.nav-link {
+    cursor: none !important;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   MOBILE NAVIGATION (HAMBURGER MENU) - CORRECTED
+   ───────────────────────────────────────────────────────────── */
+
+/* 1. Hamburger Button (Hidden on Desktop) */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+    z-index: 2000;
+}
+
+.hamburger span {
+    width: 100%;
+    height: 3px;
+    background: var(--text-primary);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* 2. Mobile Styles (Max-width 768px) */
+@media screen and (max-width: 768px) {
+    
+    /* Show Hamburger */
+    .hamburger {
+        display: flex;
+    }
+
+    /* Transform <nav> into a Full-Screen Drawer */
+    header nav {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100vh;
+        background: var(--bg-main);
+        
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1.5rem; /* Reduced gap to fit dropdown items */
+        
+        transform: translateX(100%);
+        transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+        z-index: 1500;
+        overflow-y: auto; /* Allow scrolling if menu is tall */
+        padding: 2rem 0;
+    }
+
+    /* Slide in active state */
+    header nav.active {
+        transform: translateX(0);
+    }
+
+    /* Main Links Styling */
+    header nav > a {
+        font-size: 2rem; 
+        margin: 0;
+        opacity: 1;
+        font-family: "Bricolage Grotesque", sans-serif;
+        font-weight: 700;
+    }
+
+    /* ─── FIX FOR DROPDOWN ─── */
+    
+    /* 1. Wrapper: Stack vertically and center */
+    .dropdown-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin: 0;
+    }
+    
+    /* 2. 'Projects' Title */
+    .dropdown-wrapper .project-link {
+        font-size: 2rem;
+        font-family: "Bricolage Grotesque", sans-serif;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        justify-content: center;
+    }
+    
+    /* Hide the arrow icon on mobile to clean up look */
+    .arrow-icon {
+        display: none;
+    }
+
+    /* 3. The Dropdown Content: FLATTEN IT */
+    .dropdown-content {
+        position: static; /* Stop floating */
+        transform: none;  /* Remove centering transform */
+        
+        display: flex !important; /* Force visible */
+        flex-direction: column;
+        align-items: center;
+        
+        /* Reset Glass Styles for Flat Mobile Look */
+        background: transparent;
+        backdrop-filter: none;
+        border: none;
+        box-shadow: none;
+        opacity: 1;
+        visibility: visible;
+        
+        padding: 0;
+        width: 100%;
+    }
+
+    /* 4. Sub-links (Website, UX, etc.) */
+    .dropdown-content a {
+        font-size: 1.1rem; /* Smaller than main links */
+        color: var(--text-muted);
+        padding: 8px 0;
+        font-family: "Inter", sans-serif;
+        font-weight: 500;
+        opacity: 0.8;
+    }
+    
+    /* Hide the divider line on mobile */
+    .dropdown-content .divider {
+        display: none;
+    }
+
+    /* Hamburger Animation (Turns into X) */
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 6px);
+        background: var(--accent);
+    }
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -6px);
+        background: var(--accent);
+    }
+}
