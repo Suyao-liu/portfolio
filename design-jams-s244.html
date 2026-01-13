@@ -2,179 +2,255 @@
 <html lang="en-US">
 <head>
   <meta charset="utf-8">
-  <title>Financial Fluency Pet Game | Suyao Liu</title>
+  <title>PawPal Case Study | Suyao</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="uni.css">
-  <link rel="stylesheet" href="design-jams.css">
+  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <link rel="stylesheet" href="styles.css"> <link rel="stylesheet" href="design-jams.css"> <link rel="stylesheet" href="zoom.css">
+  
+  <script defer src="zoom.js"></script>
 </head>
+
 <body>
+<div class="cursor-square"></div>
+<div class="cursor-line"></div>
 <header>
   <a href="index.html" class="logo">Suyao</a>
   <nav>
-    <a href="index.html">Home</a>
-    <a class="active" href="projects.html">Projects</a>
-    <a href="experience.html">Experience</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
+    <a href="projects.html" class="back-link" style="display: flex; align-items: center; gap: 10px; font-weight: 700; color: var(--text-muted);">
+        <i class="fa-solid fa-arrow-left"></i> Back to Projects
+    </a>
   </nav>
 </header>
 
-<main class="wrapper">
-  <!-- Intro -->
-  <section class="section section-intro">
-    <h1 class="section-title">🐾PawPal</h1>
-    <p class="section-tag">Gamifying money skills for young Canadians</p>
-    <p class="project-description">
-      <strong>Role:</strong> UX Designer &amp; Pitch Lead <br>
-      <strong>Team:</strong> Brenda K., Suyao L., Sima M., Sofia X., Annora Z. <br>
-      <strong>Event:</strong> uXperience Design Jam – Nov&nbsp;2024 <br>
-      <strong>Timeline:</strong> 8 hour sprint <br>
-      <strong>Tools:</strong> Figma, FigJam, Google Slides
-    </p>
-  </section>
-  <section class="challenge">
-    <h2><span>🔍 </span>Challenge</h2>
-    <p>Sun Life wants to help young Canadians better understand and manage their personal finances through a digital platform. Many young adults struggle with saving, budgeting, and knowing where to start. Our goal was to design a solution that makes financial literacy approachable and engaging for this audience.</p>
-  </section>
+<main>
 
-  <section class="target-user">
-    <h2><span>👥 </span>Target User</h2>
-    <ul>
-      <li><strong>Maria</strong> – A recent grad working as a vet tech. She’s overwhelmed by financial information and procrastinates on saving and paying off debt. She owns three cats and enjoys video games.</li>
-      <br>
-      <li><strong>Jake</strong> – A 24 year old marketing intern eager to build wealth through investing, is passionate about the stock market but feels lost on how to begin and needs beginner friendly guidance to turn his interest into action.</li>
-    </ul>
-    <div class="placeholder"><img src="images/Persona.png" alt="persona"><img src="images/Persona 2.png" alt="persona 2"></div>
-
-  </section>
-
-  <section class="design-process">
-    <h2><span>🧠 </span>Design Process</h2>
-    <h3>🏁 1. Empathize</h3>
-    <p>We defined our audience and identified common financial challenges faced by Gen Z using secondary research and created detailed personas.</p>
-    <br>
-    <h3>🔍 2. Competitive Analysis</h3>
-    <p>We analyzed apps like Buddy, Wealthsimple, and Questrade. We noticed they offered strong visual design and automation but often overwhelmed users with complexity or lacked personalization. Our goal was to stand out by being more friendly and goal focused.</p>
-    <br>
-    <h3>🧭 3. Define & Ideate</h3>
-    <p>We brainstormed user friendly features such as bite sized lessons, progress tracking, and gamified challenges to drive engagement.</p>
-    <br>
-    <h3>🧪 4. Prototype</h3>
-    <p>We sketched wireframes and built a Figma prototype focused on clarity, simplicity, and visual engagement.</p>
-    <div class="placeholder"><img src="images/low-fi.png" alt="persona"></div>
-    <br>
-    <h3>📊 5. Test & Iterate</h3>
-    <p>We presented the prototype to peers and mentors, then refined navigation, layout, and copy tone based on feedback.</p>
-  
-  </section>
-
-  <section class="solution">
-    <h2 class="section-title"><span>🌟 </span>Final Solution</h2>
-    <p class="section-intro">
-      To empower users like Maria on their financial literacy journey, we designed a 
-      <strong>gamified, personalized learning app</strong> powered by trusted Sun Life resources. 
-      Our final solution delivers a fun, approachable, and habit forming experience that makes 
-      financial education less intimidating and more engaging.
-    </p>
-
-    <div class="solution-point">
-      <h3 class="point-title">🎯 Personalized & Goal Oriented Learning</h3>
-      <p>
-        The app begins with a short 3 question assessment to understand Maria’s current financial knowledge. 
-        Based on her responses and selected goals whether it’s saving, investing, or paying off debt 
-        the app generates a <strong>customized learning path</strong> tailored to her needs.
-      </p>
-    </div>
-    <br>
-    <div class="solution-point">
-      <h3 class="point-title">🐶 Motivational Companion System</h3>
-      <p>
-        Maria is rewarded with points throughout her learning journey, which she uses to adopt and care for 
-        a <strong>financial buddy pet</strong>. The pet grows and evolves as Maria progresses, acting as a playful 
-        but powerful motivator. This emotional connection helps users stay engaged while learning at their own pace.
-      </p>
-    </div>
-    <br>
-    <div class="solution-point">
-      <h3 class="point-title">⏱️ Micro-Learning for Busy Lives</h3>
-      <p>
-        We emphasized <strong>accessibility and simplicity</strong> by designing 5-minute daily lessons that fit 
-        easily into busy routines. Users can build streaks, earn more points, and stay consistent without 
-        feeling overwhelmed.
-      </p>
-    </div>
-    <br>
-    <div class="solution-point">
-      <h3 class="point-title">🧠 Quizzes, Checklists & Reinforcement</h3>
-      <p>
-        Each lesson is followed by a short quiz to reinforce key concepts. The app also includes 
-        <strong>interactive checklists</strong> and tasks to support real life application of new knowledge—
-        making learning practical, not just theoretical.
-      </p>
-    </div>
-    <br>
-    <div class="solution-point">
-      <h3 class="point-title">🎨 Friendly, Trustworthy Interface</h3>
-      <p>
-        Our final UI design is clean, bright, and intuitive. From onboarding to daily lessons, every screen was 
-        crafted to feel safe, fun, and empowering. Clear visual hierarchy and consistent branding enhance trust
-        further supported by the app’s partnership with <strong>Sun Life</strong>.
-      </p>
-    </div>
-    <br>
-    <p class="section-summary">
-      This solution transforms financial literacy from a chore into a game like journey
-      one that’s personalized, rewarding, and uniquely Maria’s.
-    </p>
-    <div class="placeholder"><img src="images/high-fi.png" alt="high-fi"></div>
-  </section>
-  <br>
-  <section class="contributions">
-    <h2><span>🎯 </span>My Contributions</h2>
-    <ul style="text-align: center; list-style-position: inside;">
-      <li>Conducted competitive analysis and developed personas</li>
-      <li>Designed the user flow and early wireframes</li>
-      <li>Collaborated on concept development and interface design</li>
-      <li>Built and refined the Figma prototype</li>
-      <li>Presented final work to mentors and improved based on feedback</li>
-    </ul>
-  </section>
-
-  <section class="takeaways">
-    <h2><span>📈 </span>Key Takeaways</h2>
-    <ul style="text-align: center; list-style-position: inside;">
-      <li>Practiced agile UX design under time pressure</li>
-      <li>Learned to frame features based on emotional/user insights</li>
-      <li>Strengthened visual storytelling and team collaboration</li>
-      <li>Gained deeper awareness of fintech UX needs</li>
-    </ul>
-  </section>
-
-  <footer>
-    <div class="footercontainer">
-      <div class="social-icons">
-        <a href="https://www.linkedin.com/in/suyao-liu-9714762a0/"><i class="fa-brands fa-linkedin"></i></a>
-        <a href="https://www.instagram.com/selinaliu_lsy/"><i class="fa-brands fa-instagram"></i></a>
-        <a href="https://www.youtube.com/@pillowscoolers1020"><i class="fa-brands fa-youtube"></i></a>
-        <a href="https://github.com/Pillowscoolers"><i class="fa-brands fa-github"></i></a>
+  <section class="pp-hero">
+    <h1 class="pp-title">PawPal</h1>
+    <p class="pp-tagline">Gamifying money skills for young Canadians</p>
+    
+    <div class="pp-meta-row">
+      <div class="meta-pill">
+        <span>Role</span> UX Designer & Pitch Lead
       </div>
+      <div class="meta-pill">
+        <span>Team</span> Brenda K., Suyao L., Sima M., Sofia X., Annora Z.
+      </div>
+      <div class="meta-pill">
+        <span>Event</span> uXperience Design Jam – Nov 2024
+      </div>
+      <div class="meta-pill">
+        <span>Timeline</span> 8 hour sprint
+      </div>
+      <div class="meta-pill">
+        <span>Tools</span> Figma, FigJam, Google Slides
+      </div>
+    </div>
+  </section>
 
-      <div class="footer-nav">
+  <section class="pp-context">
+    <h2>Challenge</h2>
+    <p>
+      Sun Life wants to help young Canadians better understand and manage their personal finances through a digital platform. Many young adults struggle with saving, budgeting, and knowing where to start. Our goal was to design a solution that makes financial literacy approachable and engaging for this audience.
+    </p>
+  </section>
+
+  <section class="pp-section">
+    <div class="pp-sticky-header">
+      <div class="step-bubble">01</div>
+      <h2>Target<br>User</h2>
+    </div>
+    <div class="pp-content">
+      <div class="pp-text">
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="experience.html">Experience</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><strong>Maria</strong> – A recent grad working as a vet tech. She’s overwhelmed by financial information and procrastinates on saving and paying off debt. She owns three cats and enjoys video games.</li>
+          <li><strong>Jake</strong> – A 24 year old marketing intern eager to build wealth through investing, is passionate about the stock market but feels lost on how to begin and needs beginner friendly guidance to turn his interest into action.</li>
         </ul>
       </div>
+      
+      <div class="pp-gallery-2">
+        <img src="images/Persona.png" alt="Persona Maria" class="pp-image zoomable">
+        <img src="images/Persona 2.png" alt="Persona Jake" class="pp-image zoomable">
+      </div>
     </div>
+  </section>
 
-    <div class="footer-cr">
-      <p>Copyright &copy;2024; Designed and Coded by<span class="designer">Suyao Liu</span></p>
+  <section class="pp-section">
+    <div class="pp-sticky-header">
+      <div class="step-bubble">02</div>
+      <h2>Design<br>Process</h2>
     </div>
-  </footer>
+    <div class="pp-content">
+      <div class="pp-text">
+        <h3>1. Empathize</h3>
+        <p>We defined our audience and identified common financial challenges faced by Gen Z using secondary research and created detailed personas.</p>
+        
+        <h3>2. Competitive Analysis</h3>
+        <p>We analyzed apps like Buddy, Wealthsimple, and Questrade. We noticed they offered strong visual design and automation but often overwhelmed users with complexity or lacked personalization. Our goal was to stand out by being more friendly and goal focused.</p>
+        
+        <h3>3. Define & Ideate</h3>
+        <p>We brainstormed user friendly features such as bitesized lessons, progress tracking, and gamified challenges to drive engagement.</p>
+        
+        <h3>4. Prototype</h3>
+        <p>We sketched wireframes and built a Figma prototype focused on clarity, simplicity, and visual engagement.</p>
+      </div>
+
+      <img src="images/low-fi.png" alt="Low Fidelity Wireframes" class="pp-image zoomable">
+
+      <div class="pp-text">
+        <h3>5. Test & Iterate</h3>
+        <p>We presented the prototype to peers and mentors, then refined navigation, layout, and copy tone based on feedback.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="pp-section">
+    <div class="pp-sticky-header">
+      <div class="step-bubble">03</div>
+      <h2>Final<br>Solution</h2>
+    </div>
+    <div class="pp-content">
+      <div class="pp-text">
+        <p>
+          To empower users like Maria on their financial literacy journey, we designed a 
+          <strong>gamified, personalized learning app</strong> powered by trusted Sun Life resources. 
+          Our final solution delivers a fun, approachable, and habit forming experience that makes 
+          financial education less intimidating and more engaging.
+        </p>
+      </div>
+
+      <div class="pp-card-grid">
+        <div class="pp-card">
+          <h3>Personalized & Goal Oriented Learning</h3>
+          <p>
+            The app begins with a short 3 question assessment to understand Maria’s current financial knowledge. 
+            Based on her responses and selected goals whether it’s saving, investing, or paying off debt 
+            the app generates a <strong>customized learning path</strong> tailored to her needs.
+          </p>
+        </div>
+        <div class="pp-card">
+          <h3>Motivational Companion System</h3>
+          <p>
+            Maria is rewarded with points throughout her learning journey, which she uses to adopt and care for 
+            a <strong>financial buddy pet</strong>. The pet grows and evolves as Maria progresses, acting as a playful 
+            but powerful motivator. This emotional connection helps users stay engaged while learning at their own pace.
+          </p>
+        </div>
+        <div class="pp-card">
+          <h3>Micro-Learning for Busy Lives</h3>
+          <p>
+            We emphasized <strong>accessibility and simplicity</strong> by designing 5-minute daily lessons that fit 
+            easily into busy routines. Users can build streaks, earn more points, and stay consistent without 
+            feeling overwhelmed.
+          </p>
+        </div>
+        <div class="pp-card">
+          <h3>Quizzes, Checklists & Reinforcement</h3>
+          <p>
+            Each lesson is followed by a short quiz to reinforce key concepts. The app also includes 
+            <strong>interactive checklists</strong> and tasks to support real life application of new knowledge—
+            making learning practical, not just theoretical.
+          </p>
+        </div>
+        <div class="pp-card" style="grid-column: 1 / -1;">
+          <h3>Friendly, Trustworthy Interface</h3>
+          <p>
+            Our final UI design is clean, bright, and intuitive. From onboarding to daily lessons, every screen was 
+            crafted to feel safe, fun, and empowering. Clear visual hierarchy and consistent branding enhance trust
+            further supported by the app’s partnership with <strong>Sun Life</strong>.
+          </p>
+        </div>
+      </div>
+
+      <img src="images/high-fi.png" alt="High Fidelity Screens" class="pp-image zoomable">
+      
+      <div class="pp-outcome">
+        <p>
+          This solution transforms financial literacy from a chore into a game like journey
+          one that’s personalized, rewarding, and uniquely Maria’s.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="pp-section" style="border-bottom: none;">
+    <div class="pp-sticky-header">
+      <div class="step-bubble">04</div>
+      <h2>Outcomes</h2>
+    </div>
+    <div class="pp-content">
+      <div class="pp-gallery-2">
+        <div class="pp-card">
+            <h3>My Contributions</h3>
+            <div class="pp-text">
+                <ul style="margin:0; padding-left: 0;">
+                    <li>Conducted competitive analysis and developed personas</li>
+                    <li>Designed the user flow and early wireframes</li>
+                    <li>Collaborated on concept development and interface design</li>
+                    <li>Built and refined the Figma prototype</li>
+                    <li>Presented final work to mentors and improved based on feedback</li>
+                </ul>
+            </div>
+        </div>
+        <div class="pp-card">
+            <h3>Key Takeaways</h3>
+            <div class="pp-text">
+                <ul style="margin:0; padding-left: 0;">
+                    <li>Practiced agile UX design under time pressure</li>
+                    <li>Learned to frame features based on emotional/user insights</li>
+                    <li>Strengthened visual storytelling and team collaboration</li>
+                    <li>Gained deeper awareness of fintech UX needs</li>
+                </ul>
+            </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footercontainer">
+    <div class="social-icons">
+      <a href="https://www.linkedin.com/in/suyao-liu-9714762a0/"><i class="fa-brands fa-linkedin"></i></a>
+      <a href="https://www.instagram.com/selinaliu_lsy/"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://www.youtube.com/@pillowscoolers1020"><i class="fa-brands fa-youtube"></i></a>
+      <a href="https://github.com/Pillowscoolers"><i class="fa-brands fa-github"></i></a>
+    </div>
+    <div class="footer-nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="experience.html">Experience</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-cr">
+    <p>© 2024 Designed and Coded by <span class="designer">Suyao Liu</span></p>
+  </div>
+</footer>
+
+<div class="cursor-pointer-shape"></div>
+<div class="cursor-orbit"></div>
+<script>
+    const cursor = document.querySelector('.cursor-pointer-shape');
+    const orbit = document.querySelector('.cursor-orbit');
+
+    document.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+        orbit.style.left = e.clientX + 'px';
+        orbit.style.top = e.clientY + 'px';
+    });
+
+    document.querySelectorAll('a, button, .zoomable, .pp-card').forEach(el => {
+        el.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
+        el.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
+    });
+</script>
+
 </body>
 </html>
