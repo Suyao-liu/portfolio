@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <title>Personal Projects | Suyao</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="projects-personal.css">
+    
+    <script src="all.js"></script>
+</head>
+<body class="project-detail-theme">
+    
+    <div class="cursor-square"></div>
+    <div class="cursor-line"></div>
+
+    <header>
+        <a href="index.html" class="logo">Suyao</a>
+
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            
+            <div class="dropdown-wrapper">
+                <a href="projects.html" class="project-link active">
+                    Projects 
+                    <svg class="arrow-icon" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+                <div class="dropdown-content">
+                    <a href="projects.html" class="all-projects">All Projects</a>
+                    <div class="divider"></div> 
+                    <a href="projects-web.html">Website</a>
+                    <a href="projects-ux.html">UX / UI</a>
+                    <a href="projects-media.html">Media</a>
+                    <a href="projects-graphic.html">Graphic</a>
+                    <a href="projects-personal.html" style="color: var(--accent); opacity: 1;">Personal</a>
+                </div>
+            </div>
+
+            <a href="experience.html">Experience</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main class="showcase-container">
+        
+        <section class="project-block" id="stormy-ocean">
+            <div class="project-header">
+                <div class="breadcrumb">
+                    <a href="projects.html">Projects</a> <span class="slash">/</span> <span class="current">Personal</span>
+                </div>
+                <h1 class="project-title">Stormy Ocean</h1>
+                <p class="project-subtitle">Atmospheric Simulation Study</p>
+            </div>
+
+            <input type="checkbox" id="cinema-mode-toggle">
+            <label for="cinema-mode-toggle" class="cinema-btn">
+                <i class="fa-solid fa-lightbulb"></i>
+                <span>Dim Lights</span>
+            </label>
+            
+            <div class="theater-stage">
+                <div class="video-frame">
+                    <iframe 
+                        width="560" 
+                        height="315" 
+                        src="https://www.youtube.com/embed/SyS8By0dGCA?si=-nZkktILTNdFk7uv&rel=0" 
+                        title="Stormy Ocean Blender Render" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerpolicy="strict-origin-when-cross-origin" 
+                        allowfullscreen>
+                    </iframe>
+                    <div class="frame-decor">
+                        <span class="rec-dot"></span> REC [00:17]
+                    </div>
+                </div>
+                <div class="dim-overlay"></div>
+            </div>
+
+            <div class="project-details">
+                <div class="detail-column description">
+                    <h3>About the Project</h3>
+                    <div class="text-block">
+                        <p>
+                            A deep dive into procedural ocean generation and atmospheric lighting. 
+                            This project explores the chaotic beauty of open waters during a storm, 
+                            focusing on foam generation, subsurface scattering, and volumetric fog.
+                        </p>
+                        <p>
+                            The goal was to create a cinematic sense of scale and isolation. 
+                            Using Blender's ocean modifier and dynamic fluid baking, I was able to 
+                            simulate the complex interaction between light and turbulent water.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="detail-column specs">
+                    <h3>Technical Data</h3>
+                    <ul class="spec-list">
+                        <li><span class="label">Software</span> <span class="value">Blender 5.0</span></li>
+                        <li><span class="label">Engine</span> <span class="value">Cycles X</span></li>
+                        <li><span class="label">Focus</span> <span class="value">Ocean Modifier / Volumetrics / Particle Systems / Shader Node-Based Materials / Procedural Animation </span></li>
+                        <li><span class="label">Date</span> <span class="value">Jan 2026</span></li>
+                    </ul>
+                    <div class="palette-swatch">
+                        <div class="swatch" style="background:#0F1724" title="Deep Ocean"></div>
+                        <div class="swatch" style="background:#2D4059" title="Storm Cloud"></div>
+                        <div class="swatch" style="background:#A63D40" title="Warning Red"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider">
+            <span class="line"></span>
+            <span class="icon"><i class="fa-solid fa-asterisk"></i></span>
+            <span class="line"></span>
+        </div>
+
+        <section class="project-block" id="donut-study">
+            
+            <div class="project-header">
+                <h1 class="project-title">The Donut</h1>
+                <p class="project-subtitle">My First Blender Project</p>
+            </div>
+
+            <div class="photo-stage">
+                <div class="photo-frame">
+                    <img src="images/blender_donut.png" alt="3D Render of a pink donut with sprinkles and coffee">
+                    <div class="gloss-overlay"></div>
+                </div>
+                <div class="photo-caption">
+                    <i class="fa-solid fa-camera"></i> Rendered in Cycles • 256 Samples
+                </div>
+            </div>
+
+            <div class="project-details">
+                <div class="detail-column description">
+                    <h3>Origin Story</h3>
+                    <div class="text-block">
+                        <p>
+                            This is where my 3D journey began. Like many others, I started with the famous "Donut Tutorial" on YouTube. 
+                            This project was my very first introduction to the world of Blender, teaching me the fundamentals of modeling, texturing, lighting, and rendering.
+                        </p>
+                        <p>
+                            Although simple, this project holds a special place in my portfolio as it represents the spark that ignited my passion for 3D art.
+                            I learned how to use geometry nodes for the sprinkles and procedural texturing for the bread.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="detail-column specs">
+                    <h3>Technical Data</h3>
+                    <ul class="spec-list">
+                        <li><span class="label">Software</span> <span class="value">Blender 5.0</span></li>
+                        <li><span class="label">Guide</span> <span class="value">Blender Guru</span></li>
+                        <li><span class="label">Focus</span> <span class="value">Modeling Basics</span></li>
+                        <li><span class="label">Date</span> <span class="value">Dec 2025</span></li>
+                    </ul>
+                    <div class="palette-swatch">
+                        <div class="swatch" style="background:#E6Aac4" title="Icing Pink"></div>
+                        <div class="swatch" style="background:#D4A574" title="Dough"></div>
+                        <div class="swatch" style="background:#3E2C1F" title="Coffee"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="next-project-nav">
+            <a href="projects.html" class="back-btn">
+                <i class="fa-solid fa-arrow-left"></i> Back to Archive
+            </a>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="footercontainer">
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/suyao-liu-9714762a0/"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://www.instagram.com/selinaliu_lsy/"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.youtube.com/@pillowscoolers1020"><i class="fa-brands fa-youtube"></i></a>
+                <a href="https://github.com/s226liu"><i class="fa-brands fa-github"></i></a>
+            </div>
+            <div class="footer-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="experience.html">Experience</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-cr">
+            <p>Copyright &copy;2026; Designed and Coded by <span class="designer">Suyao Liu</span></p>
+        </div>
+    </footer>
+
+    <script>
+        const toggle = document.getElementById('cinema-mode-toggle');
+        toggle.addEventListener('change', (e) => {
+            if(e.target.checked) {
+                document.body.classList.add('lights-off');
+            } else {
+                document.body.classList.remove('lights-off');
+            }
+        });
+    </script>
+</body>
+</html>
